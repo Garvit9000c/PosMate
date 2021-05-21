@@ -7,5 +7,8 @@ def login():
       pass
    return render_template('home.html')
 
+@app.route('/camera')
+def signup():
+    return render_template('camera.html')
 if __name__ == "__main__":
-    app.run(debug=True, port=8000)
+    app.run(debug=True)
