@@ -1,2 +1,5 @@
 flask
 Pillow
+tensorflow
+opencv-python
+matplotlib

@@ -3,6 +3,7 @@ from PIL import Image
 import PIL
 import io
 import base64
+from AI import *
 
 app=Flask(__name__)
 @app.route('/',methods=['GET','POST'])
@@ -16,9 +17,11 @@ def image_info():
     myfile= request.args.get('myimage').split(',')
     imgdata = base64.b64decode(myfile[1])
     im = Image.open(io.BytesIO(imgdata))
-    im.save("./data/image.jpeg")
+    filename="./data/image.jpeg"
+    im.save(filename)
     width, height = im.size
     imgformat=im.format
+    keypoints=Dope(filename)
     return jsonify(width=width,height=height,imgformat=imgformat)
 
 @app.route('/camera')
