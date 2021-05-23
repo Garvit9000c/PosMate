@@ -1,8 +1,7 @@
 import os
-os.environ["CUDA_VISIBLE_DEVICES"]="-1"
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 import tensorflow as tf
-from tensorflow import keras
+import tensorflow_hub as hub
 import numpy as np
 import cv2
 
@@ -147,8 +146,10 @@ def draw_prediction_on_image(
          interpolation=cv2.INTER_CUBIC)
   return image_from_plot
 
-model=keras.models.load_model('./model')
-movenet=model.signatures['serving_default']
+
+#module=tf.keras.models.load_model('./model')
+module = hub.load("https://tfhub.dev/google/movenet/singlepose/lightning/3")
+movenet=module.signatures['serving_default']
 input_size = 192
 
 def Dope(filename):
@@ -182,3 +183,4 @@ def Dope(filename):
   _ = plt.axis('off')
   plt.savefig("./data/Processed.jpeg")
   return keypoints
+print(Dope("./data/image.jpeg"))

@@ -3,3 +3,4 @@ Pillow
 tensorflow
 opencv-python
 matplotlib
+tensorflow_hub
