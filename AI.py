@@ -183,4 +183,4 @@ def Dope(filename):
   _ = plt.axis('off')
   plt.savefig("./data/Processed.jpeg")
   return keypoints
-print(Dope("./data/image.jpeg"))
+#print(Dope("./data/image.jpeg"))
