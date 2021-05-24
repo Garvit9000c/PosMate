@@ -1,37 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Posture Mate</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ url_for('static', filename='loginpage.css')}}">
-</head>
-<body>
-    <div class="navbar">
-        <div id="logo">Posture Mate</div>
-        <button id="hm" type="submit" class="btn btn-outline-dark btn-lg" >Home</button>
+{% extends 'base.html' %}
+{% block title %} Home {% endblock title %}
 
-    </div>
-    <hr>
+
+{% block home_body %}
+
+<body>
+
 
     <div class="login_page">
-        <img src={{url_for('static', filename='p.jpg')}} alt="#" >
+        <img src={{url_for('static', filename='p.jpg' )}} alt="#">
         <div class="lpage">
-
-            <div id="login">Login</div>
-            <div class="creds mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                <input type="email" class=" form-control" id="exampleFormControlInput1" placeholder="Enter your e-mail address">
-                
-                <label for="exampleFormControlInput1" class="form-label">Password</label>
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Enter your password">
-                
+            <div id="first" style="font-size: xx-large;">Welcome to <span style="font-size: 6rem;">Posture Mate</span>
             </div>
-            <button type="submit" class="btn btn-outline-dark">Submit</button>
+            <span id="one">
+                <div>Have a buddy who guides you for the best!</div>
+                <div>
+                    So, what are you waiting for, let's get started!
+                </div>
+            </span>
+            <div id="second">
+
+                <h1>Login</h1>
+                <form action="/" method="POST">
+                    <div class="creds mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Name</label>
+                        <input type="name" class=" form-control" id="exampleFormControlInput1"
+                            placeholder="Enter your name">
+                    </div>
+                    <button type="submit" id="submit" class="btn btn-outline-dark">Get started</button>
+                </form>
+            </div>
         </div>
     </div>
-        
-    </body>
-</html>
+
+</body>
+{% endblock home_body %}

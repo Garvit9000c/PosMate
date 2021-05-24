@@ -1,55 +1,23 @@
-<!doctype html>
-<html lang="en">
+{% extends 'base.html' %}
 
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>Click a picture!</title>
-	<style type="text/css">
-		body {
-			font-family: sans-serif;
-		}
+{% block title %} Camera {% endblock title %}
 
-		h2,
-		h3 {
-			margin-top: 0;
-		}
 
-		form {
-			margin-top: 15px;
-		}
 
-		form>input {
-			margin-right: 15px;
-		}
-
-		#results {
-			margin: 20px;
-			padding: 20px;
-			border: 1px solid;
-			background: white;
-		}
-
-		canvas#viewport {
-			border: 1px solid white;
-			width: 900px;
-			height: 500px;
-		}
-	</style>
-	<script src="https://code.jquery.com/jquery-3.3.1.min.js"
-		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-</head>
-
+{% block camera_body %}
 <body>
+	
 	<div id="results">Your captured image will appear here...</div>
 	<h1>This is a demo!</h1>
 	<div id="my_camera"></div>
 	<script type="text/javascript" src="static/scripts/webcam.js"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 	<script language="JavaScript">
 		Webcam.set({
 			width: 320,
 			height: 240,
-			dest_width: 640,
-			dest_height: 480,
+			dest_width: 320,
+			dest_height: 240,
 			image_format: 'jpeg',
 			jpeg_quality: 90,
 			flip_horiz: true
@@ -59,14 +27,12 @@
 	<script language="JavaScript">
 		window.setInterval(function () {
 			take_snapshot()
-		}, 5000);
+		},5000);
 		function take_snapshot() {
 			Webcam.snap(function (data_uri) {
 				document.getElementById('results').innerHTML =
 					'<h2>Here is your image:</h2>' +
-					'<img src="' + data_uri + '"/>' +
-					''
-					;
+					'<div><img src="' + data_uri + '" style="width:320px height:240px"/></div>';
 				$.ajax({
 					type: "GET",
 					data: "myimage=" + encodeURIComponent(data_uri),
@@ -79,73 +45,10 @@
 				});
 			});
 		}
-		// var canvas = document.getElementById('viewport'),
-		// 	context = canvas.getContext('2d');
-
-		// make_base();
-
-		// function make_base() {
-		// 	base_image = new Image();
-		// 	base_image.src = 'static/p.jpg';
-		// 	base_image.onload = function () {
-		// 		context.drawImage(base_image, 100, 100);
-		// 	}
-		// }
-
-
-
-		// 	function getBase64Image(src, callback, outputFormat) {
-		//  	const img = new Image();
-		//   	img.crossOrigin = 'Anonymous';
-		//   	img.onload = () => {
-		//     const canvas = document.createElement('canvas');
-		//     const ctx = canvas.getContext('2d');
-		//     let dataURL;
-		//     canvas.height = img.naturalHeight;
-		//     canvas.width = img.naturalWidth;
-		//     ctx.drawImage(img, 100, 200);
-		//     dataURL = canvas.toDataURL(outputFormat);
-		//     callback(dataURL);
-		//   };
-
-		//   img.src = src;
-		//   if (img.complete || img.complete === undefined) {
-		//     img.src = data_uri;
-		//     img.src = src;
-		//   }
-		// }
-
-
-
-
-		function dataURItoBlob(dataURI) {
-			// convert base64/URLEncoded data component to raw binary data held in a string
-			var byteString;
-			if (dataURI.split(',')[0].indexOf('base64') >= 0)
-				byteString = atob(dataURI.split(',')[1]);
-			else
-				byteString = unescape(dataURI.split(',')[1]);
-
-			// separate out the mime component
-			var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
-
-			// write the bytes of the string to a typed array
-			var ia = new Uint8Array(byteString.length);
-			for (var i = 0; i < byteString.length; i++) {
-				ia[i] = byteString.charCodeAt(i);
-			}
-
-			return new Blob([ia], { type: mimeString });
-		}
-		const canvas = document.createElement('canvas');
-		const ctx = canvas.getContext('2d');
-		var dataURL = canvas.toDataURL('image/jpeg', 0.5);
-		var blob = dataURItoBlob(data_uri);
-		var fd = new FormData(document.forms[0]);
-		fd.append("canvasImage", blob);
-		var file = new File([blob], 'canvasImage.jpg', { type: 'image/jpeg' }); fd.append("canvasImage", file);
 	</script>
-	<canvas id="viewport"></canvas>
+	<div>
+		<!-- <img src="{{ url_for('download_file', filename='Processed.jpeg') }}" alt="#"> -->
+		
+	</div>
 </body>
-
-</html>
+{% endblock camera_body %}
