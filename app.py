@@ -4,36 +4,40 @@ import PIL
 import io
 import os
 import base64
+import yaml
 # from config import MEDIA_FOLDER
 from flask import send_from_directory
 from flask_bootstrap import Bootstrap
 # from AI import *
 from flaskext.mysql import MySQL
+from flask_mysqldb import MySQL
 # from datetime import datetime
 MEDIA_FOLDER= os.path.join(os.path.dirname(os.path.dirname((os.path.abspath(__file__)))), 'data')
 
 app = Flask(__name__)
-  
 
-app.config['MYSQL_HOST'] = 'localhost'
-app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'Subinsk284@'
-app.config['MYSQL_DB'] = 'flask'
+
+db=yaml.load(open('db.yaml'))
+
+
+app.config['MYSQL_HOST'] = db['mysql_host']
+app.config['MYSQL_USER'] = db['mysql_user']
+app.config['MYSQL_PASSWORD'] = db['mysql_password']
+app.config['MYSQL_DB'] = db['mysql_db']
  
 mysql = MySQL(app)
-# date_created=db.Column(db.DateTime, default=datetime.utcnow)
 
 
 @app.route('/',methods=['GET','POST'])
 def login():
    if request.method=='POST':
-      name = request.form['name']
-      
-      cursor = mysql.connection.cursor()
-      cursor.execute(''' INSERT INTO images VALUES(%s)''',(name))
+    #   userDetails=request.form
+      name = request.form.get('name')      
+      cur = mysql.connection.cursor()
+      cur.execute(" INSERT INTO users (name) VALUES (%s)",(name,))
       mysql.connection.commit()
-      cursor.close()
-      return f"Done!!"
+      cur.close()
+      return name
    return render_template('home.html')
    
 # @app.route("/image_info",methods= ['GET'])
