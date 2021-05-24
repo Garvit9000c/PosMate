@@ -2,7 +2,9 @@
 
 {% block title %} Camera {% endblock title %}
 
-
+{% block head %}  
+<link rel="stylesheet" href="{{ url_for('static', filename='camerapage.css') }}">
+{% endblock head %}
 
 {% block camera_body %}
 <body>
@@ -27,7 +29,7 @@
 	<script language="JavaScript">
 		window.setInterval(function () {
 			take_snapshot()
-		},5000);
+		},20000);
 		function take_snapshot() {
 			Webcam.snap(function (data_uri) {
 				document.getElementById('results').innerHTML =
