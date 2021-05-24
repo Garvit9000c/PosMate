@@ -25,7 +25,7 @@
     
 }
 #hm{
-        font-size: 2.3rem;
+        font-size: 2.1rem;
         border: 1px solid black;
         border-radius: 0.8rem;
         background-color: white;
@@ -55,6 +55,7 @@
 .lpage{
     
     position: absolute;
+    top: 16rem;
     right: 7rem;
     margin: 1rem;
     padding: 1rem;
@@ -77,23 +78,84 @@ span  {
 }
 img{
     position: absolute;
+    top: 8rem;
     width:900px;
     height: 900px;
 
 }
 #first{
+    opacity: 0;
     
-    transition: all 1s ease-in-out;
-    animation: first 2s ease-out 1s 2 forwards ;
+    position: relative;
+    display: block;
+    animation: first 3s ease-out 0.5s forwards;
+}
 
-}
+
 @keyframes first {
-    0%{
-        bottom:0px;
-        
-    }
-    100%{
-        top:15px;
-        display: block;
-    }
+    0% { 
+        opacity: 0;
+        bottom: 0rem;
+        }
+  
+    20% { 
+         opacity: 0;
+         /* bottom: 0px; */
+        }
+  40%   { opacity: 0.3;
+          /* bottom: 1.2px; */
+        }
+  60%   { opacity: 0.5;
+        /* bottom: 2.4px; */
+        }
+  80%   { opacity: 0.9; 
+        /* bottom: 3px; */
+        }
+  100%  { opacity: 1;
+        bottom: 4rem;
+         }
 }
+#second{
+    opacity: 0;
+    position: relative;
+    right: 3rem;
+    margin: 3rem;
+    display: block;
+    animation: first 3s ease-out 4s forwards;
+}
+
+
+@keyframes first {
+    0% { 
+        opacity: 0;
+        bottom: 0rem;
+        }
+  
+    20% { 
+         opacity: 0;
+         /* bottom: 0px; */
+        }
+  40%   { opacity: 0.3;
+          /* bottom: 1.2px; */
+        }
+  60%   { opacity: 0.5;
+        /* bottom: 2.4px; */
+        }
+  80%   { opacity: 0.9; 
+        /* bottom: 3px; */
+        }
+  100%  { opacity: 1;
+        bottom: 4rem;
+         }
+}
+#loading{
+    display: none;
+    
+}
+
+
+
+
+
+
+  

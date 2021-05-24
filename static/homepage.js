@@ -1,14 +1,7 @@
-let subm = document.getElementById('submit');
+let subm = document.getElementById('subm');
 
 subm.addEventListener('click', () => {
-        setTimeout(() => {
-
-        subm.style.display = 'none';
-        subm.innerHTML =
-            '<div class="d-flex align-items-center">' +
-            '<strong> Loading... </strong>' +
-            '<div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>' +
-            '</div>'
-
-        },3000);
-    })
+    let loading=document.getElementById('loading');
+    loading.style.display='block';
+        
+    });
