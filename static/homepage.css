@@ -7,7 +7,7 @@
 }
 .navbar{
     display: grid;
-    grid-template-columns: repeat(2, auto);
+    grid-template-columns: repeat(2,auto);
     margin-bottom: 0.4rem;
 
 }
@@ -16,8 +16,8 @@
     margin-left: 1.0rem;
     margin-bottom: 0.4rem;
     padding: 0.9rem;
-    width: 260px;
-    height: 34px;
+    width: 21rem;
+    height: 3rem;
     
     font-size: 2rem;
     font-weight: bolder;
@@ -25,20 +25,21 @@
     
 }
 #hm{
-        font-size: 2rem;
-        border: 2px solid black;
+        font-size: 2.3rem;
+        border: 1px solid black;
         border-radius: 0.8rem;
         background-color: white;
         position: absolute;
         padding: 0.5rem;
         margin: 0.6rem;
-        right: 1rem;  
+        right: 1rem; 
+        top: 0.1rem; 
         cursor: pointer;
         transition: all 50ms ease-in-out;
           
 }
 #hm:hover{
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.904);
     color: white;
 }
 .login_page{
@@ -81,7 +82,7 @@ img{
 
 }
 #first{
-    display: none;
+    
     transition: all 1s ease-in-out;
     animation: first 2s ease-out 1s 2 forwards ;
 
