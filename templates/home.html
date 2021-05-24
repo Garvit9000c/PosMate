@@ -1,27 +1,28 @@
 {% extends 'base.html' %}
 {% block title %} Home {% endblock title %}
-
 {% block head %}
 <link rel="stylesheet" href="{{ url_for('static', filename='homepage.css') }}">
+<script src="{{ url_for('static', filename='homepage.js') }}"></script>
 {% endblock head %}
-
 {% block home_body %}
 
 <body>
-
-
     <div class="login_page">
         <img src={{url_for('static', filename='p.jpg' )}} alt="#">
+
         <div class="lpage">
-            <div id="first" style="font-size: xx-large;">Welcome to <span style="font-size: 6rem;">Posture Mate</span>
-            </div>
-            <span id="one">
-                <div>Have a buddy who guides you for the best!</div>
-                <div>
-                    So, what are you waiting for, let's get started!
-                </div>
-            </span>
+            <div style="font-size: xx-large;">Welcome to </div>
+            <br>
+            <br>
+            <span id="first" style="font-size: 6rem;">Posture Mate</span>
+
             <div id="second">
+                <span id="one">
+                    <div>Have a buddy who guides you for the best!</div>
+                    <div>
+                        So, what are you waiting for, let's get started!
+                    </div>
+                </span>
 
                 <h1>Login</h1>
                 <form action="{{ url_for('login') }}" method="POST">
@@ -30,11 +31,18 @@
                         <input type="text" class=" form-control" id="exampleFormControlInput1"
                             placeholder="Enter your name" name='name'>
                     </div>
-                    <button type="submit" id="submit" class="btn btn-outline-dark">Get started</button>
+                    <div id="subm"><button type="submit" class="btn btn-outline-dark">Get started</button></div>
                 </form>
             </div>
+
+            <div id="loading">
+                <div class=" d-flex align-items-center">
+                    <strong>Loading...</strong>
+                    <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
+                </div>
+            </div>
+
         </div>
     </div>
-
 </body>
 {% endblock home_body %}
