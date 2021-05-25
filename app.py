@@ -5,7 +5,7 @@ import io
 import os
 import base64
 from flask_bootstrap import Bootstrap
-# from AI import *
+from AI import *
 from datetime import datetime
 
 
@@ -16,11 +16,19 @@ data={ 'name':'Name', 'flag':True, 'train':[], 'test':[] }
 
 @app.route('/',methods=['GET','POST'])
 def login():
-        global data
-        if request.method=='POST':
-                data['name'] = request.form.get('name')
-                return redirect('/Calibration')
-        return render_template('home.html')
+    global data
+    if request.method=='POST':
+        data['name'] = request.form.get('name')    
+    return render_template('home.html')        
+
+
+@app.route('/instructions',methods=['GET','POST'])
+def instructions():
+    if request.method=='POST':
+        return redirect('/Calibration')
+    return render_template('instructions.html')
+
+
 
 @app.route('/Calibration')
 def Calibration():
