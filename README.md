@@ -18,10 +18,11 @@ We have come with an idea where one will get regular updates on whether he/she i
 Speaking in simple terms one will be given a pop up notification if he/she is sitting in any other posture other then the last one in the image above.
 
 ## Technologies Used:
-> JavaScript
+> JavaScript/HTML5/CSS3
 
-> Python
+> Python/Flask
 
+> Tensorflow
 
 ## Problems Faced:
 
