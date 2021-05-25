@@ -58,7 +58,7 @@ def image_info():
         if len(data['train'])<10:
             data['train'].append(keypoints)
         if len(data['train'])==10:
-            return redirect('/Monitoring')    	
+            return jsonify(x=1)    	
     print(keypoints)
     return jsonify(x=0)
 

@@ -62,7 +62,9 @@
 					contentType: false,
 					processData: false,
 					success: function (jsonresult) {
-						console.log(jsonresult);
+						if (jsonresult.x==1){
+						location.replace('/Monitoring')
+						}
 					}
 				});
 			});
