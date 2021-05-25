@@ -34,12 +34,14 @@ def instructions():
 def Calibration():
     global data
     data['flag']=True
+    data['train']=[]
     return render_template('Calibration.html')
 
 @app.route('/Monitoring')
 def Monitoring():
     global data
     data['flag']=False
+    data['test']=[]
     return render_template('Monitoring.html')
 
            
@@ -58,7 +60,9 @@ def image_info():
         if len(data['train'])<10:
             data['train'].append(keypoints)
         if len(data['train'])==10:
-            return jsonify(x=1)    	
+            return jsonify(x=1)  
+    else:
+        pass  	
     print(keypoints)
     return jsonify(x=0)
 
