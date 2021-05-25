@@ -5,7 +5,7 @@ import io
 import os
 import base64
 from flask_bootstrap import Bootstrap
-from AI import *
+# from AI import *
 from datetime import datetime
 
 
@@ -22,18 +22,18 @@ def login():
         
         return render_template('home.html')
    
-@app.route("/image_info",methods= ['GET'])
-def image_info():
-    myfile= request.args.get('myimage').split(',')
-    imgdata = base64.b64decode(myfile[1])
-    im = Image.open(io.BytesIO(imgdata))
-    filename="./data/image.jpeg"
-    im.save(filename)
-    now = datetime.now()
-    current_time = now.strftime("%H:%M:%S")
-    keypoints=Coordinate(filename)
-    print(keypoints)
-    return jsonify(x=0)
+# @app.route("/image_info",methods= ['GET'])
+# def image_info():
+#     myfile= request.args.get('myimage').split(',')
+#     imgdata = base64.b64decode(myfile[1])
+#     im = Image.open(io.BytesIO(imgdata))
+#     filename="./data/image.jpeg"
+#     im.save(filename)
+#     now = datetime.now()
+#     current_time = now.strftime("%H:%M:%S")
+#     keypoints=Coordinate(filename)
+#     print(keypoints)
+#     return jsonify(x=0)
 
 
     
