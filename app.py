@@ -61,10 +61,10 @@ def image_info():
             data['train'].append(keypoints)
         if len(data['train'])==10:
             return jsonify(x=1)  
-    else:
-        pass  	
-    print(keypoints)
-    return jsonify(x=0)
+    state=1
+    msg='Hello'
+    #print(keypoints)
+    return jsonify(state=state,msg=msg)
 
 
     
