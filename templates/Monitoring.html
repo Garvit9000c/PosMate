@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Click a picture!</title>
+	<style type="text/css">
+		body {
+			font-family: sans-serif;
+		}
+
+		h2,h3 {
+			margin-top: 0;
+		}
+
+		form {
+			margin-top: 15px;
+		}
+
+		form>input {
+			margin-right: 15px;
+		}
+
+		#results {
+			margin: 20px;
+			padding: 20px;
+			border: 1px solid;
+			background: white;
+		}
+	</style>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+	<div id="results">Monitoring...</div>
+	<h1>This is a demo!</h1>
+	<div id="my_camera"></div>
+	<script type="text/javascript" src="static/scripts/webcam.js"></script>
+	<script language="JavaScript">
+		Webcam.set({
+			width: 320,
+			height: 240,
+			dest_width: 640,
+			dest_height: 480,
+			image_format: 'jpeg',
+			jpeg_quality: 90,
+			flip_horiz: true
+		});
+		Webcam.attach('#my_camera');
+	</script>
+	<script language="JavaScript">
+		window.setInterval(function () {
+			take_snapshot()
+		}, 5000);
+		function take_snapshot() {
+			Webcam.snap(function (data_uri) {
+				$.ajax({
+					type: "GET",
+					data: "myimage=" + encodeURIComponent(data_uri),
+					url: "/image_info",
+					contentType: false,
+					processData: false,
+					success: function (jsonresult) {
+						console.log(jsonresult);
+					}
+				});
+			});
+		}
+	</script>
+</body>
+
+</html>
