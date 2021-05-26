@@ -22,11 +22,11 @@ POSE_LABEL={
     5:'Take a 5Min Break, Drink Water & Do Some Streching',
 }
 
-@app.route('/',methods=['GET','POST'])
+@app.route('/')
 def login():
     global data
-    if request.method=='POST':
-        data['name'] = request.form.get('name')    
+    #if request.method=='POST':
+    #    data['name'] = request.form.get('name')    
     return render_template('home.html')        
 
 
