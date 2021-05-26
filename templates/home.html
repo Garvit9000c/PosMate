@@ -2,19 +2,20 @@
 {% block title %} Home {% endblock title %}
 {% block head %}
 <link rel="stylesheet" href="static/styles/homepage.css">
-<script type="text/javascript" src="static/scripts/homepage.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 {% endblock head %}
 {% block home_body %}
 
 <body>
     <div class="login_page">
         <img src={{url_for('static', filename='p.jpg' )}} alt="#">
-
+        
         <div class="lpage">
             <div class="t" style="font-size: xx-large;">Welcome to </div>
             <br>
             <br>
             <span id="first">Posture Mate</span>
+            <script type="text/javascript" src="static/scripts/homepage.js"></script>
 
             <div id="second">
                 <span class="t">
