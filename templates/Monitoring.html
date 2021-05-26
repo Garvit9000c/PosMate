@@ -50,6 +50,15 @@
 		Webcam.attach('#my_camera');
 	</script>
 	<script language="JavaScript">
+		console.log(Notification.permission);
+		if (Notification.permission !== "denied" ){
+			Notification.requestPermission();
+		}
+		
+		function showNotification(text) {
+			const notification = new Notification("PosBuddy", { body: text}); 
+		}
+		
 		window.setInterval(function () {
 			take_snapshot()
 		}, 5000);
@@ -62,7 +71,9 @@
 					contentType: false,
 					processData: false,
 					success: function (jsonresult) {
-						console.log(jsonresult);
+						if(jsonresult.state == 1){
+							showNotification(jsonresult.msg)
+						}
 					}
 				});
 			});
