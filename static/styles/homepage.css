@@ -6,54 +6,57 @@
     
 }
 .navbar{
-    display: grid;
-    grid-template-columns: repeat(2,auto);
-    margin-bottom: 0.4rem;
+  display: flex;
+  flex-direction: row;
+  
+  margin-bottom: 0.4rem;
 
 }
 #logo{
-   font-family: 'Audrey';
-    margin-left: 1.0rem;
-    margin-bottom: 0.4rem;
-    padding: 0.9rem;
-    width: 21rem;
-    height: 3rem;
-    
-    font-size: 2rem;
-    font-weight: bolder;
-    
-    
+ font-family: 'Audrey';
+  margin-left: 1.0rem;
+  margin-bottom: 0.4rem;
+  padding: 0.9rem;
+  width: 21rem;
+  height: 3rem;
+  
+  font-size: 2rem;
+  font-weight: bolder;
+  
+  
 }
 #hm{
-        font-size: 2.1rem;
-        border: 1px solid black;
-        border-radius: 0.8rem;
-        background-color: white;
-        position: absolute;
-        padding: 0.5rem;
-        margin: 0.6rem;
-        right: 1rem; 
-        top: 0.1rem; 
-        cursor: pointer;
-        transition: all 50ms ease-in-out;
-          
+      font-size: 1.6rem;
+      border: 1px solid black;
+      border-radius: 0.8rem;
+      background-color: white;
+      position: absolute;
+      padding: 0.3rem;
+      margin: 0.6rem;
+      right: 1rem; 
+      top: 0.1rem; 
+      cursor: pointer;
+      transition: all 50ms ease-in-out;
+        
 }
 #hm:hover{
-    background-color: rgba(0, 0, 0, 0.904);
-    color: white;
+  background-color: rgba(0, 0, 0, 0.904);
+  color: white;
 }
 .login_page{
-    display: grid;
-    grid-template-columns:repeat(2,auto);
+    display: flex;
+    flex-direction: row;
+    
     
     margin: 1rem;
     padding: 1rem;
-    align-items: center;
-    justify-content: center;
+    
+    
 
 }
 .lpage{
-    
+    display: flex;
+    flex-direction: column;
     position: absolute;
     top: 9rem;
     right: 7rem;
@@ -61,6 +64,11 @@
     padding: 1rem;
     align-items: center;
     justify-content: center;
+}
+.t{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 span  {
     font-size: 2rem;
@@ -73,19 +81,17 @@ span  {
     justify-content: center;
     align-items: center;
 }
-.creds {
-    font-size: 1.6rem;
-}
+
 img{
-    position: absolute;
-    top: 8rem;
-    width:900px;
-    height: 900px;
+    flex:start;
+    top: 9rem;
+    width:125rem;
+    height: 125rem;
 
 }
 #first{
     opacity: 0;
-    
+    font-size: 6rem;
     position: relative;
     display: block;
     animation: first 2s ease-out 0.5s forwards;
@@ -118,7 +124,7 @@ img{
 #second{
     opacity: 0;
     position: relative;
-    right: 3rem;
+    
     margin: 3rem;
     display: block;
     animation: first 0.8s ease-out 2.2s forwards;
@@ -188,10 +194,6 @@ img{
     border-radius: 0 0 10px 10px;
   }
   
-  
-  
-
-  
   h2.inactive {
     color: #cccccc;
   }
@@ -200,10 +202,6 @@ img{
     color: #0d0d0d;
     border-bottom: 2px solid #5fbae9;
   }
-  
-  
-  
- 
   
   input[type=button], input[type=submit], input[type=reset]  {
     background-color: #56baed;
@@ -387,4 +385,156 @@ img{
   }
 
 
+  
+  @media only screen and (max-width: 2735px) {
+    img{
+      position: absolute;
+      top: 8rem;
+      width: 90rem;
+      height: 90rem;
+  
+       }
+    
+  }
+  @media only screen and (max-width: 2277px)  {
+    img{
+      position: absolute;
+      top: 8rem;
+      width: 60rem;
+      height: 60rem;
+  
+       }
+    
+  }
+  @media only screen and (max-width: 1880px)  {
+    img{
+      position: absolute;
+      top: 8rem;
+      width: 48rem;
+      height: 48rem;
+  
+       }
+    
+  }
+  @media only screen and (max-width: 1700px)  {
+    
+    img{
+      
+      top: 8rem;
+      width: 48rem;
+      height: 48rem;
+  
+       }
+       .lpage{
+         right: 0rem;
+       }
+       span{
+         font-size:4rem;
+       }
+       .t{
+         
+          font-size: 1.5rem;
+       }
+    
+  }
+  @media only screen and (max-width: 1462px)  {
+    img{
+      
+      top: 8rem;
+      width: 40rem;
+      height: 40rem;
+  
+       }
+       .lpage{
+         width: 45rem;
+         
+         right: 0rem;
+       }
+       span{
+         font-size:4rem;
+       }
+       .t{
+         
+          font-size: 1.5rem;
+       }
+       #first{
+         font-size: 4rem;
+       }
+    
+  }
+  @media only screen and (max-width: 1279px)  {
+    #navbar{
+      height: 2rem;
+    }
+    #logo{
+      font-size: 1.4rem;
+
+    }
+    #hm{
+        font-size: 1.1rem;
+    }
+    img{
+      
+      top: 8rem;
+      width: 30rem;
+      height: 30rem;
+  
+       }
+       .lpage{
+         width: 35rem;
+         
+         right: 0rem;
+       }
+       span{
+         font-size:2.5rem;
+       }
+       .t{
+         
+          font-size: 1.1rem;
+       }
+       #first{
+         font-size: 2.5rem;
+       }
+    
+  }
+  @media only screen and (max-width: 600px)  {
+    #navbar{
+      height: 0.6rem;
+    }
+    #logo{
+      font-size: 1rem;
+
+    }
+    #hm{
+        font-size: 0.8rem;
+    }
+    img{
+      
+      display: none;
+  
+       }
+       .login_page{
+         justify-content: center;
+        margin: -8rem;
+       }
+       .lpage{
+         justify-content: center;
+         width: 20rem;
+         margin:0;
+         padding: 0;
+         position: relative;
+       }
+       span{
+         font-size:1.5rem;
+       }
+       .t{
+         
+          font-size: 0.8rem;
+       }
+       #first{
+         
+         font-size: 1.8rem;
+       }
+    
+  }
 

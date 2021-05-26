@@ -11,20 +11,20 @@
         <img src={{url_for('static', filename='p.jpg' )}} alt="#">
 
         <div class="lpage">
-            <div style="font-size: xx-large;">Welcome to </div>
+            <div class="t" style="font-size: xx-large;">Welcome to </div>
             <br>
             <br>
-            <span id="first" style="font-size: 6rem;">Posture Mate</span>
+            <span id="first">Posture Mate</span>
 
             <div id="second">
-                <span id="one">
+                <span class="t">
                     <div>Have a buddy who guides you for the best!</div>
                     <div>
                         So, what are you waiting for, let's get started!
                     </div>
                 </span>
 
-                
+
 
                 <div class="wrapper fadeInDown">
                     <div id="formContent">
@@ -37,9 +37,10 @@
 
                         <!-- Login Form -->
                         <form>
-                            <input type="text" id="login" class="fadeIn second" name="login" placeholder="Enter Your Name">
+                            <input type="text" id="login" class="fadeIn second" name="login"
+                                placeholder="Enter Your Name">
 
-                            <a href="/instructions"><input type="button" class="fadeIn fourth"  value="Start" ></a>
+                            <a href="/instructions"><input type="button" class="fadeIn fourth" value="Start"></a>
                         </form>
 
                     </div>
@@ -54,5 +55,6 @@
 
             </div>
         </div>
+    </div>
 </body>
 {% endblock home_body %}

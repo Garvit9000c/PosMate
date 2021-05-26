@@ -5,7 +5,7 @@ import io
 import os
 import base64
 from flask_bootstrap import Bootstrap
-from AI import *
+# from AI import *
 from datetime import datetime
 
 
@@ -43,24 +43,24 @@ def Monitoring():
     return render_template('Monitoring.html')
 
            
-@app.route("/image_info",methods= ['GET'])
-def image_info():
-    global data
-    myfile= request.args.get('myimage').split(',')
-    imgdata = base64.b64decode(myfile[1])
-    im = Image.open(io.BytesIO(imgdata))
-    filename="./data/image.jpeg"
-    im.save(filename)
-    now = datetime.now()
-    current_time = now.strftime("%H:%M:%S")
-    keypoints=Coordinate(filename)
-    if data['flag']:
-        if len(data['train'])<10:
-            data['train'].append(keypoints)
-        if len(data['train'])==10:
-            return jsonify(x=1)    	
-    print(keypoints)
-    return jsonify(x=0)
+# @app.route("/image_info",methods= ['GET'])
+# def image_info():
+#     global data
+#     myfile= request.args.get('myimage').split(',')
+#     imgdata = base64.b64decode(myfile[1])
+#     im = Image.open(io.BytesIO(imgdata))
+#     filename="./data/image.jpeg"
+#     im.save(filename)
+#     now = datetime.now()
+#     current_time = now.strftime("%H:%M:%S")
+#     keypoints=Coordinate(filename)
+#     if data['flag']:
+#         if len(data['train'])<10:
+#             data['train'].append(keypoints)
+#         if len(data['train'])==10:
+#             return jsonify(x=1)    	
+#     print(keypoints)
+#     return jsonify(x=0)
 
 
     
