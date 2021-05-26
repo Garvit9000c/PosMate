@@ -25,8 +25,8 @@ POSE_LABEL={
 @app.route('/')
 def login():
     global data
-    if request.method=='POST':
-        data['name'] = request.form.get('name')    
+    #if request.method=='POST':
+    #    data['name'] = request.form.get('name')    
     return render_template('home.html')        
 
 
