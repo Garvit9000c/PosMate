@@ -12,7 +12,7 @@ from datetime import datetime
 app = Flask(__name__)
 
 global data
-data={ 'name':'Name', 'flag':True, 'train':[], 'test':[] }
+data={ 'name':'Name', 'flag':True, 'train':[], 'test':[] , 'LSP':None }
 
 @app.route('/',methods=['GET','POST'])
 def login():
@@ -61,8 +61,8 @@ def image_info():
             data['train'].append(keypoints)
         if len(data['train'])==10:
             return jsonify(x=1)  
-    state=1
-    msg='Hello'
+    state=0
+    msg='None'
     #print(keypoints)
     return jsonify(state=state,msg=msg)
 
