@@ -12,7 +12,14 @@ from datetime import datetime
 app = Flask(__name__)
 
 global data
-data={ 'name':'Name', 'flag':True, 'train':[], 'test':[] , 'LSP':None }
+data={ 'name':'Name', 'flag':False, 'train':[], 'test':[], 'wrongPosture_counter':0, 'correctPosture_counter':0, 'LSP':None,'POSE_LABEL_key': None }
+
+POSE_LABEL={
+    0:'Correct',
+    1:'Posture is not straight',
+    2:'User is leaning towards screen',
+    3:'User is leaning away from screen'
+}
 
 @app.route('/',methods=['GET','POST'])
 def login():
