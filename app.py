@@ -6,19 +6,21 @@ import os
 import base64
 from flask_bootstrap import Bootstrap
 from AI import *
-from datetime import datetime
+from Logistic import *
 
 
 app = Flask(__name__)
 
 global data
-data={ 'name':'Name', 'flag':False, 'train':[], 'test':[], 'wrongPosture_counter':0, 'correctPosture_counter':0, 'LSP':None,'POSE_LABEL_key': None }
+data={ 'name':'Name', 'flag':False, 'train':[], 'test':[], 'LSP':None }
 
 POSE_LABEL={
     0:'Correct',
-    1:'Posture is not straight',
-    2:'User is leaning towards screen',
-    3:'User is leaning away from screen'
+    1:'Posture is not Correct, Sit straight',
+    2:'Dont lean towards screen',
+    3:'Dont lean away from screen',
+    4:'Break Is Over',
+    5:'Take a 5Min Break, Drink Water & Do Some Streching',
 }
 
 @app.route('/',methods=['GET','POST'])
@@ -60,19 +62,27 @@ def image_info():
     im = Image.open(io.BytesIO(imgdata))
     filename="./data/image.jpeg"
     im.save(filename)
-    now = datetime.now()
-    current_time = now.strftime("%H:%M:%S")
     keypoints=Coordinate(filename)
     if data['flag']:
         if len(data['train'])<10:
             data['train'].append(keypoints)
+            return jsonify(x=0)
         if len(data['train'])==10:
+            data['train']=trainCoordinates_process(data['train'])
             return jsonify(x=1)  
-    state=0
-    msg='None'
-    #print(keypoints)
-    #flag,data['LSP']=break_time(current_time,data['LSP'])
-    #x,data['test']=Pos_analysis(keypoints,data['test'])
+    flag,data['LSP']=btfunc(data['LSP'])
+    if flag==False:
+    	msg = Posture(data['train'], keypoints)
+    	if msg==0:
+    	    state,msg=0,None
+    	else:
+    	    state,msg=1,POSE_LABEL[msg]
+    if flag=='break':
+        state,msg=0,None
+    if flag=='start':
+        state,msg=1,POSE_LABEL[4] 
+    if flag==True:
+        state,msg=1,POSE_LABEL[5]   
     return jsonify(state=state,msg=msg)
 
 
