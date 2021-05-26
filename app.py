@@ -64,6 +64,8 @@ def image_info():
     state=0
     msg='None'
     #print(keypoints)
+    #flag,data['LSP']=break_time(current_time,data['LSP'])
+    #x,data['test']=Pos_analysis(keypoints,data['test'])
     return jsonify(state=state,msg=msg)
 
 
