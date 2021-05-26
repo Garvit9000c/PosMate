@@ -82,3 +82,14 @@ def trainCoordinates_process(train):
         correctPosture_cnt+=1
 
     return wrongPosture_cnt,correctPosture_cnt,message
+
+import time
+def btfunc(start_time):
+    current_time=time.time()
+    if start_time==None:
+        return False,current_time
+    else:
+        if (current_time-start_time>3000):
+            return True,(current_time+300)
+        else:
+            return False,start_time
