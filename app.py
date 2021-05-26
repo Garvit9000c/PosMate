@@ -4,7 +4,6 @@ import PIL
 import io
 import os
 import base64
-from flask_bootstrap import Bootstrap
 from AI import *
 from Logistic import *
 
