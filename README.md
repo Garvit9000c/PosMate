@@ -1,5 +1,5 @@
 # __PosMate__
-## Problem Statement
+## Problem Statement:
 
 "Are you sure you are sitting in a correct posture right now when you are looking at your desktop screen reading this problem statement?" No, right ?
 
