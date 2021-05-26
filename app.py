@@ -4,7 +4,7 @@ import PIL
 import io
 import os
 import base64
-from AI import *
+#from AI import *
 from Logistic import *
 
 
