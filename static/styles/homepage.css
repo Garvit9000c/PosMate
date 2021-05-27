@@ -1,60 +1,74 @@
-*{
+* {
     font-family: 'Ubuntu';
-}:root{
+}
+
+:root {
     margin: 0px;
     padding: 0px;
-    
 }
-.navbar{
-  display: flex;
-  flex-direction: row;
-  
-  margin-bottom: 0.4rem;
 
-}
-#logo{
- font-family: 'Audrey';
-  margin-left: 1.0rem;
-  margin-bottom: 0.4rem;
-  padding: 0.9rem;
-  width: 21rem;
-  height: 3rem;
-  
-  font-size: 2rem;
-  font-weight: bolder;
-  
-  
-}
-#hm{
-      font-size: 1.6rem;
-      border: 1px solid black;
-      border-radius: 0.8rem;
-      background-color: white;
-      position: absolute;
-      padding: 0.3rem;
-      margin: 0.6rem;
-      right: 1rem; 
-      top: 0.1rem; 
-      cursor: pointer;
-      transition: all 50ms ease-in-out;
-        
-}
-#hm:hover{
-  background-color: rgba(0, 0, 0, 0.904);
-  color: white;
-}
-.login_page{
+.navbar {
     display: flex;
     flex-direction: row;
-    
-    
+    margin-bottom: 0.4rem;
+}
+
+#logo {
+    font-family: 'Audrey';
+    margin-left: 1.0rem;
+    margin-bottom: 0.4rem;
+    padding: 0.9rem;
+    width: 21rem;
+    height: 3rem;
+    font-size: 2rem;
+    font-weight: bolder;
+}
+
+#hm {
+    font-size: 1.9rem;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 0.8rem;
+    background-color: white;
+    position: absolute;
+    padding: 0.3rem;
+    margin: 0.6rem;
+    right: 1rem;
+    top: 0.1rem;
+    cursor: pointer;
+    transition: all 50ms ease-in-out;
+}
+
+#hm:hover {
+    background-color: rgba(233, 230, 230, 0.363);
+    color: black;
+}
+#hw {
+    font-size: 1.9rem;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 0.8rem;
+    background-color: white;
+    position: absolute;
+    padding: 0.3rem;
+    margin: 0.6rem;
+    right: 10.3rem;
+    top: 0.5rem;
+    cursor: pointer;
+    transition: all 50ms ease-in-out;
+}
+
+#hw:hover {
+    background-color: rgba(233, 230, 230, 0.363);
+    color: black;
+}
+
+.login_page {
+    display: flex;
+    flex-direction: row;
     margin: 1rem;
     padding: 1rem;
-    
-    
-
 }
-.lpage{
+
+.lpage {
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -65,15 +79,18 @@
     align-items: center;
     justify-content: center;
 }
-.t{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+
+.t {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-span  {
+
+span {
     font-size: 2rem;
 }
-#login{
+
+#login {
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
     font-size: 2rem;
@@ -82,14 +99,14 @@ span  {
     align-items: center;
 }
 
-img{
-    flex:start;
+img {
+    flex: start;
     top: 9rem;
-    width:125rem;
+    width: 125rem;
     height: 125rem;
-
 }
-#first{
+
+#first {
     opacity: 0;
     font-size: 6rem;
     position: relative;
@@ -97,81 +114,84 @@ img{
     animation: first 2s ease-out 0.5s forwards;
 }
 
-
 @keyframes first {
-    0% { 
+    0% {
         opacity: 0;
         bottom: 0rem;
-        }
-  
-    20% { 
-         opacity: 0;
-         /* bottom: 0px; */
-        }
-  40%   { opacity: 0.3;
-          /* bottom: 1.2px; */
-        }
-  60%   { opacity: 0.5;
+    }
+    20% {
+        opacity: 0;
+        /* bottom: 0px; */
+    }
+    40% {
+        opacity: 0.3;
+        /* bottom: 1.2px; */
+    }
+    60% {
+        opacity: 0.5;
         /* bottom: 2.4px; */
-        }
-  80%   { opacity: 0.9; 
+    }
+    80% {
+        opacity: 0.9;
         /* bottom: 3px; */
-        }
-  100%  { opacity: 1;
+    }
+    100% {
+        opacity: 1;
         bottom: 4rem;
-         }
+    }
 }
-#second{
+
+#second {
     opacity: 0;
     position: relative;
-    
     margin: 3rem;
     display: block;
     animation: first 0.8s ease-out 2.2s forwards;
 }
 
-
 @keyframes first {
-    0% { 
+    0% {
         opacity: 0;
         bottom: 0rem;
-        }
-  
-    20% { 
-         opacity: 0;
-         /* bottom: 0px; */
-        }
-  40%   { opacity: 0.3;
-          /* bottom: 1.2px; */
-        }
-  60%   { opacity: 0.5;
+    }
+    20% {
+        opacity: 0;
+        /* bottom: 0px; */
+    }
+    40% {
+        opacity: 0.3;
+        /* bottom: 1.2px; */
+    }
+    60% {
+        opacity: 0.5;
         /* bottom: 2.4px; */
-        }
-  80%   { opacity: 0.9; 
+    }
+    80% {
+        opacity: 0.9;
         /* bottom: 3px; */
-        }
-  100%  { opacity: 1;
+    }
+    100% {
+        opacity: 1;
         bottom: 4rem;
-         }
-}
-#loading{
-    display: none;
-    
+    }
 }
 
+#loading {
+    display: none;
+}
 
 .wrapper {
     margin: 1.5rem;
     display: flex;
     align-items: center;
-    flex-direction: column; 
+    flex-direction: column;
     justify-content: center;
     width: 100%;
     min-height: 100%;
     padding: 20px;
-  }
-  
-  #formContent {
+}
+
+#formContent {
     -webkit-border-radius: 10px 10px 10px 10px;
     border-radius: 10px 10px 10px 10px;
     background: #fff;
@@ -180,30 +200,32 @@ img{
     max-width: 35rem;
     position: relative;
     padding: 0px;
-    -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
-    box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+    -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
     text-align: center;
-  }
-  
-  #formFooter {
+}
+
+#formFooter {
     background-color: #f6f6f6;
     border-top: 1px solid #dce8f1;
     padding: 25px;
     text-align: center;
     -webkit-border-radius: 0 0 10px 10px;
     border-radius: 0 0 10px 10px;
-  }
-  
-  h2.inactive {
+}
+
+h2.inactive {
     color: #cccccc;
-  }
-  
-  h2.active {
+}
+
+h2.active {
     color: #0d0d0d;
     border-bottom: 2px solid #5fbae9;
-  }
-  
-  input[type=button], input[type=submit], input[type=reset]  {
+}
+
+input[type=button],
+input[type=submit],
+input[type=reset] {
     background-color: #56baed;
     border: none;
     color: white;
@@ -213,8 +235,8 @@ img{
     display: inline-block;
     text-transform: uppercase;
     font-size: 1rem;
-    -webkit-box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
-    box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+    -webkit-box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
+    box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
     -webkit-border-radius: 5px 5px 5px 5px;
     border-radius: 5px 5px 5px 5px;
     margin: 5px 20px 40px 20px;
@@ -223,21 +245,25 @@ img{
     -ms-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
-  }
-  
-  input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover  {
+}
+
+input[type=button]:hover,
+input[type=submit]:hover,
+input[type=reset]:hover {
     background-color: #39ace7;
-  }
-  
-  input[type=button]:active, input[type=submit]:active, input[type=reset]:active  {
+}
+
+input[type=button]:active,
+input[type=submit]:active,
+input[type=reset]:active {
     -moz-transform: scale(0.95);
     -webkit-transform: scale(0.95);
     -o-transform: scale(0.95);
     -ms-transform: scale(0.95);
     transform: scale(0.95);
-  }
-  
-  input[type=text] {
+}
+
+input[type=text] {
     background-color: #f6f6f6;
     border: none;
     color: #0d0d0d;
@@ -256,103 +282,129 @@ img{
     transition: all 0.5s ease-in-out;
     -webkit-border-radius: 5px 5px 5px 5px;
     border-radius: 5px 5px 5px 5px;
-  }
-  
-  input[type=text]:focus {
+}
+
+input[type=text]:focus {
     background-color: #fff;
     border-bottom: 2px solid #5fbae9;
-  }
-  
-  input[type=text]:placeholder {
+}
+
+input[type=text]:placeholder {
     color: #cccccc;
-  }
-  
-  
-  
-  /* ANIMATIONS */
-  
-  /* Simple CSS3 Fade-in-down Animation */
-  .fadeInDown {
+}
+
+
+/* ANIMATIONS */
+
+
+/* Simple CSS3 Fade-in-down Animation */
+
+.fadeInDown {
     -webkit-animation-name: fadeInDown;
     animation-name: fadeInDown;
     -webkit-animation-duration: 1s;
     animation-duration: 1s;
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
-  }
-  
-  @-webkit-keyframes fadeInDown {
+}
+
+@-webkit-keyframes fadeInDown {
     0% {
-      opacity: 0;
-      -webkit-transform: translate3d(0, -100%, 0);
-      transform: translate3d(0, -100%, 0);
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
     }
     100% {
-      opacity: 1;
-      -webkit-transform: none;
-      transform: none;
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
     }
-  }
-  
-  @keyframes fadeInDown {
+}
+
+@keyframes fadeInDown {
     0% {
-      opacity: 0;
-      -webkit-transform: translate3d(0, -100%, 0);
-      transform: translate3d(0, -100%, 0);
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
     }
     100% {
-      opacity: 1;
-      -webkit-transform: none;
-      transform: none;
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
     }
-  }
-  
-  /* Simple CSS3 Fade-in Animation */
-  @-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-  @-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-  @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-  
-  .fadeIn {
-    opacity:0;
-    -webkit-animation:fadeIn ease-in 1;
-    -moz-animation:fadeIn ease-in 1;
-    animation:fadeIn ease-in 1;
-  
-    -webkit-animation-fill-mode:forwards;
-    -moz-animation-fill-mode:forwards;
-    animation-fill-mode:forwards;
-  
-    -webkit-animation-duration:1s;
-    -moz-animation-duration:1s;
-    animation-duration:1s;
-  }
-  
-  .fadeIn.first {
+}
+
+
+/* Simple CSS3 Fade-in Animation */
+
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fadeIn {
+    opacity: 0;
+    -webkit-animation: fadeIn ease-in 1;
+    -moz-animation: fadeIn ease-in 1;
+    animation: fadeIn ease-in 1;
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-duration: 1s;
+    -moz-animation-duration: 1s;
+    animation-duration: 1s;
+}
+
+.fadeIn.first {
     -webkit-animation-delay: 0.4s;
     -moz-animation-delay: 0.4s;
     animation-delay: 0.4s;
-  }
-  
-  .fadeIn.second {
+}
+
+.fadeIn.second {
     -webkit-animation-delay: 0.6s;
     -moz-animation-delay: 0.6s;
     animation-delay: 0.6s;
-  }
-  
-  .fadeIn.third {
+}
+
+.fadeIn.third {
     -webkit-animation-delay: 0.8s;
     -moz-animation-delay: 0.8s;
     animation-delay: 0.8s;
-  }
-  
-  .fadeIn.fourth {
+}
+
+.fadeIn.fourth {
     -webkit-animation-delay: 1s;
     -moz-animation-delay: 1s;
     animation-delay: 1s;
-  }
-  
-  /* Simple CSS3 Fade-in Animation */
-  .underlineHover:after {
+}
+
+
+/* Simple CSS3 Fade-in Animation */
+
+.underlineHover:after {
     display: block;
     left: 0;
     bottom: -10px;
@@ -361,180 +413,154 @@ img{
     background-color: #56baed;
     content: "";
     transition: width 0.2s;
-  }
-  
-  .underlineHover:hover {
+}
+
+.underlineHover:hover {
     color: #0d0d0d;
-  }
-  
-  .underlineHover:hover:after{
+}
+
+.underlineHover:hover:after {
     width: 100%;
-  }
-  
-  
-  
-  /* OTHERS */
-  
-  *:focus {
-      outline: none;
-  } 
-  
-  #icon {
-      font-size: 2.3rem;
-    width:60%;
-  }
+}
 
 
-  
-  @media only screen and (max-width: 2735px) {
-    img{
-      position: absolute;
-      top: 8rem;
-      width: 90rem;
-      height: 90rem;
-  
-       }
-    
-  }
-  @media only screen and (max-width: 2277px)  {
-    img{
-      position: absolute;
-      top: 8rem;
-      width: 60rem;
-      height: 60rem;
-  
-       }
-    
-  }
-  @media only screen and (max-width: 1880px)  {
-    img{
-      position: absolute;
-      top: 8rem;
-      width: 48rem;
-      height: 48rem;
-  
-       }
-    
-  }
-  @media only screen and (max-width: 1700px)  {
-    
-    img{
-      
-      top: 8rem;
-      width: 48rem;
-      height: 48rem;
-  
-       }
-       .lpage{
-         right: 0rem;
-       }
-       span{
-         font-size:4rem;
-       }
-       .t{
-         
-          font-size: 1.5rem;
-       }
-    
-  }
-  @media only screen and (max-width: 1462px)  {
-    img{
-      
-      top: 8rem;
-      width: 40rem;
-      height: 40rem;
-  
-       }
-       .lpage{
-         width: 45rem;
-         
-         right: 0rem;
-       }
-       span{
-         font-size:4rem;
-       }
-       .t{
-         
-          font-size: 1.5rem;
-       }
-       #first{
-         font-size: 4rem;
-       }
-    
-  }
-  @media only screen and (max-width: 1279px)  {
-    #navbar{
-      height: 2rem;
+/* OTHERS */
+
+*:focus {
+    outline: none;
+}
+
+#icon {
+    font-size: 2.3rem;
+    width: 60%;
+}
+
+@media only screen and (max-width: 2735px) {
+    img {
+        position: absolute;
+        top: 8rem;
+        width: 90rem;
+        height: 90rem;
     }
-    #logo{
-      font-size: 1.4rem;
+}
 
+@media only screen and (max-width: 2277px) {
+    img {
+        position: absolute;
+        top: 8rem;
+        width: 60rem;
+        height: 60rem;
     }
-    #hm{
+}
+
+@media only screen and (max-width: 1880px) {
+    img {
+        position: absolute;
+        top: 8rem;
+        width: 48rem;
+        height: 48rem;
+    }
+}
+
+@media only screen and (max-width: 1700px) {
+    img {
+        top: 8rem;
+        width: 48rem;
+        height: 48rem;
+    }
+    .lpage {
+        right: 0rem;
+    }
+    span {
+        font-size: 4rem;
+    }
+    .t {
+        font-size: 1.5rem;
+    }
+}
+
+@media only screen and (max-width: 1462px) {
+    img {
+        top: 8rem;
+        width: 40rem;
+        height: 40rem;
+    }
+    .lpage {
+        width: 45rem;
+        right: 0rem;
+    }
+    span {
+        font-size: 4rem;
+    }
+    .t {
+        font-size: 1.5rem;
+    }
+    #first {
+        font-size: 4rem;
+    }
+}
+
+@media only screen and (max-width: 1279px) {
+    #navbar {
+        height: 2rem;
+    }
+    #logo {
+        font-size: 1.4rem;
+    }
+    #hm {
         font-size: 1.1rem;
     }
-    img{
-      
-      top: 8rem;
-      width: 30rem;
-      height: 30rem;
-  
-       }
-       .lpage{
-         width: 35rem;
-         
-         right: 0rem;
-       }
-       span{
-         font-size:2.5rem;
-       }
-       .t{
-         
-          font-size: 1.1rem;
-       }
-       #first{
-         font-size: 2.5rem;
-       }
-    
-  }
-  @media only screen and (max-width: 600px)  {
-    #navbar{
-      height: 0.6rem;
+    img {
+        top: 8rem;
+        width: 30rem;
+        height: 30rem;
     }
-    #logo{
-      font-size: 1rem;
+    .lpage {
+        width: 35rem;
+        right: 0rem;
+    }
+    span {
+        font-size: 2.5rem;
+    }
+    .t {
+        font-size: 1.1rem;
+    }
+    #first {
+        font-size: 2.5rem;
+    }
+}
 
+@media only screen and (max-width: 600px) {
+    #navbar {
+        height: 0.6rem;
     }
-    #hm{
+    #logo {
+        font-size: 1rem;
+    }
+    #hm {
         font-size: 0.8rem;
     }
-    img{
-      
-      display: none;
-  
-       }
-       .login_page{
-         justify-content: center;
+    img {
+        display: none;
+    }
+    .login_page {
+        justify-content: center;
         margin: -8rem;
-       }
-       .lpage{
-         justify-content: center;
-         width: 20rem;
-         margin:0;
-         padding: 0;
-         position: relative;
-       }
-       span{
-         font-size:1.5rem;
-       }
-       .t{
-         
-          font-size: 0.8rem;
-       }
-       #first{
-         
-         font-size: 1.8rem;
-       }
-    
-  }
-
+    }
+    .lpage {
+        justify-content: center;
+        width: 20rem;
+        margin: 0;
+        padding: 0;
+        position: relative;
+    }
+    span {
+        font-size: 1.5rem;
+    }
+    .t {
+        font-size: 0.8rem;
+    }
+    #first {
+        font-size: 1.8rem;
+    }
+}

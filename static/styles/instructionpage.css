@@ -1,274 +1,309 @@
-*{
+* {
     font-family: 'Ubuntu';
     background-image: url('static/1.jpg');
-}:root{
+}
+
+:root {
     margin: 0px;
     padding: 0px;
-    
 }
-.navbar{
-  display: grid;
-  grid-template-columns: repeat(2,auto);
-  margin-bottom: 0.4rem;
 
+.navbar {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    margin-bottom: 0.4rem;
 }
-#logo{
+
+#logo {
     font-family: 'Audrey';
-     margin-left: 1.0rem;
-     margin-bottom: 0.4rem;
-     padding: 0.9rem;
-     width: 21rem;
-     height: 3rem;
-     
-     font-size: 2rem;
-     font-weight: bolder;
-     
-     
-   }
-   #hm{
-         font-size: 2.1rem;
-         border: 1px solid black;
-         border-radius: 0.8rem;
-         background-color: white;
-         position: absolute;
-         padding: 0.5rem;
-         margin: 0.6rem;
-         right: 1rem; 
-         top: 0.1rem; 
-         cursor: pointer;
-         transition: all 50ms ease-in-out;
-           
-   }
-   #hm:hover{
-     background-color: rgba(0, 0, 0, 0.904);
-     color: white;
-   }
-.outer{
-  display: grid;
-  grid-template-columns: repeat(2,auto);
-  
+    margin-left: 1.0rem;
+    margin-bottom: 0.4rem;
+    padding: 0.9rem;
+    width: 21rem;
+    height: 3rem;
+    font-size: 2rem;
+    font-weight: bolder;
 }
 
-   .container{
-     display: flex;
-     flex-direction: column;
-     justify-content: space-around;
-     align-items: flex-start;
-   }
-   #alert{
-    -webkit-animation-name: fadeInRight;
-    animation-name: fadeInRight;
-    -webkit-animation-duration: 1s;
-    animation-duration: 1s;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
-   }
-   #inst{
-    -webkit-animation-name: fadeInRight;
-    animation-name: fadeInRight;
-    -webkit-animation-duration: 1s;
-    animation-duration: 1s;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
+#hm {
+    font-size: 2.1rem;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 0.8rem;
+    background-color: white;
+    position: absolute;
+    padding: 0.5rem;
+    margin: 0.6rem;
+    right: 1rem;
+    top: 0.1rem;
+    cursor: pointer;
+    transition: all 50ms ease-in-out;
+}
 
-   }
-   ul{
-     font-size: 2.5rem;
-   }
-   li{
-     font-size: 2rem;
-     margin: 0.2rem;
-     
-   }
-   .image{
-     display: flex;
-     flex-direction: column;
-     -webkit-animation-name: fadeInDown;
+#hm:hover {
+    background-color: rgba(233, 230, 230, 0.363);
+    color: black;
+}
+#hw {
+    font-size: 1.9rem;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 0.8rem;
+    background-color: white;
+    position: absolute;
+    padding: 0.3rem;
+    margin: 0.6rem;
+    right: 10.3rem;
+    top: 0.5rem;
+    cursor: pointer;
+    transition: all 50ms ease-in-out;
+}
+
+#hw:hover {
+    background-color: rgba(233, 230, 230, 0.363);
+    color: black;
+}
+.outer {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+#alert {
+    -webkit-animation-name: fadeInRight;
+    animation-name: fadeInRight;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+#inst {
+    -webkit-animation-name: fadeInRight;
+    animation-name: fadeInRight;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+ul {
+    font-size: 2.5rem;
+}
+
+li {
+    font-size: 2rem;
+    margin: 0.2rem;
+}
+
+.image {
+    display: flex;
+    flex-direction: column;
+    -webkit-animation-name: fadeInDown;
     animation-name: fadeInDown;
     -webkit-animation-duration: 1s;
     animation-duration: 1s;
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
-   }
-   div>div>span{
+}
+
+div>div>span {
+    box-shadow: 10px 10px 8px #888888;
     align-self: baseline;
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     padding: 0.6rem;
-     margin: 1.4rem;
-     font-size: 2.5rem;
-     border: 0.2rem solid black;
-     border-radius: 0.5rem;
-   }
-   span>img{
-     width: 2rem;
-     height: 2rem;
-    -webkit-transform:rotate(180deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.6rem;
+    margin: 1.4rem;
+    font-size: 2.5rem;
+    border: 0.2rem solid black;
+    border-radius: 0.5rem;
+}
+
+span>img {
+    width: 2rem;
+    height: 2rem;
+    -webkit-transform: rotate(180deg);
     -moz-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     -o-transform: rotate(180deg);
     transform: rotate(180deg);
-   }
-   div>div>img{
-     width: 34rem;
-     height: 33rem;
-   }
+}
 
+div>div>img {
+    width: 34rem;
+    height: 33rem;
+}
+#button{
+   display: block;
+   font-size: 2rem;
+   background-color: rgb(22, 21, 20);
+   color: white;
+   padding: 1rem;
+   margin: 1rem;
    
-   @-webkit-keyframes fadeInRight {
-    0% {
-      opacity: 0;
-      -webkit-transform: translate3d(-100%, 0, 0);
-      transform: translate3d(-100%, 0, 0);
-    }
-    100% {
-      opacity: 1;
-      -webkit-transform: none;
-      transform: none;
-    }
-  }
-  
-  @keyframes fadeInRight {
-    0% {
-      opacity: 0;
-      -webkit-transform: translate3d(-100%, 0, 0);
-      transform: translate3d(-100%, 0, 0);
-    }
-    100% {
-      opacity: 1;
-      -webkit-transform: none;
-      transform: none;
-    }
-  }
+   border-radius: 1rem;
 
-  @-webkit-keyframes fadeInDown {
+}
+a{
+    text-decoration: none;
+}
+#button:hover{
+    background-color: rgb(44, 42, 42);
+}
+@-webkit-keyframes fadeInRight {
     0% {
-      opacity: 0;
-      -webkit-transform: translate3d(0, -100%, 0);
-      transform: translate3d(0, -100%, 0);
+        opacity: 0;
+        -webkit-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0);
     }
     100% {
-      opacity: 1;
-      -webkit-transform: none;
-      transform: none;
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
     }
-  }
-  
-  @keyframes fadeInDown {
+}
+
+@keyframes fadeInRight {
     0% {
-      opacity: 0;
-      -webkit-transform: translate3d(0, -100%, 0);
-      transform: translate3d(0, -100%, 0);
+        opacity: 0;
+        -webkit-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0);
     }
     100% {
-      opacity: 1;
-      -webkit-transform: none;
-      transform: none;
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
     }
-  }
+}
 
-  @-webkit-keyframes fadeIn {
-    0% { 
-      opacity: 0;
-      
-      }
-
-  20% { 
-       opacity: 0;
-       
-      }
-40%   { opacity: 0.3;
-        
-      }
-60%   { opacity: 0.5;
-      
-      }
-80%   { opacity: 0.9; 
-      
-      }
-100%  { opacity: 1;
-      
-       } 
+@-webkit-keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
     }
-  @-moz-keyframes fadeIn { 0% { 
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 0;
+    }
+    40% {
+        opacity: 0.3;
+    }
+    60% {
+        opacity: 0.5;
+    }
+    80% {
+        opacity: 0.9;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 0;
+    }
+    40% {
+        opacity: 0.3;
+    }
+    60% {
+        opacity: 0.5;
+    }
+    80% {
+        opacity: 0.9;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 0;
+    }
+    40% {
+        opacity: 0.3;
+    }
+    60% {
+        opacity: 0.5;
+    }
+    80% {
+        opacity: 0.9;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.fadeIn {
     opacity: 0;
-    
-    }
+    -webkit-animation: fadeIn ease-in 1;
+    -moz-animation: fadeIn ease-in 1;
+    animation: fadeIn ease-in 1;
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-duration: 1s;
+    -moz-animation-duration: 1s;
+    animation-duration: 1s;
+}
 
-20% { 
-     opacity: 0;
-     
-    }
-40%   { opacity: 0.3;
-      
-    }
-60%   { opacity: 0.5;
-    
-    }
-80%   { opacity: 0.9; 
-    
-    }
-100%  { opacity: 1;
-    
-     } }
-  @keyframes fadeIn { 0% { 
-    opacity: 0;
-    
-    }
-
-20% { 
-     opacity: 0;
-     
-    }
-40%   { opacity: 0.3;
-      
-    }
-60%   { opacity: 0.5;
-    
-    }
-80%   { opacity: 0.9; 
-    
-    }
-100%  { opacity: 1;
-    
-     } }
-
-  .fadeIn {
-    opacity:0;
-    -webkit-animation:fadeIn ease-in 1;
-    -moz-animation:fadeIn ease-in 1;
-    animation:fadeIn ease-in 1;
-  
-    -webkit-animation-fill-mode:forwards;
-    -moz-animation-fill-mode:forwards;
-    animation-fill-mode:forwards;
-  
-    -webkit-animation-duration:1s;
-    -moz-animation-duration:1s;
-    animation-duration:1s;
-  }
-  
-  .fadeIn.first {
+.fadeIn.first {
     -webkit-animation-delay: 0.4s;
     -moz-animation-delay: 0.4s;
     animation-delay: 0.4s;
-  }
-  
-  .fadeIn.second {
+}
+
+.fadeIn.second {
     -webkit-animation-delay: 0.6s;
     -moz-animation-delay: 0.6s;
     animation-delay: 0.6s;
-  }
-  
-  .fadeIn.third {
+}
+
+.fadeIn.third {
     -webkit-animation-delay: 0.8s;
     -moz-animation-delay: 0.8s;
     animation-delay: 0.8s;
-  }
-  
-  .fadeIn.fourth {
+}
+
+.fadeIn.fourth {
     -webkit-animation-delay: 1s;
     -moz-animation-delay: 1s;
     animation-delay: 1s;
-  }
+}
+
