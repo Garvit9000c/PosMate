@@ -27,8 +27,8 @@ KEYPOINT_DICT = {
 
 
 #Loading Model
-#module = hub.load("https://tfhub.dev/google/movenet/singlepose/lightning/3")
-module=tf.saved_model.load('./model')
+module = hub.load("https://tfhub.dev/google/movenet/singlepose/lightning/3")
+#module=tf.saved_model.load('./model')
 movenet=module.signatures['serving_default']
 input_size = 192
 
