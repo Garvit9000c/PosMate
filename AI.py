@@ -3,6 +3,7 @@ import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 import tensorflow as tf
 import tensorflow_hub as hub
+import time
 
 # Dictionary that maps from joint names to keypoint indices.
 KEYPOINT_DICT = {
@@ -25,8 +26,10 @@ KEYPOINT_DICT = {
     'right_ankle': 16
 }
 
+
 #Loading Model
 module = hub.load("https://tfhub.dev/google/movenet/singlepose/lightning/3")
+#module=tf.saved_model.load('./model')
 movenet=module.signatures['serving_default']
 input_size = 192
 

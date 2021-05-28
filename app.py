@@ -55,34 +55,34 @@ def Monitoring():
            
 @app.route("/image_info",methods= ['GET'])
 def image_info():
-    global data
-    myfile= request.args.get('myimage').split(',')
-    imgdata = base64.b64decode(myfile[1])
-    im = Image.open(io.BytesIO(imgdata))
-    filename="./data/image.jpeg"
-    im.save(filename)
-    keypoints=Coordinate(filename)
-    if data['flag']:
-        if len(data['train'])<10:
-            data['train'].append(keypoints)
-            return jsonify(x=0)
-        if len(data['train'])==10:
-            data['train']=trainCoordinates_process(data['train'])
-            return jsonify(x=1)  
-    flag,data['LSP']=btfunc(data['LSP'])
-    if flag==False:
-    	msg = Posture(data['train'], keypoints)
-    	if msg==0:
-    	    state,msg=0,None
-    	else:
-    	    state,msg=1,POSE_LABEL[msg]
-    if flag=='break':
-        state,msg=0,None
-    if flag=='start':
-        state,msg=1,POSE_LABEL[4] 
-    if flag==True:
-        state,msg=1,POSE_LABEL[5]   
-    return jsonify(state=state,msg=msg)
+     global data
+     myfile= request.args.get('myimage').split(',')
+     imgdata = base64.b64decode(myfile[1])
+     im = Image.open(io.BytesIO(imgdata))
+     filename="./data/image.jpeg"
+     im.save(filename)
+     keypoints=Coordinate(filename)
+     if data['flag']:
+         if len(data['train'])<10:
+             data['train'].append(keypoints)
+             return jsonify(x=0)
+         if len(data['train'])==10:
+             data['train']=trainCoordinates_process(data['train'])
+             return jsonify(x=1)  
+     flag,data['LSP']=btfunc(data['LSP'])
+     if flag==False:
+     	msg = Posture(data['train'], keypoints)
+     	if msg==0:
+     	    state,msg=0,None
+     	else:
+     	    state,msg=1,POSE_LABEL[msg]
+     if flag=='break':
+         state,msg=0,None
+     if flag=='start':
+         state,msg=1,POSE_LABEL[4] 
+     if flag==True:
+         state,msg=1,POSE_LABEL[5]   
+     return jsonify(state=state,msg=msg)
 
 
     
