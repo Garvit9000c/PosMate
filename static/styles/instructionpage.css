@@ -7,7 +7,10 @@
     margin: 0px;
     padding: 0px;
 }
-
+body{
+    display: flex;
+    flex-direction: column;
+}
 header {
     padding: 0.7rem 1% 3px;
     display: flex;
@@ -15,8 +18,10 @@ header {
     justify-content: space-between;
     align-items: center;
     position: sticky;
+    max-width: inherit;
     top: -10px;
     z-index: 5;
+    background-color: white;
     margin-bottom: .5rem;
     border-bottom: 2px solid rgba(56, 55, 53, 0.692);
     box-shadow:0 12px 12px 0 rgba(233, 230, 230, 0.363) ;
@@ -60,17 +65,21 @@ header {
     background-color: rgba(233, 230, 230, 0.363);
     color: black;
 }
-
 .outer {
     display: grid;
+    
     grid-template-columns: repeat(2, auto);
 }
 
 .container {
     display: flex;
     flex-direction: column;
+   
     justify-content: space-around;
     align-items: flex-start;
+}
+a{
+    text-decoration: none;
 }
 
 #alert {
@@ -103,6 +112,7 @@ li {
 .image {
     display: flex;
     flex-direction: column;
+    
     -webkit-animation-name: fadeInDown;
     animation-name: fadeInDown;
     -webkit-animation-duration: 1s;
@@ -149,9 +159,7 @@ li {
    border-radius: 1rem;
 
 }
-a{
-    text-decoration: none;
-}
+
 #button:hover{
     background-color: rgb(44, 42, 42);
 }
@@ -308,14 +316,62 @@ a{
 }
 
 
+@media only screen and (max-width: 885px ){
+ .outer{
+     display: flex;
+     flex-direction: column;
+
+ }
+ 
+ #refImg{
+     width: 30rem;
+     height: 30rem;
+ }
+ #logo{
+    font-size: 1.2rem;
+}
+#hm{
+    font-size: 1rem;
+}
+#hw{
+    font-size: 1rem;
+    right: 5rem;
+}
+span{
+    font-size: 0.9rem;
+
+}
+h1{
+    font-size: 1.6rem;
+
+}
+li{
+    font-size: 1rem;
+}
+#button{
+    font-size: 1rem;
+
+}
+#read{
+    font-size: 1rem;
+}
+#alert{
+    font-size: 1rem;
+
+}
+svg{
+    width: 10;
+    height: 10;
+}
+#refCont{
+    font-size: 1.5rem;
+}
+#refImage{
+    width: 18rem;
+    height: 18rem;
+}
+}
 
 
 
-
-  .toast{
-    position: relative;
-    width: 31rem;
-    height: 10rem;
-    top: -26rem;
-    left: 45rem;
-  }
+ 

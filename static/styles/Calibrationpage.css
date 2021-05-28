@@ -87,6 +87,10 @@ span{
     font-size: 3rem;
 }
 
+#app{
+  margin: 2rem;
+  padding: 1rem;
+}
 
 
 
@@ -142,4 +146,32 @@ span{
     align-items: center;
     justify-content: center;
     font-size: 48px;
+  }
+
+
+  @media only screen and (max-width: 885px ){
+   
+  
+    #logo{
+       font-size: 1.2rem;
+   }
+   #hm{
+       font-size: 1rem;
+   }
+   #hw{
+       font-size: 1rem;
+       right: 5rem;
+   }
+   .container{
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+   }
+   p{
+     font-size: 3rem;
+
+   }
+   span{
+      font-size: 1.5rem;
+   }
   }

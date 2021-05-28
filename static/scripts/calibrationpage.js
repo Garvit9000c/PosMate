@@ -1,7 +1,43 @@
 let camera=document.getElementById('my_camera');
-Webcam.set({
-    width: 320,
-    height: 240,
+
+if (window.matchMedia("(max-width: 885px)").matches) {
+
+    Webcam.set({
+        width: 320,
+        height: 240,
+        dest_width: 640,
+        dest_height: 480,
+        image_format: 'jpeg',
+        jpeg_quality: 90,
+        flip_horiz: true
+    });
+    Webcam.attach(camera);
+    window.setInterval(function () {
+        take_snapshot()
+    }, 5000);
+    function take_snapshot() {
+        Webcam.snap(function (data_uri) {
+            $.ajax({
+                type: "GET",
+                data: "myimage=" + encodeURIComponent(data_uri),
+                url: "/image_info",
+                contentType: false,
+                processData: false,
+                success: function (jsonresult) {
+                    if (jsonresult.x==1){
+                        location.replace('/Monitoring')
+                    }
+                }
+            });
+        });
+    }
+    
+  } 
+  
+else {
+    Webcam.set({
+    width: 640,
+    height: 480,
     dest_width: 640,
     dest_height: 480,
     image_format: 'jpeg',
@@ -28,7 +64,7 @@ function take_snapshot() {
         });
     });
 }
-
+}
 
 
 function rebtn(){
@@ -54,7 +90,7 @@ function rebtn(){
         }
     };
 
-    const TIME_LIMIT = 10;
+    const TIME_LIMIT = 60;
     let timePassed = 0;
     let timeLeft = TIME_LIMIT;
     let timerInterval = null;

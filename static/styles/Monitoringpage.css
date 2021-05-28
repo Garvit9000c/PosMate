@@ -76,14 +76,43 @@ header {
 }
 
 
-h1{
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-
+#button{
+    display: block;
+    font-size: 1.7rem;
+    background-color: rgb(22, 21, 20);
+    color: white;
+    padding: 1rem;
+    margin: 1rem;
+    
+    border-radius: 1rem;
+ 
+ }
+ a{
+    text-decoration: none;
+}
+#button:hover{
+    background-color: rgb(44, 42, 42);
 }
 span{
-    margin: 1rem;
-    font-size: 6rem;
     
+    font-size: 2rem;
+    
+}
+.alert{
+    font-size: 1.5rem;
+}
+.box{
+    display: flex;
+    margin-top: 2.6rem;
+    padding: 1.5rem;
+    
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(224, 217, 217, 0.384);
+    border: 2px solid black;
+    border-radius: 2rem;
+    box-shadow: 0 8px 8px 0 rgba(233, 230, 230, 0.363);
 }
 
 
@@ -120,23 +149,39 @@ span{
     }}
 
 
-    @media screen and (max-width: 600px){
+
+
+
+
+    @media only screen and (max-width: 885px ){
         
         #logo{
-            font-size: 1.2rem;
-        }
-        #hm{
-            font-size: 1rem;
-        }
-        #hw{
-            font-size: 1rem;
-            right: 5rem;
-        }
-        .message{
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-        }
+           font-size: 1.2rem;
+       }
+       #hm{
+           font-size: 1rem;
+       }
+       #hw{
+           font-size: 1rem;
+           right: 5rem;
+       }
+       
+       .bubbles h1{
+        font-size: 2rem;
+       }
+       span{
+        font-size: 1.7rem;
+       }
+       #button{
+        font-size: 1rem;
     
-    
+    }
+    .alert{
+        font-size: 0.8rem;
+    }
+    .message{
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
     }
