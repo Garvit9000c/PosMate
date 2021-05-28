@@ -1,4 +1,4 @@
-from flask import Flask, render_template,jsonify,request,redirect
+from flask import Flask, render_template,jsonify,request,redirect,url_for
 from PIL import Image
 import PIL
 import io
@@ -22,12 +22,14 @@ POSE_LABEL={
     5:'Take a 5Min Break, Drink Water & Do Some Streching',
 }
 
-@app.route('/')
+@app.route('/',methods=['GET','POST'])
 def login():
     global data
-    #if request.method=='POST':
-    #    data['name'] = request.form.get('name')    
-    return render_template('home.html')        
+    if request.method=='POST':
+       data['name'] = request.form.get('login') 
+       return redirect(url_for('instructions'))
+    else:   
+        return render_template('home.html')        
 
 
 @app.route('/instructions',methods=['GET','POST'])

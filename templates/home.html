@@ -35,12 +35,13 @@
                     </div>
 
                     <!-- Login Form -->
-                    <form>
+                    <form action="/" name="myForm" onsubmit="return validateForm()" method="post" required> 
                         <input type="text" id="login" class="fadeIn second" name="login"
                             placeholder="Enter Your Name">
 
-                        <a href="/instructions"><input type="button" class="fadeIn fourth" value="Start"></a>
+                        <input type="submit" class="fadeIn fourth"  value="Start">
                     </form>
+                    <script src="static/scripts/homepage.js"></script>
 
                 </div>
             </div>
