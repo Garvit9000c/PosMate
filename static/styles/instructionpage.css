@@ -52,7 +52,7 @@
     padding: 0.3rem;
     margin: 0.6rem;
     right: 10.3rem;
-    top: 0.5rem;
+    top: 0.25rem;
     cursor: pointer;
     transition: all 50ms ease-in-out;
 }
@@ -111,7 +111,7 @@ li {
     animation-fill-mode: both;
 }
 
-div>div>span {
+#refCont {
     box-shadow: 10px 10px 8px #888888;
     align-self: baseline;
     display: flex;
@@ -124,7 +124,7 @@ div>div>span {
     border-radius: 0.5rem;
 }
 
-span>img {
+#refCont img {
     width: 2rem;
     height: 2rem;
     -webkit-transform: rotate(180deg);
@@ -134,13 +134,13 @@ span>img {
     transform: rotate(180deg);
 }
 
-div>div>img {
+#refImage{
     width: 34rem;
     height: 33rem;
 }
 #button{
    display: block;
-   font-size: 2rem;
+   font-size: 1.7rem;
    background-color: rgb(22, 21, 20);
    color: white;
    padding: 1rem;
@@ -307,3 +307,15 @@ a{
     animation-delay: 1s;
 }
 
+
+
+
+
+
+  .toast{
+    position: relative;
+    width: 31rem;
+    height: 10rem;
+    top: -26rem;
+    left: 45rem;
+  }

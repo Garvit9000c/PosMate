@@ -1,0 +1,73 @@
+* {
+    font-family: 'Ubuntu';
+}
+
+:root {
+    margin: 0px;
+    padding: 0px;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 0.4rem;
+}
+
+#logo {
+    font-family: 'Audrey';
+    margin-left: 1.0rem;
+    margin-bottom: 0.4rem;
+    padding: 0.9rem;
+    width: 21rem;
+    height: 3rem;
+    font-size: 2rem;
+    font-weight: bolder;
+}
+
+#hm {
+    font-size: 1.9rem;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 0.8rem;
+    background-color: white;
+    position: absolute;
+    padding: 0.3rem;
+    margin: 0.6rem;
+    right: 1rem;
+    top: 0.1rem;
+    cursor: pointer;
+    transition: all 50ms ease-in-out;
+}
+
+#hm:hover {
+    background-color: rgba(233, 230, 230, 0.363);
+    color: black;
+}
+#hw {
+    font-size: 1.9rem;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 0.8rem;
+    background-color: white;
+    position: absolute;
+    padding: 0.3rem;
+    margin: 0.6rem;
+    right: 10.3rem;
+    top: 0.5rem;
+    cursor: pointer;
+    transition: all 50ms ease-in-out;
+}
+
+#hw:hover {
+    background-color: rgba(233, 230, 230, 0.363);
+    color: black;
+}
+
+
+
+
+h1{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+span{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
