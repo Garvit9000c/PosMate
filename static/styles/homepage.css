@@ -1,4 +1,5 @@
 * {
+    box-sizing: border-box;
     font-family: 'Ubuntu';
 }
 
@@ -7,21 +8,30 @@
     padding: 0px;
 }
 
-.navbar {
+header {
+    padding: 0.7rem 1% 3px;
     display: flex;
-    flex-direction: row;
-    margin-bottom: 0.4rem;
+    flex: 2 0 0 0;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: -10px;
+    z-index: 5;
+    background-color: white;
+    margin-bottom: .5rem;
+    border-bottom: 2px solid rgba(56, 55, 53, 0.692);
+    box-shadow:0 12px 12px 0 rgba(233, 230, 230, 0.363) ;
+
 }
 
 #logo {
     font-family: 'Audrey';
-    margin-left: 1.0rem;
-    margin-bottom: 0.4rem;
-    padding: 0.9rem;
-    width: 21rem;
-    height: 3rem;
+    margin-bottom: .5rem;
     font-size: 2rem;
+    line-height: 1.1;
     font-weight: bolder;
+    flex: 3;
+    margin-left: 0.8rem;
 }
 
 #hm {
@@ -29,11 +39,6 @@
     border: 1px solid rgb(255, 255, 255);
     border-radius: 0.8rem;
     background-color: white;
-    position: absolute;
-    padding: 0.3rem;
-    margin: 0.6rem;
-    right: 1rem;
-    top: 0.1rem;
     cursor: pointer;
     transition: all 50ms ease-in-out;
 }
@@ -47,11 +52,7 @@
     border: 1px solid rgb(255, 255, 255);
     border-radius: 0.8rem;
     background-color: white;
-    position: absolute;
-    padding: 0.3rem;
-    margin: 0.6rem;
     right: 10.3rem;
-    top: 0.25rem;
     cursor: pointer;
     transition: all 50ms ease-in-out;
 }
@@ -61,19 +62,26 @@
     color: black;
 }
 
-.login_page {
+
+.container {
     display: flex;
     flex-direction: row;
-    margin: 1rem;
-    padding: 1rem;
+    max-width: inherit;
+    row-gap: 2rem;
+    justify-content: space-around;
+    
+    margin:0;
+    margin-right: 0;
+    
 }
 
 .lpage {
     display: flex;
+    width: auto;
+    margin-top: 1rem;
+     align-self: flex-start;
     flex-direction: column;
-    position: absolute;
-    top: 9rem;
-    right: 7rem;
+    margin-left: auto;
     margin: 1rem;
     padding: 1rem;
     align-items: center;
@@ -84,6 +92,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-size: 2rem;
 }
 
 span {
@@ -99,84 +108,50 @@ span {
     align-items: center;
 }
 
-img {
-    flex: start;
-    top: 9rem;
-    width: 125rem;
-    height: 125rem;
-}
-
 #first {
+    
     opacity: 0;
+    margin-top: 2.5rem;
     font-size: 6rem;
     position: relative;
     display: block;
     animation: first 2s ease-out 0.5s forwards;
-}
+} 
 
 @keyframes first {
-    0% {
+    0% { 
         opacity: 0;
         bottom: 0rem;
-    }
-    20% {
-        opacity: 0;
-        /* bottom: 0px; */
-    }
-    40% {
-        opacity: 0.3;
-        /* bottom: 1.2px; */
-    }
-    60% {
-        opacity: 0.5;
-        /* bottom: 2.4px; */
-    }
-    80% {
-        opacity: 0.9;
-        /* bottom: 3px; */
-    }
-    100% {
-        opacity: 1;
+        }
+  
+    20% { 
+         opacity: 0;
+         
+        }
+  40%   { opacity: 0.3;
+          
+        }
+  60%   { opacity: 0.5;
+        
+        }
+  80%   { opacity: 0.9; 
+        
+        }
+  100%  { opacity: 1;
         bottom: 4rem;
-    }
+         }
 }
 
 #second {
     opacity: 0;
     position: relative;
-    margin: 3rem;
+    margin: 0rem;
     display: block;
-    animation: first 0.8s ease-out 2.2s forwards;
+    animation: first 0.8s ease-out 1.8s forwards; 
 }
 
-@keyframes first {
-    0% {
-        opacity: 0;
-        bottom: 0rem;
-    }
-    20% {
-        opacity: 0;
-        /* bottom: 0px; */
-    }
-    40% {
-        opacity: 0.3;
-        /* bottom: 1.2px; */
-    }
-    60% {
-        opacity: 0.5;
-        /* bottom: 2.4px; */
-    }
-    80% {
-        opacity: 0.9;
-        /* bottom: 3px; */
-    }
-    100% {
-        opacity: 1;
-        bottom: 4rem;
-    }
-}
 
-#loading {
+ #loading {
     display: none;
 }
 
@@ -291,13 +266,8 @@ input[type=text]:focus {
 
 input[type=text]:placeholder {
     color: #cccccc;
-}
+} 
 
-
-/* ANIMATIONS */
-
-
-/* Simple CSS3 Fade-in-down Animation */
 
 .fadeInDown {
     -webkit-animation-name: fadeInDown;
@@ -334,9 +304,6 @@ input[type=text]:placeholder {
     }
 }
 
-
-/* Simple CSS3 Fade-in Animation */
-
 @-webkit-keyframes fadeIn {
     from {
         opacity: 0;
@@ -364,7 +331,7 @@ input[type=text]:placeholder {
     }
 }
 
-.fadeIn {
+ .fadeIn {
     opacity: 0;
     -webkit-animation: fadeIn ease-in 1;
     -moz-animation: fadeIn ease-in 1;
@@ -398,13 +365,12 @@ input[type=text]:placeholder {
 .fadeIn.fourth {
     -webkit-animation-delay: 1s;
     -moz-animation-delay: 1s;
-    animation-delay: 1s;
-}
+    animation-delay: 1s; 
+} 
 
 
-/* Simple CSS3 Fade-in Animation */
 
-.underlineHover:after {
+ .underlineHover:after {
     display: block;
     left: 0;
     bottom: -10px;
@@ -421,24 +387,22 @@ input[type=text]:placeholder {
 
 .underlineHover:hover:after {
     width: 100%;
-}
+} 
 
 
-/* OTHERS */
-
-*:focus {
+ *:focus {
     outline: none;
 }
 
 #icon {
     font-size: 2.3rem;
     width: 60%;
-}
+    font-family: 'Limelight';
+} 
 
-@media only screen and (max-width: 2735px) {
+ @media only screen and (max-width: 2735px) {
     img {
-        position: absolute;
-        top: 8rem;
+        
         width: 90rem;
         height: 90rem;
     }
@@ -446,8 +410,7 @@ input[type=text]:placeholder {
 
 @media only screen and (max-width: 2277px) {
     img {
-        position: absolute;
-        top: 8rem;
+        
         width: 60rem;
         height: 60rem;
     }
@@ -455,8 +418,7 @@ input[type=text]:placeholder {
 
 @media only screen and (max-width: 1880px) {
     img {
-        position: absolute;
-        top: 8rem;
+        
         width: 48rem;
         height: 48rem;
     }
@@ -464,16 +426,12 @@ input[type=text]:placeholder {
 
 @media only screen and (max-width: 1700px) {
     img {
-        top: 8rem;
+        
         width: 48rem;
         height: 48rem;
     }
-    .lpage {
-        right: 0rem;
-    }
-    span {
-        font-size: 4rem;
-    }
+   
+    
     .t {
         font-size: 1.5rem;
     }
@@ -481,17 +439,11 @@ input[type=text]:placeholder {
 
 @media only screen and (max-width: 1462px) {
     img {
-        top: 8rem;
+        
         width: 40rem;
         height: 40rem;
     }
-    .lpage {
-        width: 45rem;
-        right: 0rem;
-    }
-    span {
-        font-size: 4rem;
-    }
+   
     .t {
         font-size: 1.5rem;
     }
@@ -501,24 +453,22 @@ input[type=text]:placeholder {
 }
 
 @media only screen and (max-width: 1279px) {
-    #navbar {
-        height: 2rem;
-    }
+    
     #logo {
         font-size: 1.4rem;
     }
     #hm {
-        font-size: 1.1rem;
+        font-size: 1.5rem;
+    }
+    #hw{
+        font-size: 1.5rem;
     }
     img {
-        top: 8rem;
+       
         width: 30rem;
         height: 30rem;
     }
-    .lpage {
-        width: 35rem;
-        right: 0rem;
-    }
+    
     span {
         font-size: 2.5rem;
     }
@@ -527,40 +477,79 @@ input[type=text]:placeholder {
     }
     #first {
         font-size: 2.5rem;
+    }
+}
+@media only screen and (max-width: 979px) {
+    
+    #logo {
+        font-size: 1.4rem;
+    }
+    #hm {
+        font-size: 1.5rem;
+    }
+    #hw{
+        font-size: 1.5rem;
+    }
+    img {
+       
+        width: 24rem;
+        height: 24rem;
+    }
+    
+    span {
+        font-size: 2.5rem;
+    }
+    .t {
+        font-size: 1.1rem;
+    }
+    #first {
+        font-size: 2.5rem;
+    }
+    .wrapper{
+        margin-top: -44px;
     }
 }
 
 @media only screen and (max-width: 600px) {
-    #navbar {
-        height: 0.6rem;
+    .container{
+        flex-direction: column;
+        align-items: center;
     }
-    #logo {
+    #logo{
+        font-size: 1.2rem;
+    }
+    #hm{
         font-size: 1rem;
     }
-    #hm {
-        font-size: 0.8rem;
+    #hw{
+        font-size: 1rem;
+        right: 5rem;
     }
     img {
         display: none;
     }
-    .login_page {
-        justify-content: center;
-        margin: -8rem;
-    }
+    
     .lpage {
         justify-content: center;
+        align-self: center;
         width: 20rem;
         margin: 0;
         padding: 0;
-        position: relative;
+        
     }
-    span {
-        font-size: 1.5rem;
-    }
+    
     .t {
-        font-size: 0.8rem;
+        font-size: 0.9rem;
     }
     #first {
+        margin-top: 4rem;
+
         font-size: 1.8rem;
     }
-}
+    #icon{
+        font-size: 1rem;
+    }
+    #login{
+        font-size: 0.8rem;
+    }
+} 

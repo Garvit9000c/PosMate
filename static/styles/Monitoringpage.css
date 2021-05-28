@@ -1,4 +1,5 @@
 * {
+    box-sizing: border-box;
     font-family: 'Ubuntu';
 }
 
@@ -7,21 +8,29 @@
     padding: 0px;
 }
 
-.navbar {
+header {
+    padding: 0.7rem 1% 3px;
     display: flex;
-    flex-direction: row;
-    margin-bottom: 0.4rem;
+    flex: 2 0 0 0;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: -10px;
+    z-index: 5;
+    margin-bottom: .5rem;
+    border-bottom: 2px solid rgba(56, 55, 53, 0.692);
+    box-shadow:0 12px 12px 0 rgba(233, 230, 230, 0.363) ;
+
 }
 
 #logo {
     font-family: 'Audrey';
-    margin-left: 1.0rem;
-    margin-bottom: 0.4rem;
-    padding: 0.9rem;
-    width: 21rem;
-    height: 3rem;
+    margin-bottom: .5rem;
     font-size: 2rem;
+    line-height: 1.1;
     font-weight: bolder;
+    flex: 3;
+    margin-left: 0.8rem;
 }
 
 #hm {
@@ -29,11 +38,6 @@
     border: 1px solid rgb(255, 255, 255);
     border-radius: 0.8rem;
     background-color: white;
-    position: absolute;
-    padding: 0.3rem;
-    margin: 0.6rem;
-    right: 1rem;
-    top: 0.1rem;
     cursor: pointer;
     transition: all 50ms ease-in-out;
 }
@@ -47,11 +51,7 @@
     border: 1px solid rgb(255, 255, 255);
     border-radius: 0.8rem;
     background-color: white;
-    position: absolute;
-    padding: 0.3rem;
-    margin: 0.6rem;
     right: 10.3rem;
-    top: 0.5rem;
     cursor: pointer;
     transition: all 50ms ease-in-out;
 }
@@ -61,7 +61,19 @@
     color: black;
 }
 
+.message{
+    display: flex;
+    flex-direction: column;
+    padding: 0 1% 3px;
+    margin-top: 0.7rem;
 
+    
+}
+.center-inner{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
 
 
 h1{
@@ -69,5 +81,62 @@ h1{
 
 }
 span{
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin: 1rem;
+    font-size: 6rem;
+    
 }
+
+
+
+.bubbles {
+    display: inline-block;
+    font-family: arial;
+    position: relative;
+    }
+    
+    .bubbles h1 {
+    position: relative;
+    font-size: 5rem;
+    margin: 1em 0 0;
+    font-family: 'Luckiest Guy', cursive;
+    color: rgb(3, 3, 3);
+    z-index: 2;
+    }
+    
+    .individual-bubble {
+    position: absolute;
+    border-radius: 100%;
+    bottom: 10px;
+    background-color: rgb(26, 23, 23);
+    z-index: 1;
+    }
+
+
+    @media screen and (max-width: 1105px){
+     header {
+        padding-left: 4%;
+        padding-right: 4%;
+        
+    }}
+
+
+    @media screen and (max-width: 600px){
+        
+        #logo{
+            font-size: 1.2rem;
+        }
+        #hm{
+            font-size: 1rem;
+        }
+        #hw{
+            font-size: 1rem;
+            right: 5rem;
+        }
+        .message{
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+    
+    
+    }

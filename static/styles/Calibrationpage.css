@@ -1,64 +1,64 @@
 * {
-    font-family: 'Ubuntu';
+  box-sizing: border-box;
+  font-family: 'Ubuntu';
 }
 
 :root {
-    margin: 0px;
-    padding: 0px;
+  margin: 0px;
+  padding: 0px;
 }
 
-.navbar {
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 0.4rem;
+header {
+  padding: 0.7rem 1% 3px;
+  display: flex;
+  flex: 2 0 0 0;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: -10px;
+  z-index: 5;
+  margin-bottom: .5rem;
+  border-bottom: 2px solid rgba(56, 55, 53, 0.692);
+  box-shadow:0 12px 12px 0 rgba(233, 230, 230, 0.363) ;
+
 }
 
 #logo {
-    font-family: 'Audrey';
-    margin-left: 1.0rem;
-    margin-bottom: 0.4rem;
-    padding: 0.9rem;
-    width: 21rem;
-    height: 3rem;
-    font-size: 2rem;
-    font-weight: bolder;
+  font-family: 'Audrey';
+  margin-bottom: .5rem;
+  font-size: 2rem;
+  line-height: 1.1;
+  font-weight: bolder;
+  flex: 3;
+  margin-left: 0.8rem;
 }
 
 #hm {
-    font-size: 1.9rem;
-    border: 1px solid rgb(255, 255, 255);
-    border-radius: 0.8rem;
-    background-color: white;
-    position: absolute;
-    padding: 0.3rem;
-    margin: 0.6rem;
-    right: 1rem;
-    top: 0.1rem;
-    cursor: pointer;
-    transition: all 50ms ease-in-out;
+  font-size: 1.9rem;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 0.8rem;
+  background-color: white;
+  cursor: pointer;
+  transition: all 50ms ease-in-out;
 }
 
 #hm:hover {
-    background-color: rgba(233, 230, 230, 0.363);
-    color: black;
+  background-color: rgba(233, 230, 230, 0.363);
+  color: black;
 }
 #hw {
-    font-size: 1.9rem;
-    border: 1px solid rgb(255, 255, 255);
-    border-radius: 0.8rem;
-    background-color: white;
-    position: absolute;
-    padding: 0.3rem;
-    margin: 0.6rem;
-    right: 10.3rem;
-    top: 0.5rem;
-    cursor: pointer;
-    transition: all 50ms ease-in-out;
+  font-size: 1.9rem;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 0.8rem;
+  background-color: white;
+  right: 10.3rem;
+  cursor: pointer;
+  transition: all 50ms ease-in-out;
 }
 
 #hw:hover {
-    background-color: rgba(233, 230, 230, 0.363);
-    color: black;
+  background-color: rgba(233, 230, 230, 0.363);
+  color: black;
 }
 
 #results {

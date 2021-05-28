@@ -8,12 +8,34 @@
 {% block Monitoring_head %}
 
 <body>
-	<div class="container">
+	
 		<div class="message">
-			<h1>Monitoring started</h1>
-			<span>You can minimize the tab </span>
+			<div class="center-outer">
+				<div class="center-inner">
+				
+				<div class="bubbles">
+				<h1>Monitoring Started</h1>
+				
+			</div>
+			<script src="static/scripts/monitoringpage.js"></script>
+			
+			<div id="my_camera"></div>
+			<span>You can minimize the tab now </span>
 
 		</div>
+	    <script type="text/javascript" src="static/scripts/webcam.js"></script>
+		<script language="JavaScript">
+			Webcam.set({
+				width: 320,
+				height: 240,
+				dest_width: 640,
+				dest_height: 480,
+				image_format: 'jpeg',
+				jpeg_quality: 90,
+				flip_horiz: true
+			});
+			Webcam.attach('#my_camera');
+			</script>
 		
 
 		<script language="JavaScript">
@@ -46,7 +68,7 @@
 				});
 			}
 		</script>
-	</div>
+	
 </body>
 
 {% endblock Monitoring_head %}

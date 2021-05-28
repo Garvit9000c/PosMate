@@ -4,19 +4,19 @@
 <link rel="stylesheet" href="static/styles/homepage.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 {% endblock head %}
+<body>
 {% block home_body %}
 
-<body>
-    <div class="login_page">
-        <img src={{url_for('static', filename='p.jpg' )}} alt="#">
-        
+    <div class="container">
+        <div>
+            <img src={{url_for('static', filename='p.jpg' )}} alt="#">
+        </div>
         <div class="lpage">
-            <div class="t" style="font-size: xx-large;">Welcome to </div>
-            <br>
-            <br>
-            <span id="first">Posture Mate</span>
-            <script type="text/javascript" src="static/scripts/homepage.js"></script>
-
+            <div  class ="t">
+                Welcome to 
+            </div>
+            <div><span id="first">Posture Mate</span></div>
+            
             <div id="second">
                 <span class="t">
                     <div>Have a buddy who guides you for the best!</div>
@@ -24,38 +24,36 @@
                         So, what are you waiting for, let's get started!
                     </div>
                 </span>
+            </div>
+            <div class="wrapper fadeInDown">
+                <div id="formContent">
+                    <!-- Tabs Titles -->
 
-
-
-                <div class="wrapper fadeInDown">
-                    <div id="formContent">
-                        <!-- Tabs Titles -->
-
-                        <!-- Icon -->
-                        <div class="fadeIn first">
-                            <span id="icon"> LOGIN </span>
-                        </div>
-
-                        <!-- Login Form -->
-                        <form>
-                            <input type="text" id="login" class="fadeIn second" name="login"
-                                placeholder="Enter Your Name">
-
-                            <a href="/instructions"><input type="button" class="fadeIn fourth" value="Start"></a>
-                        </form>
-
+                    <!-- Icon -->
+                    <div class="fadeIn first">
+                        <span id="icon"> LOGIN </span>
                     </div>
-                </div>
 
-                <div id="loading">
-                    <div class=" d-flex align-items-center">
-                        <strong>Loading...</strong>
-                        <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
-                    </div>
-                </div>
+                    <!-- Login Form -->
+                    <form>
+                        <input type="text" id="login" class="fadeIn second" name="login"
+                            placeholder="Enter Your Name">
 
+                        <a href="/instructions"><input type="button" class="fadeIn fourth" value="Start"></a>
+                    </form>
+
+                </div>
+            </div>
+
+            <div id="loading">
+                <div class=" d-flex align-items-center">
+                    <strong>Loading...</strong>
+                    <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
+                </div>
             </div>
         </div>
+
     </div>
+   
+    {% endblock home_body %}
 </body>
-{% endblock home_body %}
