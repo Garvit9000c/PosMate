@@ -3,6 +3,9 @@
 {% block head %}
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"
 	integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+         <script src="https://cdn.jsdelivr.net/npm/p5@1.3.1/lib/p5.min.js"></script>
+ 	 <script src="https://cdn.jsdelivr.net/npm/p5@1.3.1/lib/addons/p5.sound.min.js"></script>
+ 	 <script src="https://unpkg.com/ml5@0.4.2/dist/ml5.min.js"></script>
 <link rel="stylesheet" href="static/styles/Monitoringpage.css">
 {% endblock head %}
 {% block Monitoring_head %}
@@ -33,20 +36,6 @@
 		</div>
 	    <script type="text/javascript" src="static/scripts/webcam.js"></script>
 		<script language="JavaScript">
-			Webcam.set({
-				width: 320,
-				height: 240,
-				dest_width: 640,
-				dest_height: 480,
-				image_format: 'jpeg',
-				jpeg_quality: 90,
-				flip_horiz: true
-			});
-			Webcam.attach('#my_camera');
-			</script>
-		
-
-		<script language="JavaScript">
 			console.log(Notification.permission);
 			if (Notification.permission !== "denied") {
 				Notification.requestPermission();
@@ -56,25 +45,70 @@
 				const notification = new Notification("PosBuddy", { body: text });
 			}
 
-			window.setInterval(function () {
-				take_snapshot()
-			}, 5000);
-			function take_snapshot() {
-				Webcam.snap(function (data_uri) {
-					$.ajax({
-						type: "GET",
-						data: "myimage=" + encodeURIComponent(data_uri),
-						url: "/image_info",
-						contentType: false,
-						processData: false,
-						success: function (jsonresult) {
-							if (jsonresult.state == 1) {
-								showNotification(jsonresult.msg)
-							}
-						}
-					});
-				});
-			}
+let video;
+let poseNet;
+let pose;
+let skeleton;
+let data;
+let options = {
+ detectionType: 'single',
+}
+
+function setup() {
+  createCanvas(320, 240);
+  video = createCapture(VIDEO);
+  video.hide();
+  poseNet = ml5.poseNet(video, modelLoaded,options);
+  poseNet.on('pose', gotPoses);
+}
+
+function gotPoses(poses) {
+  //console.log(poses);
+  if (poses.length > 0) {
+    pose = poses[0].pose;
+    skeleton = poses[0].skeleton;
+    data=JSON.stringify(pose)
+    console.log(pose);
+    $.ajax({
+  	type : 'GET',
+  	url : "/image_info",
+  	data : {'data':data},
+  	success: function (jsonresult) {
+                if (jsonresult.state == 1) {
+			showNotification(jsonresult.msg)
+                }
+            }
+	});
+  }
+}
+
+function modelLoaded() {
+  console.log('poseNet ready');
+}
+
+function draw() {
+  image(video, 0, 0,320,240);
+  filter(INVERT);
+  if (pose) {
+    let eyeR = pose.rightEye;
+    let eyeL = pose.leftEye;
+    let d = dist(eyeR.x, eyeR.y, eyeL.x, eyeL.y);
+    for (let i = 0; i < pose.keypoints.length; i++) {
+      let x = pose.keypoints[i].position.x;
+      let y = pose.keypoints[i].position.y;
+      fill(0, 255, 0);
+      ellipse(x/2, y/2, 16, 16);
+    }
+
+    for (let i = 0; i < skeleton.length; i++) {
+      let a = skeleton[i][0];
+      let b = skeleton[i][1];
+      strokeWeight(2);
+      stroke(255);
+      line(a.position.x/2, a.position.y/2, b.position.x/2, b.position.y/2);
+    }
+  }
+}
 		</script>
 	
 </body>

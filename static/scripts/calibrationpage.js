@@ -1,69 +1,66 @@
-let camera=document.getElementById('my_camera');
+let video;
+let poseNet;
+let pose;
+let skeleton;
+let data;
+let options = {
+ detectionType: 'single',
+}
 
-if (window.matchMedia("(max-width: 885px)").matches) {
+function setup() {
+  createCanvas(320, 240);
+  video = createCapture(VIDEO);
+  video.hide();
+  poseNet = ml5.poseNet(video, modelLoaded,options);
+  poseNet.on('pose', gotPoses);
+}
 
-    Webcam.set({
-        width: 320,
-        height: 240,
-        dest_width: 640,
-        dest_height: 480,
-        image_format: 'jpeg',
-        jpeg_quality: 90,
-        flip_horiz: true
-    });
-    Webcam.attach(camera);
-    window.setInterval(function () {
-        take_snapshot()
-    }, 5000);
-    function take_snapshot() {
-        Webcam.snap(function (data_uri) {
-            $.ajax({
-                type: "GET",
-                data: "myimage=" + encodeURIComponent(data_uri),
-                url: "/image_info",
-                contentType: false,
-                processData: false,
-                success: function (jsonresult) {
-                    if (jsonresult.x==1){
-                        location.replace('/Monitoring')
-                    }
-                }
-            });
-        });
-    }
-    
-  } 
-  
-else {
-    Webcam.set({
-    width: 640,
-    height: 480,
-    dest_width: 640,
-    dest_height: 480,
-    image_format: 'jpeg',
-    jpeg_quality: 90,
-    flip_horiz: true
-});
-Webcam.attach(camera);
-window.setInterval(function () {
-    take_snapshot()
-}, 5000);
-function take_snapshot() {
-    Webcam.snap(function (data_uri) {
-        $.ajax({
-            type: "GET",
-            data: "myimage=" + encodeURIComponent(data_uri),
-            url: "/image_info",
-            contentType: false,
-            processData: false,
-            success: function (jsonresult) {
+function gotPoses(poses) {
+  //console.log(poses);
+  if (poses.length > 0) {
+    pose = poses[0].pose;
+    skeleton = poses[0].skeleton;
+    data=JSON.stringify(pose)
+    console.log(pose);
+    $.ajax({
+  	type : 'GET',
+  	url : "/image_info",
+  	data : {'data':data},
+  	success: function (jsonresult) {
                 if (jsonresult.x==1){
                     location.replace('/Monitoring')
                 }
             }
-        });
-    });
+	});
+  }
 }
+
+function modelLoaded() {
+  console.log('poseNet ready');
+}
+
+function draw() {
+  image(video, 0, 0,320,240);
+  filter(INVERT);
+  if (pose) {
+    let eyeR = pose.rightEye;
+    let eyeL = pose.leftEye;
+    let d = dist(eyeR.x, eyeR.y, eyeL.x, eyeL.y);
+    for (let i = 0; i < pose.keypoints.length; i++) {
+      let x = pose.keypoints[i].position.x;
+      let y = pose.keypoints[i].position.y;
+      fill(0, 255, 0);
+      ellipse(x/2, y/2, 16, 16);
+    }
+
+    for (let i = 0; i < skeleton.length; i++) {
+      let a = skeleton[i][0];
+      let b = skeleton[i][1];
+      strokeWeight(2);
+      stroke(255);
+      line(a.position.x/2, a.position.y/2, b.position.x/2, b.position.y/2);
+    }
+  }
 }
 
 
