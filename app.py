@@ -61,10 +61,10 @@ def image_info():
           y=y/480
           keypoints.append([x,y])
       if data['flag']:
-          if len(data['train'])<30:
+          if len(data['train'])<15:
               data['train'].append(keypoints)
               return jsonify(x=0)
-          if len(data['train'])==30:
+          if len(data['train'])==15:
               data['train']=trainCoordinates_process(data['train'])
               return jsonify(x=1)  
       flag,data['LSP']=btfunc(data['LSP'])
