@@ -20,96 +20,22 @@
 				<h1>Monitoring Started</h1>
 				
 			</div>
-			<script src="static/scripts/monitoringpage.js"></script>
 			
-			<div id="my_camera"></div>
+			<div id="myCanvas"></div>
 			<div class="alert alert-success" role="alert">
 				You can minimize the tab now
-			  </div>
+      </div>
 			<div class="box" >
-				<span>Going to change your position?</span>
+        <span>Going to change your position?</span>
 				<span>Then, press the Re-Calibrate button</span>
 				<div>
-			    	<a href="/instructions"><button id="button" type="button"> Re-Calibrate</button></a>
-		    	</div>
+          <a href="/instructions"><button id="button" type="button"> Re-Calibrate</button></a>
+        </div>
 			</div>
 		</div>
-	    <script type="text/javascript" src="static/scripts/webcam.js"></script>
-		<script language="JavaScript">
-			console.log(Notification.permission);
-			if (Notification.permission !== "denied") {
-				Notification.requestPermission();
-			}
-
-			function showNotification(text) {
-				const notification = new Notification("PosBuddy", { body: text });
-			}
-
-let video;
-let poseNet;
-let pose;
-let skeleton;
-let data;
-let options = {
- detectionType: 'single',
-}
-
-function setup() {
-  createCanvas(320, 240);
-  video = createCapture(VIDEO);
-  video.hide();
-  poseNet = ml5.poseNet(video, modelLoaded,options);
-  poseNet.on('pose', gotPoses);
-}
-
-function gotPoses(poses) {
-  //console.log(poses);
-  if (poses.length > 0) {
-    pose = poses[0].pose;
-    skeleton = poses[0].skeleton;
-    data=JSON.stringify(pose)
-    console.log(pose);
-    $.ajax({
-  	type : 'GET',
-  	url : "/image_info",
-  	data : {'data':data},
-  	success: function (jsonresult) {
-                if (jsonresult.state == 1) {
-			showNotification(jsonresult.msg)
-                }
-            }
-	});
-  }
-}
-
-function modelLoaded() {
-  console.log('poseNet ready');
-}
-
-function draw() {
-  image(video, 0, 0,320,240);
-  filter(INVERT);
-  if (pose) {
-    let eyeR = pose.rightEye;
-    let eyeL = pose.leftEye;
-    let d = dist(eyeR.x, eyeR.y, eyeL.x, eyeL.y);
-    for (let i = 0; i < pose.keypoints.length; i++) {
-      let x = pose.keypoints[i].position.x;
-      let y = pose.keypoints[i].position.y;
-      fill(0, 255, 0);
-      ellipse(x/2, y/2, 16, 16);
-    }
-
-    for (let i = 0; i < skeleton.length; i++) {
-      let a = skeleton[i][0];
-      let b = skeleton[i][1];
-      strokeWeight(2);
-      stroke(255);
-      line(a.position.x/2, a.position.y/2, b.position.x/2, b.position.y/2);
-    }
-  }
-}
-		</script>
+    <script type="text/javascript" src="static/scripts/webcam.js"></script>
+    <script src="static/scripts/monitoringpage.js"></script>
+		
 	
 </body>
 

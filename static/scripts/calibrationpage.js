@@ -7,8 +7,11 @@ let options = {
  detectionType: 'single',
 }
 
+
 function setup() {
-  createCanvas(320, 240);
+
+  var canvas=createCanvas(320, 240);
+  canvas.parent('myCanvas');
   video = createCapture(VIDEO);
   video.hide();
   poseNet = ml5.poseNet(video, modelLoaded,options);
@@ -34,14 +37,10 @@ function gotPoses(poses) {
 	});
   }
 }
-
-function modelLoaded() {
-  console.log('poseNet ready');
-}
-
 function draw() {
+
   image(video, 0, 0,320,240);
-  filter(INVERT);
+//   filter(INVERT);
   if (pose) {
     let eyeR = pose.rightEye;
     let eyeL = pose.leftEye;
@@ -63,11 +62,11 @@ function draw() {
   }
 }
 
+function modelLoaded() {
+  console.log('poseNet ready');
+}
 
-function rebtn(){
-    let calbtn=document.getElementById("button");
-    calbtn.innerText="Re-Calibrate";
-};
+
 
     const FULL_DASH_ARRAY = 283;
     const WARNING_THRESHOLD = 10;
@@ -87,7 +86,7 @@ function rebtn(){
         }
     };
 
-    const TIME_LIMIT = 60;
+    const TIME_LIMIT = 20;
     let timePassed = 0;
     let timeLeft = TIME_LIMIT;
     let timerInterval = null;

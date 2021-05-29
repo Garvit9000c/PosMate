@@ -16,6 +16,7 @@ header {
   align-items: center;
   position: sticky;
   top: -10px;
+  background-color: white;
   z-index: 5;
   margin-bottom: .5rem;
   border-bottom: 2px solid rgba(56, 55, 53, 0.692);
