@@ -54,7 +54,7 @@ def image_info():
       myfile= request.args.get('data')
       keypoints=[]
       Dict=eval(myfile)
-      for i in Dict['keypoints']:
+      for i in Dict:
           x=i['position']['x']
           x=x/640
           y=i['position']['y']
