@@ -79,7 +79,7 @@ def image_info():
       if flag=='start':
           state,msg=1,POSE_LABEL[4] 
       if flag==True:
-          state,msg=1,POSE_LABEL[5]   
+          state,msg=1,POSE_LABEL[5] 
       return jsonify(state=state,msg=msg)
 
 
