@@ -42,8 +42,8 @@ def trainCoordinates_process(train):
         KEYPOINT_TRAINED_COORDINATES_RANGE[key]['y']=[min(y)-(min(y)*0.05),max(y)+(max(y)*0.05)]
 
     dist_between_eyes=(((KEYPOINT_TRAINED_COORDINATES_RANGE[1]['x'][1]-KEYPOINT_TRAINED_COORDINATES_RANGE[2]['x'][1])**2)+((KEYPOINT_TRAINED_COORDINATES_RANGE[1]['y'][1]-KEYPOINT_TRAINED_COORDINATES_RANGE[2]['y'][1])**2))**0.5
-    KEYPOINT_TRAINED_COORDINATES_RANGE['dist_between_eyes'].append(dist_between_eyes-(dist_between_eyes*0.25))
-    KEYPOINT_TRAINED_COORDINATES_RANGE['dist_between_eyes'].append(dist_between_eyes+(dist_between_eyes*0.25))
+    KEYPOINT_TRAINED_COORDINATES_RANGE['dist_between_eyes'].append(dist_between_eyes-(dist_between_eyes*0.15))
+    KEYPOINT_TRAINED_COORDINATES_RANGE['dist_between_eyes'].append(dist_between_eyes+(dist_between_eyes*0.15))
 
     return KEYPOINT_TRAINED_COORDINATES_RANGE
 
