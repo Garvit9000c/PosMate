@@ -54,17 +54,17 @@ def image_info():
       myfile= request.args.get('data')
       keypoints=[]
       Dict=eval(myfile)
-      for i in Dict['keypoints']:
+      for i in Dict:
           x=i['position']['x']
           x=x/640
           y=i['position']['y']
           y=y/480
           keypoints.append([x,y])
       if data['flag']:
-          if len(data['train'])<30:
+          if len(data['train'])<15:
               data['train'].append(keypoints)
               return jsonify(x=0)
-          if len(data['train'])==30:
+          if len(data['train'])==15:
               data['train']=trainCoordinates_process(data['train'])
               return jsonify(x=1)  
       flag,data['LSP']=btfunc(data['LSP'])

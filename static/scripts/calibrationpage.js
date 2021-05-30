@@ -23,7 +23,7 @@ function gotPoses(poses) {
   if (poses.length > 0) {
     pose = poses[0].pose;
     skeleton = poses[0].skeleton;
-    data=JSON.stringify(pose)
+    data=JSON.stringify(pose.keypoints)
     console.log(pose);
     $.ajax({
   	type : 'GET',
