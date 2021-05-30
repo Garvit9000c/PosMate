@@ -73,8 +73,8 @@ def btfunc(start_time):
     if start_time==None:
         return False,current_time
     else:
-        if (current_time-start_time>1800):
-            return True,(current_time+300)
+        if (current_time-start_time>600):
+            return True,(current_time+60)
         elif (current_time-start_time<-10):
             return 'break',start_time
         elif (current_time-start_time<0):
