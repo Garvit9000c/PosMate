@@ -1,12 +1,17 @@
 var video = document.getElementById('video');
 var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
+let detect;
 
-
-async function Pose() {
+async function load() {
       const detector = await poseDetection.createDetector(poseDetection.SupportedModels.MoveNet);
       console.log('Detector Loaded');
-      const poses = await detector.estimatePoses(video);
+      detect=detector;
+}  
+load();    
+
+async function Pose() {
+      const poses = await detect.estimatePoses(video);
       console.log(poses[0].keypoints);
       context.drawImage(video, 0, 0, 640, 480);
       context.fillStyle = "#D2691E";
