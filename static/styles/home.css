@@ -1,12 +1,14 @@
 * {
     box-sizing: border-box;
-    font-family: 'Ubuntu';
+    font-family: 'Noto Sans JP', sans-serif;
 }
 
 :root {
+   
     margin: 0px;
     padding: 0px;
 }
+
 
 header {
     padding: 0.7rem 1% 3px;
@@ -17,9 +19,9 @@ header {
     position: sticky;
     top: -10px;
     z-index: 5;
-    background-color: white;
-    margin-bottom: .5rem;
-    border-bottom: 2px solid rgba(56, 55, 53, 0.692);
+    background-color: rgba(219, 217, 217, 0.438);
+    
+    border-bottom: 2px solid rgba(56, 55, 53, 0.377);
     box-shadow:0 12px 12px 0 rgba(233, 230, 230, 0.363) ;
 
 }
@@ -36,9 +38,9 @@ header {
 
 #hm {
     font-size: 1.9rem;
-    border: 1px solid rgb(255, 255, 255);
+    border: 1px solid rgba(255, 255, 255, 0);
     border-radius: 0.8rem;
-    background-color: white;
+    /* background-color: white; */
     cursor: pointer;
     transition: all 50ms ease-in-out;
 }
@@ -49,9 +51,9 @@ header {
 }
 #hw {
     font-size: 1.9rem;
-    border: 1px solid rgb(255, 255, 255);
+    border: 1px solid rgba(255, 255, 255, 0);
     border-radius: 0.8rem;
-    background-color: white;
+    /* background-color: white; */
     right: 10.3rem;
     cursor: pointer;
     transition: all 50ms ease-in-out;
@@ -64,6 +66,13 @@ header {
 
 
 .container {
+    background-image: url("/static/p2.jpg");
+    background-color: #cccccc;
+    height: 50rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
     display: flex;
     flex-direction: row;
     max-width: inherit;
@@ -71,7 +80,7 @@ header {
     justify-content: space-around;
     
     margin:0;
-    margin-right: 0;
+    
     
 }
 
@@ -397,7 +406,7 @@ input[type=text]:placeholder {
 #icon {
     font-size: 2.3rem;
     width: 60%;
-    font-family: 'Limelight';
+    font-weight: 700;
 } 
 
  @media only screen and (max-width: 2735px) {

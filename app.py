@@ -1,5 +1,4 @@
 from flask import Flask, render_template,jsonify,request,redirect,url_for
-from Logistic import *
 import time
 app = Flask(__name__)
 
@@ -16,38 +15,21 @@ POSE_LABEL={
 }
 
 @app.route('/',methods=['GET','POST'])
-def login():
+def home():
     global data
     if request.method=='POST':
        data['name'] = request.form.get('login') 
-       return redirect(url_for('instructions'))
+       return redirect(url_for('work'))
     else:   
         return render_template('home.html')        
 
 
-@app.route('/instructions',methods=['GET','POST'])
-def instructions():
-    if request.method=='POST':
-        return redirect('/Calibration')
-    return render_template('instructions.html')
+@app.route('/work')
+def work():
+    return render_template('work.html')
 
 
 
-@app.route('/Calibration')
-def Calibration():
-    global data
-    data['flag']=True
-    data['train']=[]
-    return render_template('Calibration.html')
-
-@app.route('/Monitoring')
-def Monitoring():
-    global data
-    data['flag']=False
-    data['test']=[]
-    return render_template('Monitoring.html')
-
-           
 @app.route("/image_info",methods= ['GET'])
 def image_info():
       global data
@@ -90,4 +72,3 @@ def image_info():
     
 if __name__ == "__main__":
     app.run(debug=True)
-    
