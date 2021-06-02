@@ -51,12 +51,13 @@ def trainCoordinates_process(train):
 def Posture(trained_coordinates,keypoints):
     keypoints=keyCoordinates_process(keypoints)
     flag=True
+    m=0
     dist_between_eyes=(((keypoints[1]['x']-keypoints[2]['x'])**2)+((keypoints[1]['y']-keypoints[2]['y'])**2))**0.5
     print(dist_between_eyes)
     if dist_between_eyes<trained_coordinates['dist_between_eyes'][0]:
-        return 3
+        m=3
     elif dist_between_eyes>trained_coordinates['dist_between_eyes'][1]:
-        return 2
+        m=2
     else:
         for key in keypoints.keys():
             if keypoints[key]['x']<trained_coordinates[key]['x'][0] or keypoints[key]['x']>trained_coordinates[key]['x'][1] or keypoints[key]['y']<trained_coordinates[key]['y'][0] or keypoints[key]['y']>trained_coordinates[key]['y'][1]:
@@ -64,8 +65,8 @@ def Posture(trained_coordinates,keypoints):
             else:
                 flag=True
         if flag==False:
-            return 1
-    return 0
+            m=1
+    return m
 
 import time
 def btfunc(start_time):

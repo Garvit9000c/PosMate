@@ -1,10 +1,10 @@
 from flask import Flask, render_template,jsonify,request,redirect,url_for
 from Logistic import *
-
+import time
 app = Flask(__name__)
 
 global data
-data={ 'name':'Name', 'flag':False, 'train':[], 'test':[], 'LSP':None }
+data={ 'name':'Name', 'flag':False, 'train':[], 'test':[], 'LSP':None ,'time':time.time()}
 
 POSE_LABEL={
     0:'Correct',
@@ -73,7 +73,11 @@ def image_info():
       	if msg==0:
       	    state,msg=0,None
       	else:
-      	    state,msg=1,POSE_LABEL[msg]
+      	    if(time.time()-data['time'])<30:
+      	        state,msg=0,None
+      	    else:
+      	        state,msg=1,POSE_LABEL[msg]
+      	        data['time']=time.time()
       if flag=='break':
           state,msg=0,None
       if flag=='start':
