@@ -41,7 +41,10 @@ canvas {
   margin-left: auto;
   margin-right: auto;
   border: 2px solid #2a3236;
-  padding: 10px;
+  padding: 1px;
+  width: 65%;
+  height: auto;
+  margin-bottom: 0.5rem;
 }
 
 .center {
@@ -57,7 +60,7 @@ body {
  background-repeat: no-repeat;
 }
 .container{
-  margin-top: 5.5rem;
+  margin-top: 2.0rem;
 }
 
 .switch {

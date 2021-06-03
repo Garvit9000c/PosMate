@@ -16,6 +16,7 @@ var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 if (isMobile) {
   canvas.width=480;
   canvas.height=640;
+  canvas.style.width="90%"
 }
 
 async function Pose() {
