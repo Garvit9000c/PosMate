@@ -16,6 +16,8 @@ navigator.mediaDevices.getUserMedia({ video: true }).then(function success(strea
         let sys=track.getSettings();
         let width=sys.width;
         let height=sys.height;
+        console.log(width);
+        console.log(height);
         canvas.width=width;
 	canvas.height=height;   
 	video.width=width;
