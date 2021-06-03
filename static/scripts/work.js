@@ -2,18 +2,26 @@ var video = document.getElementById('video');
 var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
 let detect;
-var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-if (isMobile) {
-  canvas.width=480;
-  canvas.hight=640
-}
 
 async function load() {
       const detector = await poseDetection.createDetector(poseDetection.SupportedModels.MoveNet);
       console.log('Detector Loaded');
       detect=detector;
 }  
-load();    
+load(); 
+
+navigator.mediaDevices.getUserMedia({ video: true }).then(function success(stream) {
+    video.srcObject = stream;
+    stream.getTracks().forEach(function(track) {
+        let sys=track.getSettings();
+        let width=sys.width;
+        let height=sys.height;
+        canvas.width=width;
+	canvas.height=height;   
+	video.width=width;
+	video.height=height;
+    })
+});
 
 async function Pose() {
       const poses = await detect.estimatePoses(video);
