@@ -19,7 +19,8 @@ header {
     position: sticky;
     top: -10px;
     z-index: 5;
-    background-color: rgba(219, 217, 217, 0.438);
+    /* background-color: rgba(219, 217, 217, 0.438); */
+    background-image: linear-gradient(to bottom right, rgb(185 186 190), rgb(241 244 245));
     
     border-bottom: 2px solid rgba(56, 55, 53, 0.377);
     box-shadow:0 12px 12px 0 rgba(233, 230, 230, 0.363) ;
