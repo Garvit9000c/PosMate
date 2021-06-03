@@ -74,12 +74,14 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
 
 var myVar = setInterval(Pose, 100);
 let flag=true;
-document.getElementById("snap").addEventListener("click", function() {
+document.getElementById("button").addEventListener("click", function() {
 	if(flag){
 		clearInterval(myVar);
+		document.getElementById("text").innerHTML = "Resume";
 		flag=false;
 	}
 	else{
+		document.getElementById("text").innerHTML = "Pause";
 		myVar = setInterval(Pose, 100);
 		flag=true;
 	}

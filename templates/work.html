@@ -1,18 +1,26 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-core"></script>
-		<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-converter"></script>
-		<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl"></script>
-		<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/pose-detection"></script>
-		<title>Display Webcam Stream</title>
-		<link rel="stylesheet" href="static/styles/work.css"> 
-	</head>
-	<body>
-		<video id="video" autoplay></video>
-		<button id="snap">Pause</button>
-		<canvas id="canvas" width="640" height="480"></canvas>
-		<script src="static/scripts/work.js"></script>
-	</body>
-</html>
+{% extends 'base.html' %}
+{% block title %} Home {% endblock title %}
+{% block head %}
+	<meta charset="utf-8">
+	<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-core"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-converter"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/pose-detection"></script>
+	<title>Display Webcam Stream</title>
+	<link rel="stylesheet" href="static/styles/work.css"> 
+{% endblock head %}
+<body>
+{% block home_body %}
+	<video id="video" autoplay></video>
+	<canvas id="canvas" width="640" height="480"></canvas>
+	<div class="center">
+		<label class="switch">
+  			<input id="button" type="checkbox">
+  			<span class="slider round"></span>
+		</label>
+		<b id="text">Pause</b>
+	</div>
+	<script src="static/scripts/work.js"></script>
+{% endblock home_body %}
+</body>
+
