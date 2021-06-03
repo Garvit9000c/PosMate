@@ -9,18 +9,18 @@ async function load() {
       detect=detector;
 }  
 load(); 
-let constraint={ video: true };
+
+let constraint={video:{width: 640, height: 480}};
 var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 if (isMobile) {
-  constraint={video:{width: 480, height: 640}}
   canvas.width=480;
-  canvas.hight=640
+  canvas.height=640;
 }
 
 async function Pose() {
       const poses = await detect.estimatePoses(video);
       console.log(poses[0].keypoints);
-      context.drawImage(video, 0, 0, 640, 480);
+      context.drawImage(video, 0, 0, canvas.width,canvas.height);
       context.fillStyle = "#D2691E";
       context.strokeStyle = "#F0F8FF";
       context.beginPath();
