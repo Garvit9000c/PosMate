@@ -2,6 +2,11 @@ var video = document.getElementById('video');
 var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
 let detect;
+var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+if (isMobile) {
+  canvas.width=480;
+  canvas.hight=640
+}
 
 async function load() {
       const detector = await poseDetection.createDetector(poseDetection.SupportedModels.MoveNet);
