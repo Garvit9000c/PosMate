@@ -77,9 +77,15 @@ let flag=true;
 document.getElementById("snap").addEventListener("click", function() {
 	if(flag){
 		clearInterval(myVar);
+		canvas.style.display = "none";
+		video.style.display = "block";
+		document.getElementById("snap").innerHTML = "Resume";
 		flag=false;
 	}
 	else{
+		video.style.display = "none";
+		canvas.style.display = "block";
+		document.getElementById("snap").innerHTML = "Pause";
 		myVar = setInterval(Pose, 100);
 		flag=true;
 	}

@@ -83,10 +83,7 @@ header {
     max-width: inherit;
     row-gap: 2rem;
     justify-content: space-around;
-    
-    margin:0;
-    
-    
+    margin:0;   
 }
 
 .lpage {
