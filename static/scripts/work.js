@@ -9,21 +9,13 @@ async function load() {
       detect=detector;
 }  
 load(); 
-
-navigator.mediaDevices.getUserMedia({ video: true }).then(function success(stream) {
-    video.srcObject = stream;
-    stream.getTracks().forEach(function(track) {
-        let sys=track.getSettings();
-        let width=sys.width;
-        let height=sys.height;
-        console.log(width);
-        console.log(height);
-        canvas.width=width;
-	canvas.height=height;   
-	video.width=width;
-	video.height=height;
-    })
-});
+let constraint={ video: true };
+var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+if (isMobile) {
+  constraint={video:{width: 480, height: 640}}
+  canvas.width=480;
+  canvas.hight=640
+}
 
 async function Pose() {
       const poses = await detect.estimatePoses(video);
@@ -74,7 +66,7 @@ async function Pose() {
 
 
 if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-    navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
+    navigator.mediaDevices.getUserMedia(constraint).then(function(stream) {
         video.srcObject = stream;
         video.play();
     });
