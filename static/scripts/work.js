@@ -8,12 +8,19 @@ async function load() {
       console.log('Detector Loaded');
       detect=detector;
 }  
-load();    
+load(); 
+
+let constraint={video:{width: 640, height: 480}};
+var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+if (isMobile) {
+  canvas.width=480;
+  canvas.height=640;
+}
 
 async function Pose() {
       const poses = await detect.estimatePoses(video);
       console.log(poses[0].keypoints);
-      context.drawImage(video, 0, 0, 640, 480);
+      context.drawImage(video, 0, 0, canvas.width,canvas.height);
       context.fillStyle = "#D2691E";
       context.strokeStyle = "#F0F8FF";
       context.beginPath();
@@ -59,14 +66,23 @@ async function Pose() {
 
 
 if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-    navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
+    navigator.mediaDevices.getUserMedia(constraint).then(function(stream) {
         video.srcObject = stream;
         video.play();
     });
 }
 
+var myVar = setInterval(Pose, 100);
+let flag=true;
 document.getElementById("snap").addEventListener("click", function() {
-	Pose();
+	if(flag){
+		clearInterval(myVar);
+		flag=false;
+	}
+	else{
+		myVar = setInterval(Pose, 100);
+		flag=true;
+	}
 });
 
 
