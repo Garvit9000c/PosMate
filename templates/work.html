@@ -11,14 +11,16 @@
 {% endblock head %}
 <body>
 {% block home_body %}
-	<video id="video" autoplay></video>
-	<canvas id="canvas" width="640" height="480"></canvas>
+	<div class="container">
+		<video id="video" autoplay></video>
+		<canvas id="canvas" width="640" height="480"></canvas>
+	</div>
 	<div class="center">
 		<label class="switch">
   			<input id="button" type="checkbox">
   			<span class="slider round"></span>
 		</label>
-		<b id="text">Pause</b>
+		<b id="text">  Pause</b>
 	</div>
 	<script src="static/scripts/work.js"></script>
 {% endblock home_body %}

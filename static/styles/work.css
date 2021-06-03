@@ -1,3 +1,29 @@
+* {
+  box-sizing: border-box;
+  
+  font-family: 'Noto Sans JP';
+}
+
+:root {
+ 
+  margin: 0px;
+  padding: 0px;
+}
+
+  .main{
+    background-image: url("/static/p23.jpg");
+    /* background-image: linear-gradient(to bottom, #b6e2bc 0%, #ffffff 99%); */
+    background-color: #cccccc;
+    height: 50rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+#logo{
+  visibility: visible;
+}
+
 video {
   -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
@@ -14,7 +40,7 @@ canvas {
   display : block;
   margin-left: auto;
   margin-right: auto;
-  border: 3px solid green;
+  border: 2px solid #2a3236;
   padding: 10px;
 }
 
@@ -30,6 +56,9 @@ body {
  background-color: #ffffff;
  background-repeat: no-repeat;
 }
+.container{
+  margin-top: 5.5rem;
+}
 
 .switch {
   position: relative;
@@ -43,7 +72,10 @@ body {
   width: 0;
   height: 0;
 }
-
+#text{
+  margin: 1rem;
+  font-size: 2rem;
+}
 .slider {
   position: absolute;
   cursor: pointer;
@@ -90,3 +122,66 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+
+
+
+
+@media only screen and (max-width: 600px) {
+  .main{
+      background-size: cover;
+      background-image: url("/static/p4.jpg");
+  }
+  .container{
+    
+      flex-direction: column;
+      align-items: center;
+  }
+  #logo{
+      visibility: visible;
+      font-size: 1.2rem;
+      color: white;
+  }
+  #hm{
+      color: white;
+      font-size: 1rem;
+  }
+  #hw{
+      color: white;
+      font-size: 1rem;
+      right: 5rem;
+  }
+  img {
+
+      display: none;
+  }
+  
+  .lpage {
+      justify-content: center;
+      align-self: center;
+      width: 20rem;
+      margin: 0;
+      padding: 0;
+      
+  }
+  
+  .t {
+      color: white;
+      font-size: 0.9rem;
+  }
+  #first {
+      margin-top: 4rem;
+      color: white;
+      font-size: 1.8rem;
+  }
+  #icon{
+      font-size: 1rem;
+      color: rgb(3, 3, 3);
+  }
+  #login{
+      font-size: 0.8rem;
+      color: white;
+  }
+  #text{
+    color: white;
+  }
+} 

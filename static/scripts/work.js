@@ -10,12 +10,44 @@ async function load() {
 }  
 load(); 
 
-let constraint={video:{width: 640, height: 480}};
-var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-if (isMobile) {
-  canvas.width=480;
-  canvas.height=640;
+function resize(x) {
+  if (x.matches) { 
+    let constraint={video:{width: 320, height: 240}};
+    // var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    
+      canvas.width=320;
+      canvas.height=240;
+    
+    
+    if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+      navigator.mediaDevices.getUserMedia(constraint).then(function(stream) {
+          video.srcObject = stream;
+          video.play();
+      });
+    }
+    
+  } else {
+    let constraint={video:{width: 640, height: 480}};
+    var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    if (isMobile) {
+      canvas.width=480;
+      canvas.height=640;
+    }
+    
+    if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+      navigator.mediaDevices.getUserMedia(constraint).then(function(stream) {
+          video.srcObject = stream;
+          video.play();
+      });
+    }
+  }
 }
+
+var x = window.matchMedia("(max-width: 600px)")
+resize(x) 
+x.addListener(resize)
+
+
 
 async function Pose() {
       const poses = await detect.estimatePoses(video);
@@ -65,12 +97,7 @@ async function Pose() {
 }
 
 
-if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-    navigator.mediaDevices.getUserMedia(constraint).then(function(stream) {
-        video.srcObject = stream;
-        video.play();
-    });
-}
+
 
 var myVar = setInterval(Pose, 100);
 let flag=true;

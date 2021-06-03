@@ -534,6 +534,7 @@ input[type=text]:placeholder {
         background-image: url('/static/p3.jpg');
     }
     .container{
+        
         flex-direction: column;
         align-items: center;
     }
@@ -561,6 +562,9 @@ input[type=text]:placeholder {
         margin: 0;
         padding: 0;
         
+    }
+    #formContent{
+        background-color: #b8b3b3c4;
     }
     
     .t {
