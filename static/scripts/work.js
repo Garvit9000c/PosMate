@@ -66,6 +66,12 @@ async function Pose() {
 }
 
 
+if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+    navigator.mediaDevices.getUserMedia(constraint).then(function(stream) {
+        video.srcObject = stream;
+        video.play();
+    });
+}
 
 
 var myVar = setInterval(Pose, 100);
