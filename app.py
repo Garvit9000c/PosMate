@@ -14,7 +14,7 @@ POSE_LABEL={
     5:'Take a 5Min Break, Drink Water & Do Some Streching',
 }
 
-@app.route('/',methods=['GET','POST'])
+@app.route('/home',methods=['GET','POST'])
 def home():
     global data
     if request.method=='POST':
@@ -23,6 +23,9 @@ def home():
     else:   
         return render_template('home.html')        
 
+@app.route('/')
+def loading():
+    return render_template('loading.html')
 
 @app.route('/work')
 def work():
