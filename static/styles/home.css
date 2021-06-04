@@ -12,7 +12,6 @@
 
 .main{
     background-image: url("/static/p23.jpg");
-    /*background-image: linear-gradient(to bottom, #b6e2bc 0%, #ffffff 99%); */
     background-color: #cccccc;
     height: 50rem;
     background-position: center;
@@ -30,18 +29,12 @@ header {
     position: sticky;
     top: -10px;
     z-index: 5;
-    
-    /* background-color: rgba(219, 217, 217, 0.438); */
-    /* background-image: linear-gradient(to bottom right, rgb(185 186 190), rgb(241 244 245)); */
-    
-    /* border-bottom: 2px solid rgba(56, 55, 53, 0.377);
-    box-shadow:0 12px 12px 0 rgba(233, 230, 230, 0.363) ; */
-
 }
 
 #logo {
     font-family: 'Noto Sans JP';
     margin-bottom: .5rem;
+    visibility: hidden;
     color:#ffffff;
     font-size: 2rem;
     line-height: 1.1;
@@ -51,40 +44,40 @@ header {
 }
 
 #hm {
-    font-family:'Noto Sans JP';
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 1.9rem;
     color: rgb(0, 0, 0);
     border: 1px solid rgba(255, 255, 255, 0);
     border-radius: 0.8rem;
-    /* background-color: white; */
     cursor: pointer;
     transition: all 50ms ease-in-out;
 }
 
 #hm:hover {
-    background-color: rgba(233, 230, 230, 0.363);
-    color: white;
+    background-color: rgba(59, 59, 59, 0.103);
+    
+    
 }
 #hw {
-    font-family: 'Noto Sans JP';
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 1.9rem;
     color: rgb(0, 0, 0);
+    font-weight: 200;
     border: 1px solid rgba(255, 255, 255, 0);
-    border-radius: 0.8rem;
-    /* background-color: white; */
-    right: 10.3rem;
     cursor: pointer;
+    padding: 0.2rem;
+    border-radius: 0.8rem;
+    margin-right: 0.8rem;
     transition: all 50ms ease-in-out;
 }
 
 #hw:hover {
-    background-color: rgba(233, 230, 230, 0.363);
-    color: white;
+    background-color: rgba(59, 59, 59, 0.103);
+    
 }
 
 
-.container {
-   
+.container {  
     display: flex;
     flex-direction: row;
     max-width: inherit;
@@ -116,7 +109,13 @@ header {
 span {
     font-size: 2rem;
 }
-
+#icon {
+    font-size: 2.3rem;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 900;
+    width: 60%;
+    font-weight: 700;
+}
 #login {
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
@@ -128,8 +127,8 @@ span {
 
 #first {
     opacity: 0;
-    font-family: 'Noto Sans JP';
-    margin-top: 2.0rem;
+    font-family: 'Cormorant Garamond';
+    margin-top: 4.0rem;
     font-size: 5rem;
     position: relative;
     display: block;
@@ -207,14 +206,6 @@ span {
     border-radius: 0 0 10px 10px;
 }
 
-h2.inactive {
-    color: #cccccc;
-}
-
-h2.active {
-    color: #0d0d0d;
-    border-bottom: 2px solid #5fbae9;
-}
 
 input[type=button],
 input[type=submit],
@@ -257,7 +248,7 @@ input[type=reset]:active {
 }
 
 input[type=text] {
-    background-color: #f6f6f6;
+    background-color: #e7e3e3;
     border: none;
     color: #0d0d0d;
     padding: 15px 32px;
@@ -412,11 +403,7 @@ input[type=text]:placeholder {
     outline: none;
 }
 
-#icon {
-    font-size: 2.3rem;
-    width: 60%;
-    font-weight: 700;
-} 
+ 
 
  @media only screen and (max-width: 2735px) {
     img {

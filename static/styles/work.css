@@ -21,7 +21,7 @@
     position: relative;
 }
 #logo{
-  visibility: visible;
+  visibility: none;
 }
 
 video {

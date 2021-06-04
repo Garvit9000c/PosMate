@@ -11,12 +11,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Mate+SC&family=Noto+Sans+JP:wght@700&display=swap" rel="stylesheet">
 
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
 {% endblock head %}
 <body>
 {% block home_body %}
     <div class="container">
         <div>
-            <!-- <img src={{url_for('static', filename='p.jpg' )}} alt="#"> -->
+
         </div>
         <div class="lpage">
            <div  class ="t">
@@ -38,11 +40,11 @@
 
                     <!-- Icon -->
                     <div class="fadeIn first">
-                        <span id="icon"> LOGIN </span>
+                        <span id="icon"> Login </span>
                     </div>
 
                     <!-- Login Form -->
-                    <form action="/" name="myForm" onsubmit="return validateForm()" method="post" required> 
+                    <form action="/home" name="myForm" onsubmit="return validateForm()" method="post" required> 
                         <input type="text" id="login" class="fadeIn second" name="login"
                             placeholder="Enter Your Name">
 
