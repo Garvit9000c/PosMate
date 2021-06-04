@@ -10,7 +10,6 @@ async function load() {
 }  
 load(); 
 
-
 let constraint={video:{width: 640, height: 480}};
 var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 if (isMobile) {

@@ -5,4 +5,8 @@ function validateForm() {
       return false;
     }
   }
-  
+ window.onload= function() {
+  Particles.init({
+    selector:'.background'
+  });
+};
