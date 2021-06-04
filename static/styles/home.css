@@ -12,7 +12,7 @@
 
 .main{
     background-image: url("/static/p23.jpg");
-    /* background-image: linear-gradient(to bottom, #b6e2bc 0%, #ffffff 99%); */
+    /*background-image: linear-gradient(to bottom, #b6e2bc 0%, #ffffff 99%); */
     background-color: #cccccc;
     height: 50rem;
     background-position: center;
@@ -41,9 +41,8 @@ header {
 
 #logo {
     font-family: 'Noto Sans JP';
-    visibility: hidden;
     margin-bottom: .5rem;
-    color: rgb(0, 0, 0);
+    color:#ffffff;
     font-size: 2rem;
     line-height: 1.1;
     font-weight: bolder;
@@ -52,7 +51,7 @@ header {
 }
 
 #hm {
-    font-family: 'Cormorant Garamond', serif;
+    font-family:'Noto Sans JP';
     font-size: 1.9rem;
     color: rgb(0, 0, 0);
     border: 1px solid rgba(255, 255, 255, 0);
@@ -67,7 +66,7 @@ header {
     color: white;
 }
 #hw {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Noto Sans JP';
     font-size: 1.9rem;
     color: rgb(0, 0, 0);
     border: 1px solid rgba(255, 255, 255, 0);
@@ -586,3 +585,5 @@ input[type=text]:placeholder {
         color: white;
     }
 } 
+
+
