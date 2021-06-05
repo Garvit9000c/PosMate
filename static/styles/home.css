@@ -12,7 +12,7 @@
 
 /* background image */
 .main{
-    background-image: url("/static/p23.jpg");
+    background-image: url("/static/p24.jpg");
     background-color: #cccccc;
     height: 50rem;
     background-position: center;
@@ -39,10 +39,11 @@ header {
 }
 
 #logo {
-    font-family: 'Noto Sans JP';
+    /* font-family: 'Noto Sans JP'; */
+    font-family: 'Cormorant Garamond';
+  letter-spacing: 0.2rem;
     margin-bottom: .5rem;
-    visibility: hidden;
-    color:#ffffff;
+    color:white;
     font-size: 2rem;
     line-height: 1.1;
     font-weight: bolder;
@@ -53,7 +54,7 @@ header {
 #hm {
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 1.9rem;
-    color: rgb(0, 0, 0);
+    color: rgb(204, 176, 176);
     border: 1px solid rgba(255, 255, 255, 0);
     border-radius: 0.8rem;
     cursor: pointer;
@@ -61,14 +62,15 @@ header {
 }
 
 #hm:hover {
-    background-color: rgba(59, 59, 59, 0.103);
+    color: white;
+    background-color: rgba(255, 255, 255, 0);
     
     
 }
 #hw {
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 1.9rem;
-    color: rgb(0, 0, 0);
+    color: rgb(204, 176, 176);
     font-weight: 200;
     border: 1px solid rgba(255, 255, 255, 0);
     cursor: pointer;
@@ -79,8 +81,8 @@ header {
 }
 
 #hw:hover {
-    background-color: rgba(59, 59, 59, 0.103);
-    
+    color: white;
+    background-color: rgba(255, 255, 255, 0);
 }
 
 /* Body contents */
