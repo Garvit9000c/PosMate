@@ -218,7 +218,7 @@ span {
 input[type=button],
 input[type=submit],
 input[type=reset] {
-    background-color: #56baed;
+    background-color: #461f40;
     border: none;
     color: white;
     padding: 15px 80px;
@@ -242,7 +242,7 @@ input[type=reset] {
 input[type=button]:hover,
 input[type=submit]:hover,
 input[type=reset]:hover {
-    background-color: #39ace7;
+    background-color: #aa879e;
 }
 
 input[type=button]:active,
