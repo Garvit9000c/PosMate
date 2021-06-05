@@ -10,6 +10,7 @@
   padding: 0px;
 }
 
+/* background image */
   .main{
     background-image: url("/static/p23.jpg");
     /* background-image: linear-gradient(to bottom, #b6e2bc 0%, #ffffff 99%); */
@@ -20,6 +21,14 @@
     background-size: cover;
     position: relative;
 }
+
+
+
+
+
+
+
+
 #logo{
   visibility: none;
 }
@@ -51,7 +60,7 @@ canvas {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 200px;
+  height: 50px;
 }
 
 body {
@@ -125,6 +134,9 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+
+
+
 
 
 

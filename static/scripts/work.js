@@ -3,6 +3,7 @@ var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
 let detect;
 
+
 async function load() {
       const detector = await poseDetection.createDetector(poseDetection.SupportedModels.MoveNet);
       console.log('Detector Loaded');

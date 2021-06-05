@@ -10,6 +10,7 @@
     padding: 0px;
 }
 
+/* background image */
 .main{
     background-image: url("/static/p23.jpg");
     background-color: #cccccc;
@@ -19,6 +20,8 @@
     background-size: cover;
     position: relative;
 }
+
+/* navigation bar */
 header {
 
     padding: 0.7rem 1% 3px;
@@ -76,7 +79,7 @@ header {
     
 }
 
-
+/* Body contents */
 .container {  
     display: flex;
     flex-direction: row;
@@ -168,9 +171,8 @@ span {
 }
 
 
- #loading {
-    display: none;
-}
+/* login form */
+
 
 .wrapper {
     margin: 1.5rem;
@@ -403,7 +405,7 @@ input[type=text]:placeholder {
     outline: none;
 }
 
- 
+ /*media queries  */
 
  @media only screen and (max-width: 2735px) {
     img {

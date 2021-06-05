@@ -1,28 +1,44 @@
 {% extends 'base.html' %}
 {% block title %} Home {% endblock title %}
 {% block head %}
-	<meta charset="utf-8">
-	<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-core"></script>
-	<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-converter"></script>
-	<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl"></script>
-	<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/pose-detection"></script>
-	<title>Display Webcam Stream</title>
-	<link rel="stylesheet" href="static/styles/work.css"> 
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-core"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-converter"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/pose-detection"></script>
+<title>Display Webcam Stream</title>
+<link rel="stylesheet" href="static/styles/work.css">
+<link rel="stylesheet" href="static/styles/loader2.css">
 {% endblock head %}
+
 <body>
-{% block home_body %}
+	{% block home_body %}
+
+	
+
 	<div class="container">
 		<video id="video" autoplay></video>
 		<canvas id="canvas" width="640" height="480"></canvas>
 	</div>
 	<div class="center">
 		<label class="switch">
-  			<input id="button" type="checkbox">
-  			<span class="slider round"></span>
+			<input id="button" type="checkbox">
+			<span class="slider round"></span>
 		</label>
-		<b id="text">  Pause</b>
+		<b id="text"> Pause</b>
 	</div>
-	<script src="static/scripts/work.js"></script>
-{% endblock home_body %}
-</body>
 
+	<div class="loader">
+		<div class="circle"></div>
+		<div class="circle-small"></div>
+		<div class="circle-big"></div>
+		<div class="circle-inner-inner"></div>
+		<div class="circle-inner"></div>
+	</div>
+
+	<script src="static/scripts/work.js"></script>
+	<script src="static/scripts/loader2.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	{% endblock home_body %}
+</body>
