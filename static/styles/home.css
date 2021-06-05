@@ -21,6 +21,10 @@
     position: relative;
 }
 
+.bod{
+    backdrop-filter: blur(4px);
+}
+
 /* navigation bar */
 header {
 

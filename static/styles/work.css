@@ -12,7 +12,7 @@
 
 /* background image */
   .main{
-    background-image: url("/static/p23.jpg");
+    background-image: url("/static/p24.jpg");
     /* background-image: linear-gradient(to bottom, #b6e2bc 0%, #ffffff 99%); */
     background-color: #cccccc;
     height: 50rem;
@@ -21,17 +21,23 @@
     background-size: cover;
     position: relative;
 }
-
-
-
-
-
-
+.bod{
+  backdrop-filter: blur(4px);
+}
 
 
 #logo{
-  visibility: none;
+  font-family: 'Cormorant Garamond';
+  letter-spacing: 0.2rem;
 }
+
+
+
+
+
+
+
+
 
 video {
   -webkit-transform: scaleX(-1);
@@ -87,6 +93,7 @@ body {
 #text{
   margin: 1rem;
   font-size: 2rem;
+  color: #cccccc;
 }
 .slider {
   position: absolute;
@@ -113,7 +120,7 @@ body {
 }
 
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: #a58c8c;
 }
 
 input:focus + .slider {
@@ -136,7 +143,25 @@ input:checked + .slider:before {
 }
 
 
+@media only screen and (min-width:600px){
+  #logo{
+    visibility: visible;
+    color: white;
+  }
+  #hm{
+    color: rgb(204, 176, 176);
+  }
+  #hw{
+    color: rgb(204, 176, 176);
+  }
+  #hm:hover{
+    color: white;
+  }
+  #hw:hover{
+    color: white;
+  }
 
+}
 
 
 
