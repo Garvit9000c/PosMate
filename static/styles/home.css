@@ -526,12 +526,15 @@ input[type=text]:placeholder {
 @media only screen and (max-width: 600px) {
     .main{
         background-size: cover;
-        background-image: url('/static/p3.jpg');
+        background-image: url('/static/p3_.jpg');
     }
     .container{
         
         flex-direction: column;
         align-items: center;
+    }
+    header{
+        background-color: black;
     }
     #logo{
         visibility: visible;
@@ -539,17 +542,14 @@ input[type=text]:placeholder {
     }
     #hm{
         color: white;
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
     #hw{
         color: white;
-        font-size: 1rem;
-        right: 5rem;
+        font-size: 0.9rem;
+        margin-right: 0rem;
     }
-    img {
-
-        display: none;
-    }
+    
     
     .lpage {
         justify-content: center;
@@ -566,19 +566,24 @@ input[type=text]:placeholder {
     .t {
         color: white;
         font-size: 0.9rem;
+        margin-top: 1rem;
     }
     #first {
-        margin-top: 12rem;
+        margin-top: 5rem;
         color: white;
-        font-size: 1.0rem;
+        font-size: 3.5rem;
     }
     #icon{
-        font-size: 1rem;
+        font-size: 1.3rem;
         color: rgb(3, 3, 3);
+        margin: 1rem;
     }
     #login{
         font-size: 0.8rem;
         color: white;
+    }
+    input[type=button], input[type=submit], input[type=reset] {
+        background-color: #180743;
     }
 } 
 
