@@ -2,7 +2,17 @@ var video = document.getElementById('video');
 var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
 let detect;
-
+let pose;
+let data;
+let notiflag;
+let notification;
+console.log(Notification.permission);
+if (Notification.permission !== "denied") {
+	Notification.requestPermission();
+}
+function showNotification(text) {
+	 notification = new Notification("Posture Mate", { body: text });
+}
 
 async function load() {
       const detector = await poseDetection.createDetector(poseDetection.SupportedModels.MoveNet);
@@ -12,16 +22,17 @@ async function load() {
 load(); 
 
 let constraint={video:{width: 640, height: 480}};
+let mob=0;
 var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 if (isMobile) {
   canvas.width=480;
   canvas.height=640;
   canvas.style.width="90%"
+  mob=1;
 }
 
 async function Pose() {
       const poses = await detect.estimatePoses(video);
-      console.log(poses[0].keypoints);
       context.drawImage(video, 0, 0, canvas.width,canvas.height);
       context.fillStyle = "#D2691E";
       context.strokeStyle = "#F0F8FF";
@@ -74,18 +85,40 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
     });
 }
 
-
+async function dope(){
+	const poses = await detect.estimatePoses(video);
+	pose=poses[0].keypoints;
+	pose={0:pose[0],3:pose[3],4:pose[4],5:pose[5],6:pose[6],7:mob};
+	data=JSON.stringify(pose);
+	//console.log(pose);
+	$.ajax({
+	  	type : 'GET',
+	  	url : "/image_info",
+	  	data : {'data':data},
+	  	success: function (jsonresult) {
+	                if (jsonresult.state == 1) {
+				showNotification(jsonresult.msg);
+	                }
+	                if (jsonresult.state == 0) {
+				notification.close();
+	                }
+	            }
+	});
+}
 var myVar = setInterval(Pose, 100);
+var myVar2 = setInterval(dope, 10000);
 let flag=true;
 document.getElementById("button").addEventListener("click", function() {
 	if(flag){
 		clearInterval(myVar);
+		clearInterval(myVar2);
 		document.getElementById("text").innerHTML = "Resume";
 		flag=false;
 	}
 	else{
 		document.getElementById("text").innerHTML = "Pause";
 		myVar = setInterval(Pose, 100);
+		myVar2 = setInterval(dope, 10000);
 		flag=true;
 	}
 });

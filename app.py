@@ -1,5 +1,6 @@
 from flask import Flask, render_template,jsonify,request,redirect,url_for
 import time
+from model import *
 app = Flask(__name__)
 
 global data
@@ -33,43 +34,15 @@ def work():
 
 
 
-# @app.route("/image_info",methods= ['GET'])
-# def image_info():
-#       global data
-#       myfile= request.args.get('data')
-#       keypoints=[]
-#       Dict=eval(myfile)
-#       for i in Dict:
-#           x=i['position']['x']
-#           x=x/640
-#           y=i['position']['y']
-#           y=y/480
-#           keypoints.append([x,y])
-#       if data['flag']:
-#           if len(data['train'])<15:
-#               data['train'].append(keypoints)
-#               return jsonify(x=0)
-#           if len(data['train'])==15:
-#               data['train']=trainCoordinates_process(data['train'])
-#               return jsonify(x=1)  
-#       flag,data['LSP']=btfunc(data['LSP'])
-#       if flag==False:
-#       	msg = Posture(data['train'], keypoints)
-#       	if msg==0:
-#       	    state,msg=0,None
-#       	else:
-#       	    if(time.time()-data['time'])<30:
-#       	        state,msg=0,None
-#       	    else:
-#       	        state,msg=1,POSE_LABEL[msg]
-#       	        data['time']=time.time()
-#       if flag=='break':
-#           state,msg=0,None
-#       if flag=='start':
-#           state,msg=1,POSE_LABEL[4] 
-#       if flag==True:
-#           state,msg=1,POSE_LABEL[5] 
-#       return jsonify(state=state,msg=msg)
+@app.route("/image_info",methods= ['GET'])
+def image_info():
+    keypoints= eval(request.args.get('data'))
+    x=render(keypoints)
+    if x==0:
+    	state,msg=1,'Sit Straight'
+    else:
+        state,msg=0,' '
+    return jsonify(state=state,msg=msg)
 
 
     
