@@ -1,18 +1,24 @@
 {% extends 'base.html' %}
 {% block title %} Have a buddy who guides you to the best {% endblock title %}
 {% block head %}
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+<!-- Stylesheets -->
 <link rel="stylesheet" href="static/styles/home.css">
-<link rel="stylesheet" href="static/styles/loading.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+<link rel="stylesheet" href="static/styles/loader1.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+
+<!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
-
 <link href="https://fonts.googleapis.com/css2?family=Mate+SC&family=Noto+Sans+JP:wght@700&display=swap" rel="stylesheet">
-
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&display=swap" rel="stylesheet">
-
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/animejs@3.0.1/lib/anime.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
 {% endblock head %}
 <body>
 {% block home_body %}
@@ -36,7 +42,6 @@
             </div>
             <div class="wrapper fadeInDown">
                 <div id="formContent">
-                    <!-- Tabs Titles -->
 
                     <!-- Icon -->
                     <div class="fadeIn first">
@@ -47,18 +52,22 @@
                     <form action="/home" name="myForm" onsubmit="return validateForm()" method="post" required> 
                         <input type="text" id="login" class="fadeIn second" name="login"
                             placeholder="Enter Your Name">
-
                         <input type="submit" class="fadeIn fourth"  value="Start">
-                    </form>
-                    <script src="static/scripts/home.js"></script>
 
+                    </form>
+                    
                 </div>
             </div>
-
-           
+            
+            
         </div>
-
+        
     </div>
+
+    
+    <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="static/scripts/home.js"></script>
+
     {% endblock home_body %}
 </body>

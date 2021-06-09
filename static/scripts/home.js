@@ -1,3 +1,4 @@
+import anime from 'animejs/lib/anime.es.js';
 function validateForm() {
     var x = document.forms["myForm"]["login"].value;
     if (x == "") {
@@ -5,3 +6,12 @@ function validateForm() {
       return false;
     }
   };
+
+const anime = require('animejs');
+anime({
+  targets: 'div',
+  translateX: 250,
+  rotate: '1turn',
+  backgroundColor: '#FFF',
+  duration: 800
+});
