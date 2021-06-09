@@ -1,5 +1,6 @@
 var video = document.getElementById('video');
 var canvas = document.getElementById('canvas');
+var bt = document.getElementById('bt');
 var context = canvas.getContext('2d');
 let detect;
 let pose;
@@ -97,17 +98,17 @@ async function dope(){
 	  	success: function (jsonresult) {
 	                if (jsonresult.state == 1) {
 				showNotification(jsonresult.msg);
-				console.alert('Wrong Posture');
+				bt.style.backgroundColor='#ff0000';
 	                }
 	                if (jsonresult.state == 0) {
 				notification.close();
-				console.log('Correct Postur');
+				bt.style.backgroundColor='#04AA6D';
 	                }
 	            }
 	});
 }
 var myVar = setInterval(Pose, 100);
-var myVar2 = setInterval(dope, 10000);
+var myVar2 = setInterval(dope, 5000);
 let flag=true;
 document.getElementById("button").addEventListener("click", function() {
 	if(flag){

@@ -68,6 +68,19 @@ canvas {
   align-items: center;
   height: 50px;
 }
+.button {
+  background-color: #04AA6D;
+  border: 5px;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 50%;
+}
+
 
 body {
  background-image: linear-gradient(to bottom, #b6e2bc 0%, #ffffff 99%);
