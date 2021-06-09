@@ -1,18 +1,34 @@
 var video = document.getElementById('video');
 var canvas = document.getElementById('canvas');
+var bt = document.getElementById('bt');
 var context = canvas.getContext('2d');
 let detect;
 let pose;
 let data;
-let notiflag;
-let notification;
-console.log(Notification.permission);
-if (Notification.permission !== "denied") {
-	Notification.requestPermission();
+
+function sound(src) {
+  this.sound = document.createElement("audio");
+  this.sound.src = src;
+  this.sound.setAttribute("preload", "auto");
+  this.sound.setAttribute("controls", "none");
+  this.sound.style.display = "none";
+  document.body.appendChild(this.sound);
+  this.play = function(){
+    this.sound.play();
+  }
+  this.stop = function(){
+    this.sound.pause();
+  }
 }
-function showNotification(text) {
-	 notification = new Notification("Posture Mate", { body: text });
-}
+var mySound = new sound("static/audio2.mp3");
+//let notification;
+//console.log(Notification.permission);
+//if (Notification.permission !== "denied") {
+//	Notification.requestPermission();
+//}
+//function showNotification(text) {
+//	 notification = new Notification("Posture Mate", { body: text });
+//}
 
 async function load() {
       const detector = await poseDetection.createDetector(poseDetection.SupportedModels.MoveNet);
@@ -97,16 +113,19 @@ async function dope(){
 	  	data : {'data':data},
 	  	success: function (jsonresult) {
 	                if (jsonresult.state == 1) {
-				showNotification(jsonresult.msg);
+	                	//showNotification(jsonresult.msg);
+	                	mySound.play();
+				bt.style.backgroundColor='#ff0000';
 	                }
 	                if (jsonresult.state == 0) {
-				notification.close();
+				//notification.close();
+				bt.style.backgroundColor='#04AA6D';
 	                }
 	            }
 	});
 }
 var myVar = setInterval(Pose, 100);
-var myVar2 = setInterval(dope, 10000);
+var myVar2 = setInterval(dope, 2500);
 let flag=true;
 document.getElementById("button").addEventListener("click", function() {
 	if(flag){
