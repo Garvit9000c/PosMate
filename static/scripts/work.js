@@ -5,14 +5,30 @@ var context = canvas.getContext('2d');
 let detect;
 let pose;
 let data;
-let notification;
-console.log(Notification.permission);
-if (Notification.permission !== "denied") {
-	Notification.requestPermission();
+
+function sound(src) {
+  this.sound = document.createElement("audio");
+  this.sound.src = src;
+  this.sound.setAttribute("preload", "auto");
+  this.sound.setAttribute("controls", "none");
+  this.sound.style.display = "none";
+  document.body.appendChild(this.sound);
+  this.play = function(){
+    this.sound.play();
+  }
+  this.stop = function(){
+    this.sound.pause();
+  }
 }
-function showNotification(text) {
-	 notification = new Notification("Posture Mate", { body: text });
-}
+var mySound = new sound("static/audio2.mp3");
+//let notification;
+//console.log(Notification.permission);
+//if (Notification.permission !== "denied") {
+//	Notification.requestPermission();
+//}
+//function showNotification(text) {
+//	 notification = new Notification("Posture Mate", { body: text });
+//}
 
 async function load() {
       const detector = await poseDetection.createDetector(poseDetection.SupportedModels.MoveNet);
@@ -98,6 +114,7 @@ async function dope(){
 	  	success: function (jsonresult) {
 	                if (jsonresult.state == 1) {
 	                	//showNotification(jsonresult.msg);
+	                	mySound.play();
 				bt.style.backgroundColor='#ff0000';
 	                }
 	                if (jsonresult.state == 0) {
