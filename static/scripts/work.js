@@ -4,7 +4,6 @@ var context = canvas.getContext('2d');
 let detect;
 let pose;
 let data;
-let notiflag;
 let notification;
 console.log(Notification.permission);
 if (Notification.permission !== "denied") {
@@ -98,9 +97,11 @@ async function dope(){
 	  	success: function (jsonresult) {
 	                if (jsonresult.state == 1) {
 				showNotification(jsonresult.msg);
+				console.alert('Wrong Posture');
 	                }
 	                if (jsonresult.state == 0) {
 				notification.close();
+				console.log('Correct Postur');
 	                }
 	            }
 	});
