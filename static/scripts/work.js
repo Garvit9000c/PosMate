@@ -97,18 +97,18 @@ async function dope(){
 	  	data : {'data':data},
 	  	success: function (jsonresult) {
 	                if (jsonresult.state == 1) {
-				showNotification(jsonresult.msg);
+	                	//showNotification(jsonresult.msg);
 				bt.style.backgroundColor='#ff0000';
 	                }
 	                if (jsonresult.state == 0) {
-				notification.close();
+				//notification.close();
 				bt.style.backgroundColor='#04AA6D';
 	                }
 	            }
 	});
 }
 var myVar = setInterval(Pose, 100);
-var myVar2 = setInterval(dope, 5000);
+var myVar2 = setInterval(dope, 2500);
 let flag=true;
 document.getElementById("button").addEventListener("click", function() {
 	if(flag){
