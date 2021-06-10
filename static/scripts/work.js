@@ -20,7 +20,10 @@ function sound(src) {
     this.sound.pause();
   }
 }
-var mySound = new sound("static/audio2.mp3");
+var wr = new sound("static/audio/wr_audio.mp3");
+var la = new sound("static/audio/la_audio.mp3");
+var lt = new sound("static/audio/lt_audio.mp3");
+
 //let notification;
 //console.log(Notification.permission);
 //if (Notification.permission !== "denied") {
@@ -104,7 +107,7 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
 async function dope(){
 	const poses = await detect.estimatePoses(video);
 	pose=poses[0].keypoints;
-	pose={0:pose[0],3:pose[3],4:pose[4],5:pose[5],6:pose[6],7:mob};
+	pose={0:pose[0],1:pose[1],2:pose[2],3:pose[3],4:pose[4],5:pose[5],6:pose[6],7:mob};
 	data=JSON.stringify(pose);
 	//console.log(pose);
 	$.ajax({
@@ -113,9 +116,17 @@ async function dope(){
 	  	data : {'data':data},
 	  	success: function (jsonresult) {
 	                if (jsonresult.state == 1) {
+	                	bt.style.backgroundColor='#ff0000';
 	                	//showNotification(jsonresult.msg);
-	                	mySound.play();
-				bt.style.backgroundColor='#ff0000';
+	                	if (jsonresult.msg == 1) {
+	                		wr.play();
+	                	}
+	                	if (jsonresult.msg == 2) {
+	                		lt.play();
+	                	}
+	                	if (jsonresult.msg == 3) {
+	                		la.play();
+	                	}
 	                }
 	                if (jsonresult.state == 0) {
 				//notification.close();
