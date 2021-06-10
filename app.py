@@ -41,11 +41,7 @@ def work():
 @app.route("/image_info", methods=['GET'])
 def image_info():
     keypoints = eval(request.args.get('data'))
-    x = render(keypoints)
-    if x == 0:
-        state, msg = 1, 'Sit Straight'
-    else:
-        state, msg = 0, ' '
+    state, msg = render(keypoints)
     return jsonify(state=state, msg=msg)
 
 
