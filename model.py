@@ -35,9 +35,7 @@ def render(l):
   gama2=angle(m5,m1)
   #Input=[alpha/180,beta/180,(180-gama1-gama2)/180]
   gama=(180-gama1-gama2)/180
-  if dist<4.0:
-   return 1,3
-  elif dist>6.5:
+  if dist>7:
     return 1,2
   elif gama>0.55:
     return 1,1
