@@ -25,7 +25,7 @@ def render(l):
   dist=dis(l['1'],l['2'])
   dis_lim=[15000,8000][l['7']]
   alpha_lim=[0.1,0.07][l['7']]
-  beta_lim=[85,88][l['7']]
+  beta_lim=[95,95][l['7']]
   print(dist)
   m0=slope(l['5'],l['6'])
   m1=slope(l['5'],l['0'])
