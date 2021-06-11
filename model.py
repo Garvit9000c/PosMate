@@ -24,6 +24,7 @@ def angle(m1,m2):
 def render(l):
   dist=dis(l['1'],l['2'])
   dis_lim=[15000,8000][l['7']]
+  max_lim=[3000,2500][l['7']]
   alpha_lim=[0.1,0.07][l['7']]
   beta_lim=[85,88][l['7']]
   print(dist)
@@ -36,9 +37,10 @@ def render(l):
   gama1=angle(m1,m0)
   gama2=angle(m2,m0)
   beta=(180-gama1-gama2)
-  print(alpha,beta)
   if dist>dis_lim:
     return 2
+  elif dist<max_lim:
+    return 3
   elif alpha>alpha_lim or beta>beta_lim:
     return 1
   else:

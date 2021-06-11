@@ -1,8 +1,15 @@
+let detect;
+async function load() {
+      const detector = await poseDetection.createDetector(poseDetection.SupportedModels.MoveNet);
+      console.log('Detector Loaded');
+      detect=detector;
+}  
+load(); 
+
 var video = document.getElementById('video');
 var canvas = document.getElementById('canvas');
 var bt = document.getElementById('bt');
 var context = canvas.getContext('2d');
-let detect;
 let pose;
 let data;
 
@@ -14,13 +21,6 @@ if (Notification.permission !== "denied") {
 function showNotification(text) {
 	 notification = new Notification("Posture Mate", { body: text });
 }
-
-async function load() {
-      const detector = await poseDetection.createDetector(poseDetection.SupportedModels.MoveNet);
-      console.log('Detector Loaded');
-      detect=detector;
-}  
-load(); 
 
 let constraint={video:{width: 640, height: 480}};
 let mob=0;
@@ -104,6 +104,10 @@ async function dope(){
 	                if (jsonresult.state == 2) {
 	                	bt.style.backgroundColor='#ffff00';
 	                	//showNotification("Don't Lean Towards Screen");
+	                }
+	                if (jsonresult.state == 3) {
+	                	bt.style.backgroundColor='#000000';
+	                	//showNotification("Don't Lean Away from Screen");
 	                }
 	                if (jsonresult.state == 0) {
 				bt.style.backgroundColor='#04AA6D';
