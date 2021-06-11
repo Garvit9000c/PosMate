@@ -22,22 +22,24 @@ def angle(m1,m2):
   return val
  
 def render(l):
-  dist=(dis(l['1'],l['2'])/dis(l['5'],l['6']))*100
+  dist=dis(l['1'],l['2'])
+  dis_lim=[15000,8000][l['7']]
+  alpha_lim=[0.1,0.07][l['7']]
+  beta_lim=[85,88][l['7']]
   print(dist)
-  m1=slope(l['5'],l['6'])
-  #m2=slope(l['5'],l['3'])
-  #m3=slope(l['6'],l['4'])
-  m4=slope(l['5'],l['0'])
-  m5=slope(l['6'],l['0'])
-  #alpha=angle(m1,m2)
-  #beta=angle(m1,m3)
-  gama1=angle(m4,m1)
-  gama2=angle(m5,m1)
-  #Input=[alpha/180,beta/180,(180-gama1-gama2)/180]
-  gama=(180-gama1-gama2)/180
-  if dist>7:
-    return 1,2
-  elif gama>0.55:
-    return 1,1
+  m0=slope(l['5'],l['6'])
+  m1=slope(l['5'],l['0'])
+  m2=slope(l['6'],l['0'])
+  alpha=slope(l['5'],l['6'])
+  if alpha <0:
+    alpha*=-1
+  gama1=angle(m1,m0)
+  gama2=angle(m2,m0)
+  beta=(180-gama1-gama2)
+  print(alpha,beta)
+  if dist>dis_lim:
+    return 2
+  elif alpha>alpha_lim or beta>beta_lim:
+    return 1
   else:
-    return 0,0
+    return 0

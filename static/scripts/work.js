@@ -6,32 +6,14 @@ let detect;
 let pose;
 let data;
 
-function sound(src) {
-  this.sound = document.createElement("audio");
-  this.sound.src = src;
-  this.sound.setAttribute("preload", "auto");
-  this.sound.setAttribute("controls", "none");
-  this.sound.style.display = "none";
-  document.body.appendChild(this.sound);
-  this.play = function(){
-    this.sound.play();
-  }
-  this.stop = function(){
-    this.sound.pause();
-  }
+let notification;
+console.log(Notification.permission);
+if (Notification.permission !== "denied") {
+	Notification.requestPermission();
 }
-var wr = new sound("static/audio/wr_audio.mp3");
-var la = new sound("static/audio/la_audio.mp3");
-var lt = new sound("static/audio/lt_audio.mp3");
-
-//let notification;
-//console.log(Notification.permission);
-//if (Notification.permission !== "denied") {
-//	Notification.requestPermission();
-//}
-//function showNotification(text) {
-//	 notification = new Notification("Posture Mate", { body: text });
-//}
+function showNotification(text) {
+	 notification = new Notification("Posture Mate", { body: text });
+}
 
 async function load() {
       const detector = await poseDetection.createDetector(poseDetection.SupportedModels.MoveNet);
@@ -117,20 +99,15 @@ async function dope(){
 	  	success: function (jsonresult) {
 	                if (jsonresult.state == 1) {
 	                	bt.style.backgroundColor='#ff0000';
-	                	//showNotification(jsonresult.msg);
-	                	if (jsonresult.msg == 1) {
-	                		wr.play();
-	                	}
-	                	if (jsonresult.msg == 2) {
-	                		lt.play();
-	                	}
-	                	if (jsonresult.msg == 3) {
-	                		la.play();
-	                	}
+	                	//showNotification("Please Sit Straight");
+	                }
+	                if (jsonresult.state == 2) {
+	                	bt.style.backgroundColor='#ffff00';
+	                	//showNotification("Don't Lean Towards Screen");
 	                }
 	                if (jsonresult.state == 0) {
-				//notification.close();
 				bt.style.backgroundColor='#04AA6D';
+				//notification.close();
 	                }
 	            }
 	});
