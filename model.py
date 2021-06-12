@@ -22,9 +22,13 @@ def angle(m1,m2):
   return val
  
 def render(l):
-  dist=dis(l['1'],l['2'])
-  dis_lim=[15500,8000][l['7']]
-  max_lim=[2500,2000][l['7']]
+  #dist=dis(l['1'],l['2'])
+  dist=dis(l['5'],l['6'])
+  print(dist)
+  #dis_lim=[15500,8000][l['7']]
+  #max_lim=[2500,2000][l['7']]
+  dis_lim=[130000,120000][l['7']]
+  max_lim=[50000,34000][l['7']]
   alpha_lim=[0.1,0.07][l['7']]
   beta_lim=[92,92][l['7']]
   m0=slope(l['5'],l['6'])

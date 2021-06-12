@@ -1,3 +1,9 @@
+var video = document.getElementById('video');
+var canvas = document.getElementById('canvas');
+var bt = document.getElementById('bt');
+var context = canvas.getContext('2d');
+let pose;
+let data;
 let detect;
 let detect_flag;
 detect_flag=0;
@@ -9,13 +15,6 @@ async function load() {
       detect=detector;
 }  
 load(); 
-
-var video = document.getElementById('video');
-var canvas = document.getElementById('canvas');
-var bt = document.getElementById('bt');
-var context = canvas.getContext('2d');
-let pose;
-let data;
 
 let constraint={video:{width: 640, height: 480}};
 let mob=0;
@@ -55,6 +54,13 @@ if(mob==1){
 	var wr = new sound("static/audio/wr_audio.mp3");
 	var la = new sound("static/audio/la_audio.mp3");
 	var lt = new sound("static/audio/lt_audio.mp3");
+}
+
+if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+    navigator.mediaDevices.getUserMedia(constraint).then(function(stream) {
+        video.srcObject = stream;
+        video.play();
+    });
 }
 
 async function Pose() {
@@ -103,14 +109,6 @@ async function Pose() {
       context.fill();
       context.stroke();
       }
-}
-
-
-if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-    navigator.mediaDevices.getUserMedia(constraint).then(function(stream) {
-        video.srcObject = stream;
-        video.play();
-    });
 }
 
 async function dope(){
