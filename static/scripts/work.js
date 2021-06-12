@@ -136,7 +136,7 @@ document.getElementById("button").addEventListener("click", function() {
 	else{
 		document.getElementById("text").innerHTML = "Pause";
 		myVar = setInterval(Pose, 100);
-		myVar2 = setInterval(dope, 10000);
+		myVar2 = setInterval(dope, 2500);
 		flag=true;
 	}
 });
