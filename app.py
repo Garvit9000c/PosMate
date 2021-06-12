@@ -29,7 +29,8 @@ def work():
 def image_info():
     keypoints = eval(request.args.get('data'))
     state = render(keypoints)
-    return jsonify(state=state)
+    msg=0
+    return jsonify(state=state,msg=msg)
 
 
 if __name__ == "__main__":
