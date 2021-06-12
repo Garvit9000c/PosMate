@@ -1,7 +1,10 @@
 let detect;
+let detect_flag;
+detect_flag=0;
 async function load() {
       const detector = await poseDetection.createDetector(poseDetection.SupportedModels.MoveNet);
       console.log('Detector Loaded');
+      detect_flag=1;
       detect=detector;
 }  
 load(); 
@@ -33,6 +36,7 @@ if (isMobile) {
 }
 
 async function Pose() {
+      if(detect_flag==1){
       const poses = await detect.estimatePoses(video);
       context.drawImage(video, 0, 0, canvas.width,canvas.height);
       context.fillStyle = "#D2691E";
@@ -76,6 +80,7 @@ async function Pose() {
       context.arc(poses[0].keypoints[6].x,poses[0].keypoints[6].y,10, 0, 2 * Math.PI);
       context.fill();
       context.stroke();
+      }
 }
 
 
@@ -87,6 +92,7 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
 }
 
 async function dope(){
+	if(detect_flag==1){
 	const poses = await detect.estimatePoses(video);
 	pose=poses[0].keypoints;
 	pose={0:pose[0],1:pose[1],2:pose[2],3:pose[3],4:pose[4],5:pose[5],6:pose[6],7:mob};
@@ -115,6 +121,7 @@ async function dope(){
 	                }
 	            }
 	});
+	}
 }
 var myVar = setInterval(Pose, 100);
 var myVar2 = setInterval(dope, 2500);
