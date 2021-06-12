@@ -4,7 +4,8 @@ from model import *
 
 
 app = Flask(__name__)
-
+global heap,boo
+heap=[0,0,0]
 
 @app.route('/home', methods=['GET', 'POST'])
 def home():
@@ -27,9 +28,15 @@ def work():
 
 @app.route("/image_info", methods=['GET'])
 def image_info():
+    global heap,boo
     keypoints = eval(request.args.get('data'))
     state = render(keypoints)
+    heap.append(state)
+    heap=heap[1:]
     msg=0
+    if heap==[state]*3:
+    	msg=1
+    	heap=[0,0,0]
     return jsonify(state=state,msg=msg)
 
 

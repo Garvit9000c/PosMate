@@ -26,9 +26,8 @@ if (isMobile) {
   canvas.style.width="90%"
   mob=1;
 }
-
+let notification;
 if(mob==0){
-	let notification;
 	console.log(Notification.permission);
 	if (Notification.permission !== "denied") {
 		Notification.requestPermission();
@@ -119,7 +118,6 @@ async function dope(){
 	const poses = await detect.estimatePoses(video);
 	pose=poses[0].keypoints;
 	pose={0:pose[0],1:pose[1],2:pose[2],3:pose[3],4:pose[4],5:pose[5],6:pose[6],7:mob};
-	console.log(pose[0]);
 	data=JSON.stringify(pose);
 	//console.log(pose);
 	$.ajax({
@@ -132,6 +130,7 @@ async function dope(){
 	                	if(jsonresult.msg==1){
 	                		if(mob==0){
 	                			showNotification("Please Sit Straight");
+	                			setTimeout(function(){notification.close();},2000)
 	                		}
 	                		if(mob==1){
 	                			wr.play();
@@ -143,6 +142,7 @@ async function dope(){
 	                	if(jsonresult.msg==1){
 	                		if(mob==0){
 	                			showNotification("Don't Lean Towards Screen");
+	                			setTimeout(function(){notification.close();},2000)
 	                		}
 	                		if(mob==1){
 	                			lt.play();
@@ -154,6 +154,7 @@ async function dope(){
 	                	if(jsonresult.msg==1){
 	                		if(mob==0){
 	                			showNotification("Don't Lean Away from Screen");
+	                			setTimeout(function(){notification.close();},2000)
 	                		}
 	                		if(mob==1){
 	                			la.play();
@@ -162,9 +163,6 @@ async function dope(){
 	                }
 	                if (jsonresult.state == 0) {
 				bt.style.backgroundColor='#04AA6D';
-				if(jsonresult.msg==-1 && mob==0){
-					notification.close();
-				}
 	                }
 	            }
 	});
