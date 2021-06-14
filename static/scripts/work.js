@@ -1,6 +1,13 @@
+var video = document.getElementById('video');
+var canvas = document.getElementById('canvas');
+var bt = document.getElementById('bt');
+var context = canvas.getContext('2d');
+let pose;
+let data;
 let detect;
 let detect_flag;
 detect_flag=0;
+
 async function load() {
       const detector = await poseDetection.createDetector(poseDetection.SupportedModels.MoveNet);
       console.log('Detector Loaded');
@@ -8,22 +15,6 @@ async function load() {
       detect=detector;
 }  
 load(); 
-
-var video = document.getElementById('video');
-var canvas = document.getElementById('canvas');
-var bt = document.getElementById('bt');
-var context = canvas.getContext('2d');
-let pose;
-let data;
-
-let notification;
-console.log(Notification.permission);
-if (Notification.permission !== "denied") {
-	Notification.requestPermission();
-}
-function showNotification(text) {
-	 notification = new Notification("Posture Mate", { body: text });
-}
 
 let constraint={video:{width: 640, height: 480}};
 let mob=0;
@@ -33,6 +24,43 @@ if (isMobile) {
   canvas.height=640;
   canvas.style.width="90%"
   mob=1;
+}
+let notification;
+if(mob==0){
+	console.log(Notification.permission);
+	if (Notification.permission !== "denied") {
+		Notification.requestPermission();
+	}
+	function showNotification(text) {
+	 	notification = new Notification("Posture Mate", { body: text });
+	}
+}
+
+if(mob==1){
+	function sound(src) {
+  		this.sound = document.createElement("audio");
+  		this.sound.src = src;
+  		this.sound.setAttribute("preload", "auto");
+  		this.sound.setAttribute("controls", "none");
+  		this.sound.style.display = "none";
+  		document.body.appendChild(this.sound);
+  		this.play = function(){
+    			this.sound.play();
+  		}
+  		this.stop = function(){
+   	 		this.sound.pause();
+ 		}
+	}
+	var wr = new sound("static/audio/wr_audio.mp3");
+	var la = new sound("static/audio/la_audio.mp3");
+	var lt = new sound("static/audio/lt_audio.mp3");
+}
+
+if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+    navigator.mediaDevices.getUserMedia(constraint).then(function(stream) {
+        video.srcObject = stream;
+        video.play();
+    });
 }
 
 async function Pose() {
@@ -83,14 +111,6 @@ async function Pose() {
       }
 }
 
-
-if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-    navigator.mediaDevices.getUserMedia(constraint).then(function(stream) {
-        video.srcObject = stream;
-        video.play();
-    });
-}
-
 async function dope(){
 	if(detect_flag==1){
 	const poses = await detect.estimatePoses(video);
@@ -105,19 +125,42 @@ async function dope(){
 	  	success: function (jsonresult) {
 	                if (jsonresult.state == 1) {
 	                	bt.style.backgroundColor='#ff0000';
-	                	//showNotification("Please Sit Straight");
+	                	if(jsonresult.msg==1){
+	                		if(mob==0){
+	                			showNotification("Please Sit Straight");
+	                			setTimeout(function(){notification.close();},2000)
+	                		}
+	                		if(mob==1){
+	                			wr.play();
+	                		}
+	                	}
 	                }
 	                if (jsonresult.state == 2) {
 	                	bt.style.backgroundColor='#ffff00';
-	                	//showNotification("Don't Lean Towards Screen");
+	                	if(jsonresult.msg==1){
+	                		if(mob==0){
+	                			showNotification("Don't Lean Towards Screen");
+	                			setTimeout(function(){notification.close();},2000)
+	                		}
+	                		if(mob==1){
+	                			lt.play();
+	                		}	
+	                	}
 	                }
 	                if (jsonresult.state == 3) {
 	                	bt.style.backgroundColor='#000000';
-	                	//showNotification("Don't Lean Away from Screen");
+	                	if(jsonresult.msg==1){
+	                		if(mob==0){
+	                			showNotification("Don't Lean Away from Screen");
+	                			setTimeout(function(){notification.close();},2000)
+	                		}
+	                		if(mob==1){
+	                			la.play();
+	                		}
+	                	}
 	                }
 	                if (jsonresult.state == 0) {
 				bt.style.backgroundColor='#04AA6D';
-				//notification.close();
 	                }
 	            }
 	});
