@@ -13,7 +13,6 @@
 /* background image */
   .main{
     background-image: url("/static/p24.jpg");
-    /* background-image: linear-gradient(to bottom, #b6e2bc 0%, #ffffff 99%); */
     background-color: #cccccc;
     height: 50rem;
     background-position: center;
@@ -30,14 +29,6 @@
   font-family: 'Cormorant Garamond';
   letter-spacing: 0.2rem;
 }
-
-
-
-
-
-
-
-
 
 video {
   -webkit-transform: scaleX(-1);
@@ -57,9 +48,11 @@ canvas {
   margin-right: auto;
   border: 2px solid #2a3236;
   padding: 1px;
-  width: 65%;
+  width: 50%;
   height: auto;
   margin-bottom: 0.5rem;
+  margin-top: 3rem;
+
 }
 
 .center {
@@ -80,6 +73,37 @@ canvas {
   margin: 4px 2px;
   border-radius: 50%;
 }
+#chill{
+  display: none;
+}
+.chbtn{
+  height: 3rem;
+  width: 4rem;
+  font-size: 1rem;
+  border: 1px transparent;
+  color: black;
+  margin: 1rem;
+  padding: 1rem;
+
+
+}
+.chbtn:hover{
+  background-color: rgba(0, 0, 0, 0.219);
+}
+
+/* Toast */
+/* .toast{
+width: 8rem;
+height: 5rem;
+} */
+/* .toast-header{
+  width: 7rem;
+  height: 3rem;
+}
+.toast-body{
+  width: 7rem;
+  height: 3rem;
+} */
 
 
 body {
@@ -88,6 +112,8 @@ body {
  background-repeat: no-repeat;
 }
 .container{
+  display: flex;
+  flex-direction: column;
   margin-top: 2.0rem;
 }
 
@@ -210,8 +236,6 @@ input:checked + .slider:before {
       margin-right: 0rem;
   }
  
-  
-  
   #text{
     color: white;
   }

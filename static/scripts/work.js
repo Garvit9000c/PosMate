@@ -1,3 +1,5 @@
+
+// Variables Declared
 var video = document.getElementById('video');
 var canvas = document.getElementById('canvas');
 var bt = document.getElementById('bt');
@@ -6,8 +8,12 @@ let pose;
 let data;
 let detect;
 let detect_flag;
+let notification;
+let constraint={video:{width: 640, height: 480}};
+let mob=0;
 detect_flag=0;
 
+// Load function
 async function load() {
       const detector = await poseDetection.createDetector(poseDetection.SupportedModels.MoveNet);
       console.log('Detector Loaded');
@@ -16,8 +22,9 @@ async function load() {
 }  
 load(); 
 
-let constraint={video:{width: 640, height: 480}};
-let mob=0;
+
+
+// For mobile view
 var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 if (isMobile) {
   canvas.width=480;
@@ -25,14 +32,16 @@ if (isMobile) {
   canvas.style.width="90%"
   mob=1;
 }
-let notification;
+
+// Notifications
+
 if(mob==0){
 	console.log(Notification.permission);
 	if (Notification.permission !== "denied") {
 		Notification.requestPermission();
 	}
 	function showNotification(text) {
-	 	notification = new Notification("Posture Mate", { body: text });
+	 	notification = new Notification("PosMate", { body: text });
 	}
 }
 
@@ -56,6 +65,7 @@ if(mob==1){
 	var lt = new sound("static/audio/lt_audio.mp3");
 }
 
+
 if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
     navigator.mediaDevices.getUserMedia(constraint).then(function(stream) {
         video.srcObject = stream;
@@ -63,6 +73,7 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
     });
 }
 
+// Model
 async function Pose() {
       if(detect_flag==1){
       const poses = await detect.estimatePoses(video);
@@ -110,6 +121,7 @@ async function Pose() {
       context.stroke();
       }
 }
+
 
 async function dope(){
 	if(detect_flag==1){
@@ -166,6 +178,8 @@ async function dope(){
 	});
 	}
 }
+
+// Toggle button actions
 var myVar = setInterval(Pose, 100);
 var myVar2 = setInterval(dope, 2500);
 let flag=true;
@@ -175,13 +189,28 @@ document.getElementById("button").addEventListener("click", function() {
 		clearInterval(myVar2);
 		document.getElementById("text").innerHTML = "Resume";
 		flag=false;
+		$(".toast").toast("show");
+        
+        
 	}
 	else{
 		document.getElementById("text").innerHTML = "Pause";
 		myVar = setInterval(Pose, 100);
 		myVar2 = setInterval(dope, 2500);
 		flag=true;
+        
 	}
 });
 
+// Chill area
 
+function chill(){
+	$('.container').fadeToggle("900");
+	$('#chill').fadeToggle("3500").css({"display":"flex","justify-content":"center","align-items":"center","flex-direction":"column"});
+}
+function btw(){
+	$('#chill').fadeToggle();
+	$('.container').fadeToggle("slow").css("display","flex");
+}
+
+// Toast

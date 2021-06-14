@@ -1,35 +1,50 @@
 {% extends 'base.html' %}
 {% block title %} Monitoring {% endblock title %}
 {% block head %}
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width">
+<!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-core"></script>
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-converter"></script>
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl"></script>
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/pose-detection"></script>
 
+<!-- CSS -->
 <link rel="stylesheet" href="static/styles/work.css">
 <link rel="stylesheet" href="static/styles/loader2.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+	integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 {% endblock head %}
 
 <body>
-	{% block home_body %}
+	{% block work_body %}
 
-	
-
+	<!-- Canvas -->
 	<div class="container">
 		<video id="video" autoplay></video>
 		<canvas id="canvas" width="640" height="480"></canvas>
-	</div>
-	<div class="center">
-		<button id='bt' class="button button4"></button>
-		<label class="switch">
-			<input id="button" type="checkbox">
-			<span class="slider round"></span>
-		</label>
-		<b id="text"> Pause</b>
+		<!-- Slider -->
+		<div class="center">
+			<button id="bt" class="button button4"></button>
+			<label class="switch">
+				<input id="button" type="checkbox">
+				<span class="slider round"></span>
+			</label>
+			<b id="text"> Pause</b>
+		</div>
 	</div>
 
+	<div id="chill">
+		<iframe width="560" height="315" src="https://www.youtube.com/embed/jipGjSq4Plg" title="YouTube video player"
+			frameborder="0"
+			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope picture-in-picture"
+			allowfullscreen></iframe>
+		<div class="chbtn" onclick="btw()">
+			Back to Work
+		</div>
+
+	</div>
+
+
+	<!-- Loader -->
 	<div class="loader">
 		<div class="circle"></div>
 		<div class="circle-small"></div>
@@ -37,10 +52,33 @@
 		<div class="circle-inner-inner"></div>
 		<div class="circle-inner"></div>
 	</div>
-	<iframe width="560" height="315" src="https://www.youtube.com/embed/jipGjSq4Plg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-	<script src="static/scripts/work.js"></script>
-	<script src="static/scripts/loader2.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	{% endblock home_body %}
+	<!-- Toast -->
+	<div class="toast align-items-center text-white bg-primary border-0 " data-bs-autohide="false">
+		<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 5">
+			<div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+				<div class="toast-header w-50 p-3">
+					<strong class="me-auto">POSMATE</strong>
+					<small>just now</small>
+					<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+				</div>
+				<div class="toast-body">
+					Wanna chill?
+					<div class="mt-2 pt-2 border-top">
+						<button type="button" onclick=chill() class="btn btn-primary btn-sm" data-bs-dismiss="toast">Yes</button>
+						<button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="toast">No</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+
+		<!-- Scripts -->
+		<script src="static/scripts/work.js"></script>
+		<script src="static/scripts/loader2.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		{% endblock work_body %}
 </body>
