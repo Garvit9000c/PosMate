@@ -33,14 +33,27 @@
             <div><a href="https://blog.tensorflow.org/2018/05/real-time-human-pose-estimation-in.html"><button id="hw"
                         type="submit" class="btn btn-outline-dark btn-lg">How it Works?</button></a></div>
             <div><a href="/"><button id="hm" type="submit" class="btn btn-outline-dark btn-lg">Home</button></a></div>
-        </header>
+           <div class="ic"><img role="button" onclick="openNav()" src="/static/hamburger.png" alt="#"></div>
 
-        {% block home_body %}
-        {% endblock home_body %}
-        {% block work_body %}
-        {% endblock work_body %}
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+            <div id="mySidebar" class="sidebar">
+                <a href="/">Home</a>
+                <a href="https://blog.tensorflow.org/2018/05/real-time-human-pose-estimation-in.html">How it Works?</a>
+            </div>
+
+        
     </div>
+
+    </header>
+
+    {% block home_body %}
+    {% endblock home_body %}
+    {% block work_body %}
+    {% endblock work_body %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+        crossorigin="anonymous"></script>
+    </div>
+    <script src="/static/scripts/home.js"></script>
 
 </body>
 

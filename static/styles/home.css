@@ -1,12 +1,10 @@
 /* Root CSS */
 * {
     box-sizing: border-box;
-    
     font-family: 'Noto Sans JP';
 }
 
 :root {
-   
     margin: 0px;
     padding: 0px;
 }
@@ -86,6 +84,15 @@ header {
     background-color: rgba(255, 255, 255, 0);
 }
 
+img{
+    display: none;
+}
+
+.sidebar{
+    display: none;
+}
+
+
 /* Body contents */
 .container {  
     display: flex;
@@ -112,7 +119,7 @@ span {
     display: flex;
     width: auto;
     margin-top: 1rem;
-     align-self: flex-start;
+    align-self: flex-start;
     flex-direction: column;
     margin-left: auto;
     margin: 1rem;
@@ -423,37 +430,7 @@ input[type=text]:placeholder {
 
 
  /*Media Queries  */
-
- @media only screen and (max-width: 2735px) {
-    img {
-        
-        width: 90rem;
-        height: 90rem;
-    }
-}
-
-@media only screen and (max-width: 2277px) {
-    img {
-        
-        width: 60rem;
-        height: 60rem;
-    }
-}
-
-@media only screen and (max-width: 1880px) {
-    img {
-        
-        width: 48rem;
-        height: 48rem;
-    }
-}
-
 @media only screen and (max-width: 1700px) {
-    img {
-        
-        width: 48rem;
-        height: 48rem;
-    }
    
     
     .t {
@@ -462,12 +439,7 @@ input[type=text]:placeholder {
 }
 
 @media only screen and (max-width: 1462px) {
-    img {
-        
-        width: 40rem;
-        height: 40rem;
-    }
-   
+    
     .t {
         font-size: 1.5rem;
     }
@@ -487,11 +459,7 @@ input[type=text]:placeholder {
     #hw{
         font-size: 1.5rem;
     }
-    img {
-       
-        width: 30rem;
-        height: 30rem;
-    }
+   
     
     span {
         font-size: 2.5rem;
@@ -514,11 +482,7 @@ input[type=text]:placeholder {
     #hw{
         font-size: 1.5rem;
     }
-    img {
-       
-        width: 24rem;
-        height: 24rem;
-    }
+   
     
     span {
         font-size: 2.5rem;
@@ -552,17 +516,15 @@ input[type=text]:placeholder {
         font-size: 1.2rem;
     }
     #hm{
-        color: white;
-        font-size: 0.9rem;
+        display: none;
+       
     }
-    #hw{
-        color: white;
-        font-size: 0.9rem;
-        margin-right: 0rem;
+    #hw{display: none;
+       
     }
     
     
-    .lpage {
+    .lpage {z-index: -1;
         justify-content: center;
         align-self: center;
         width: 20rem;
@@ -585,8 +547,8 @@ input[type=text]:placeholder {
         font-size: 3.5rem;
     }
 
-
-
+    
+    
     #icon{
         font-size: 1.3rem;
         color: rgb(3, 3, 3);
@@ -599,6 +561,65 @@ input[type=text]:placeholder {
     input[type=button], input[type=submit], input[type=reset] {
         background-color: #180743;
     }
+
+    /* Side Bar for mobile view */
+    img{
+        display: flex;
+        height: 1.9rem;
+        width: 2rem;
+        cursor: pointer;
+    }
+    .sidebar {
+        display: flex;
+        flex-direction: column;
+        height: 100%; 
+        position: fixed;
+        width: 0; 
+        top: 0;
+        right: 0;
+        background-color: #111; 
+        overflow-x: hidden; 
+        padding-top: 60px; 
+        transition: 0.5s; 
+        z-index: 30; 
+        }
+       
+ 
+    .sidebar a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+    }
+  
+
+    .sidebar a:hover {
+        color: #f1f1f1;
+    }
+  
+
+    .sidebar .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
+  
+ 
+  
+    .img:hover {
+        background-color: #444;
+    }
+  
+
+    #main {
+        transition: margin-right .5s; 
+        padding: 20px;
+    }
+  
 } 
 
 

@@ -9,7 +9,9 @@
   margin: 0px;
   padding: 0px;
 }
-
+body{
+  z-index: -1;
+}
 /* background image */
   .main{
     background-image: url("/static/p24.jpg");
@@ -90,20 +92,6 @@ canvas {
 .chbtn:hover{
   background-color: rgba(0, 0, 0, 0.219);
 }
-
-/* Toast */
-/* .toast{
-width: 8rem;
-height: 5rem;
-} */
-/* .toast-header{
-  width: 7rem;
-  height: 3rem;
-}
-.toast-body{
-  width: 7rem;
-  height: 3rem;
-} */
 
 
 body {
