@@ -54,19 +54,19 @@
 	</div>
 
 	<!-- Toast -->
-	<div class="toast align-items-center text-white bg-primary border-0 " data-bs-autohide="false">
+	<div class="toast align-items-center text-white bg-primary border-0 " dat-autohide="false" data-bs-autohide="false">
 		<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 5">
-			<div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
-				<div class="toast-header w-50 p-3">
-					<strong class="me-auto">POSMATE</strong>
-					<small>just now</small>
+			<div id="liveToast" class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+				<div class="toast-header w-100 p-3">
+					<strong class="me-auto col-sm-3 fs-4">POSMATE</strong>
+					<h5>just now</h5>
 					<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
 				</div>
-				<div class="toast-body">
+				<div class="toast-body text-dark fs-4">
 					Wanna chill?
 					<div class="mt-2 pt-2 border-top">
-						<button type="button" onclick=chill() class="btn btn-primary btn-sm" data-bs-dismiss="toast">Yes</button>
-						<button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="toast">No</button>
+						<button type="button" onclick=chill() class="btn btn-primary btn-sm fs-5" data-bs-dismiss="toast">Yes</button>
+						<button type="button" class="btn btn-secondary btn-sm fs-5" data-bs-dismiss="toast">No</button>
 					</div>
 				</div>
 			</div>

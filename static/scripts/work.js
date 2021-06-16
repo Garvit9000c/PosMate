@@ -189,6 +189,7 @@ document.getElementById("button").addEventListener("click", function() {
 		clearInterval(myVar2);
 		document.getElementById("text").innerHTML = "Resume";
 		flag=false;
+		$(".toast").toast({ autohide: false });
 		$(".toast").toast("show");
         
         

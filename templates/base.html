@@ -27,24 +27,26 @@
 </head>
 
 <body class="main">
+    <div id="mySidebar" class="sidebar">
+        <a href="/">Home</a>
+        <a href="https://blog.tensorflow.org/2018/05/real-time-human-pose-estimation-in.html">How it Works?</a>
+        <div class="cbtn"></div>
+    </div>
     <div class="bod">
         <header>
             <div id="logo">POSMATE</div>
             <div><a href="https://blog.tensorflow.org/2018/05/real-time-human-pose-estimation-in.html"><button id="hw"
                         type="submit" class="btn btn-outline-dark btn-lg">How it Works?</button></a></div>
             <div><a href="/"><button id="hm" type="submit" class="btn btn-outline-dark btn-lg">Home</button></a></div>
-           <div class="ic"><img role="button" onclick="openNav()" src="/static/hamburger.png" alt="#"></div>
+            <br>
+            <div class="ic"><img role="button" onclick="openNav()" src="/static/hamburger.png" alt="#"></div>
+            <br>
 
-            <div id="mySidebar" class="sidebar">
-                <a href="/">Home</a>
-                <a href="https://blog.tensorflow.org/2018/05/real-time-human-pose-estimation-in.html">How it Works?</a>
-            </div>
-
+            
+        </header>
         
     </div>
-
-    </header>
-
+    
     {% block home_body %}
     {% endblock home_body %}
     {% block work_body %}
