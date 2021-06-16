@@ -45,25 +45,24 @@ if(mob==0){
 	}
 }
 
-if(mob==1){
-	function sound(src) {
-  		this.sound = document.createElement("audio");
-  		this.sound.src = src;
-  		this.sound.setAttribute("preload", "auto");
-  		this.sound.setAttribute("controls", "none");
-  		this.sound.style.display = "none";
-  		document.body.appendChild(this.sound);
-  		this.play = function(){
-    			this.sound.play();
-  		}
-  		this.stop = function(){
-   	 		this.sound.pause();
- 		}
+function sound(src) {
+	this.sound = document.createElement("audio");
+	this.sound.src = src;
+	this.sound.setAttribute("preload", "auto");
+	this.sound.setAttribute("controls", "none");
+	this.sound.style.display = "none";
+	document.body.appendChild(this.sound);
+	this.play = function(){
+		this.sound.play();
 	}
-	var wr = new sound("static/audio/wr_audio.mp3");
-	var la = new sound("static/audio/la_audio.mp3");
-	var lt = new sound("static/audio/lt_audio.mp3");
+	this.stop = function(){
+ 		this.sound.pause();
+	}
 }
+var wr = new sound("static/audio/wr_audio.mp3");
+var la = new sound("static/audio/la_audio.mp3");
+var lt = new sound("static/audio/lt_audio.mp3");
+
 
 
 if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
@@ -142,9 +141,7 @@ async function dope(){
 	                			showNotification("Please Sit Straight");
 	                			setTimeout(function(){notification.close();},2000)
 	                		}
-	                		if(mob==1){
-	                			wr.play();
-	                		}
+	                		wr.play();
 	                	}
 	                }
 	                if (jsonresult.state == 2) {
@@ -154,9 +151,7 @@ async function dope(){
 	                			showNotification("Don't Lean Towards Screen");
 	                			setTimeout(function(){notification.close();},2000)
 	                		}
-	                		if(mob==1){
-	                			lt.play();
-	                		}	
+	                		lt.play();	
 	                	}
 	                }
 	                if (jsonresult.state == 3) {
@@ -166,9 +161,7 @@ async function dope(){
 	                			showNotification("Don't Lean Away from Screen");
 	                			setTimeout(function(){notification.close();},2000)
 	                		}
-	                		if(mob==1){
-	                			la.play();
-	                		}
+	                		la.play();
 	                	}
 	                }
 	                if (jsonresult.state == 0) {
