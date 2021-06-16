@@ -10,6 +10,10 @@
   padding: 0px;
 }
 
+
+@-ms-viewport{
+  width: device-width;
+}
 /* background image */
   .main{
     background-image: url("/static/p24.jpg");

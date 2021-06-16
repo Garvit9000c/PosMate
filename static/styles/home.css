@@ -9,8 +9,12 @@
     padding: 0px;
 }
 
+/* @-ms-viewport{
+    width: device-width;
+  } */
 /* Background image */
 .main{
+    overflow: scroll;
     background-image: url("/static/p24.jpg");
     background-color: #cccccc;
     height: 50rem;
@@ -29,7 +33,6 @@ header {
 
     padding: 0.7rem 1% 3px;
     display: flex;
-    flex: 2 0 0 0;
     justify-content: space-between;
     align-items: center;
     position: sticky;
@@ -107,7 +110,7 @@ img{
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: 2rem;
+    font-size: 1.4rem;
 }
 
 span {
@@ -130,19 +133,20 @@ span {
 
 
 #icon {
-    font-size: 2.3rem;
+    font-size: 1.7rem;
     font-family: 'Open Sans', sans-serif;
     font-weight: 900;
     width: 60%;
     font-weight: 700;
 }
 #login {
-    margin-top: 1.5rem;
+    margin-top: 0.5rem;
     margin-bottom: 1.5rem;
-    font-size: 2rem;
+    font-size: 1.3rem;
     font-weight: bold;
     justify-content: center;
     align-items: center;
+
 }
 
 
@@ -194,7 +198,7 @@ span {
 
 
 .wrapper {
-    margin: 1.5rem;
+    margin: -1.3rem;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -477,24 +481,36 @@ input[type=text]:placeholder {
         font-size: 1.4rem;
     }
     #hm {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
     #hw{
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
-   
-    
     span {
         font-size: 2.5rem;
     }
     .t {
         font-size: 1.1rem;
     }
+    #icon{
+        font-size: 1.1rem;
+    }
     #first {
         font-size: 2.5rem;
     }
     .wrapper{
-        margin-top: -44px;
+        width: 70%;
+        margin-top: -65px;
+    }
+    #login{
+        font-size: 0.8rem;
+    }
+    .fadeIn.fourth{
+        font-size: 0.7rem;
+        margin-bottom: 1rem;
+    }
+    #empty{
+        display: none;
     }
 }
 
@@ -537,11 +553,14 @@ input[type=text]:placeholder {
     #formContent{
         background-color: #b8b3b3c4;
     }
+    .wrapper{
+        width: 92%;
+    }
     
     .t {
         color: white;
         font-size: 0.9rem;
-        margin-top: 1rem;
+        margin-top: 1.6rem;
     }
     #first {
         margin-top: 5rem;
