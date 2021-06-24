@@ -20,6 +20,9 @@ Using
 - **CNN** And **ANN** Model
 - **Tensorflow.js/ Movenet3.0** with Client Side Rendering.
 
+## Algorithm
+![](https://github.com/Garvit9000c/Doofenshmirtz-Evil-Incorporated/blob/9a8c217544a490d09c404f842053f84786142545/Presentation/Flex.jpg)
+
 ## Key-Features
 > 7 Body Keypoints Detection with Movenet3.0 CNN Model
 
