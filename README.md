@@ -27,16 +27,21 @@ Using
 ## Algorithm / How we Build it!
 ![](https://github.com/Garvit9000c/Doofenshmirtz-Evil-Incorporated/blob/44d81ea317f0faae7dc6a7a518d77f791e9f10a0/Presentation/flex.jpg?raw=true)
 
-## Key-Features
-> 7 Body Keypoints Detection with Movenet3.0 CNN Model
+## Challenges We Ran Into!
+> Detecting Body Coordinate with Computer-Vision Efficiently.
+  - 7 Body Keypoints Detection with Movenet3.0 CNN Model with 30-40fps frame rates.
 
-> Artificial neural networks for Posture classification
+> Classification of Each Sample with More Accuracy in different Environments.
+  - Artificial neural networks for Posture classification
 
-> Smart Sound / notification Alerts
+> Effective Alerts about Wrong Posture.
+  - Smart Sound Alerts with text Notifications.
 
-> Minimalist UI/UX
+> Making It Easier For Diverse User, to Use Our App!
+  - Minimalist UI/UX
 
-> Client-Side AI rendering which reduces server load Drastically.
+> Server-Load & Data Breach/Consumption Problem.
+ - Client-Side AI rendering which reduces server load Drastically with no Data Going Over Server.
 
 ## Technologies Used / Build With:
 > Python/Flask/Heroku
