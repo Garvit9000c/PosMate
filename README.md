@@ -3,6 +3,8 @@
 
 [Click Here for Presentation](https://docs.google.com/presentation/d/e/2PACX-1vTCxN-WYBpIJvZ_VNlbNG-J6MoMb5Zk1hAAlAMpchZPxg5cYGBx9byUU_ExR12ERzQ7z3qGNPFuZFJ_/pub?start=false&loop=false&delayms=3000)
 
+[Click Here for Video](https://youtu.be/MBQlfVcU6So)
+
 ## Problem Statement / Inspiration
 
 - *"Are you sure you are sitting in a correct posture right now when you are looking at your desktop screen reading this problem statement?" No, right?*
