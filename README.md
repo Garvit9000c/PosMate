@@ -43,6 +43,16 @@ Using
 > Server-Load & Data Breach/Consumption Problem.
  - Client-Side AI rendering which reduces server load Drastically with no Data Going Over Server.
 
+## What we Learned:
+- Deploying AI model at Client-Side with Tensorflow.js
+- Artificial Neural Network Classification & Convolutional Neural Network
+- Automated Data Collection & Labeling with Google Forms
+
+## What Next:
+- Scaling the Web-app to Chrome Extension.
+- Automated Exercise Guidance Model.
+- Monitoring Screen Time for Better Suggestions.
+
 ## Technologies Used / Build With:
 > Python/Flask/Heroku
 
